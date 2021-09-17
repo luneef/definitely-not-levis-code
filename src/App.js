@@ -7,10 +7,12 @@ import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Landing from "./pages/Landing";
 import PageNotFound from "./pages/PageNotFound";
+import Loading from "./components/Loading";
 
 const App = () => {
   const [clothing, setClothing] = useState([]);
   const [cart, setCart] = useState({});
+  const [order, setOrder] = useState({});
 
   const fetchClothing = async () => {
     const { data } = await commerce.products.list();
@@ -21,9 +23,24 @@ const App = () => {
     setCart(await commerce.cart.retrieve());
   };
 
+  const captureCheckout = async (checkoutTokenID, newOrder) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(
+        checkoutTokenID,
+        newOrder
+      );
+
+      console.log(incomingOrder);
+      // setOrder(incomingOrder);
+      refreshCart();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const addToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity);
-    console.log(cart);
+    //console.log(cart);
     setCart(cart);
   };
 
@@ -42,10 +59,19 @@ const App = () => {
     setCart(cart);
   };
 
+  const refreshCart = async () => {
+    const newCart = await commerce.cart.refresh();
+    setCart(newCart);
+  };
+
   useEffect(() => {
     fetchClothing();
     fetchCart();
   }, []);
+
+  if (!clothing.length) {
+    return <Loading />;
+  }
 
   return (
     <Router>
@@ -58,6 +84,7 @@ const App = () => {
         <Route exact path="/cart">
           <Cart
             cart={cart}
+            captureCheckout={captureCheckout}
             updateItemQuantity={updateItemQuantity}
             removeItemFromCart={removeItemFromCart}
             emptyCart={emptyCart}

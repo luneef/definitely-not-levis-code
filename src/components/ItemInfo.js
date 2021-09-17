@@ -1,7 +1,7 @@
 import "../styles/iteminfo/iteminfo.css";
 
 const ItemInfo = ({ item, addToCart }) => {
-  console.log(item);
+  //console.log(item);
   const description = item.description.replace(/(<([^>]+)>)/gi, "");
 
   return (

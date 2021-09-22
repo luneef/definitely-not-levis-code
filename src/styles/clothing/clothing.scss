@@ -1,0 +1,22 @@
+.clothing-main {
+  background-color: red;
+  padding-top: 15em;
+  transition: 0.5s;
+
+  img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+  }
+}
+
+.clothing-display {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.clothing-item {
+  background-color: blueviolet;
+  margin-left: 2em;
+  width: 230px;
+}

@@ -1,0 +1,39 @@
+.landing-main {
+  background-color: #bd4074;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.hero-container {
+  background-color: yellow;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 30em;
+}
+
+.herobtn-container {
+  background-color: red;
+  padding-left: 5em;
+}
+
+.herobtn-container button:focus, .herobtn-container button:active {
+  background-color: blue;
+}
+
+.hero-product {
+  background-color: plum;
+  margin-left: 10em;
+}
+
+.gender-category > * {
+  margin-right: 4em;
+}
+/*# sourceMappingURL=landing.css.map */

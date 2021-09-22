@@ -1,0 +1,28 @@
+.clothing-main {
+  background-color: red;
+  padding-top: 15em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.clothing-main img {
+  width: 200px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.clothing-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.clothing-item {
+  background-color: blueviolet;
+  margin-left: 2em;
+  width: 230px;
+}
+/*# sourceMappingURL=clothing.css.map */

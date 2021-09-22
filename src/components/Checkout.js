@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { commerce } from "../lib/Commerce";
+import { useHistory } from "react-router-dom";
 import "../styles/checkout/checkout.css";
 import CheckoutCustomerCard from "./CheckoutCustomerCard";
 import CheckoutCustomerInfo from "./CheckoutCustomerInfo";
 import Loading from "./Loading";
 
-const Checkout = ({ cart, triggerCheckout, captureCheckout }) => {
+const Checkout = ({ cart, handleCartView, captureCheckout }) => {
+  const history = useHistory();
   const [step, setStep] = useState("info");
   const [custInfo, setCustInfo] = useState({});
   const [checkoutToken, setcheckoutToken] = useState(null);
@@ -58,7 +60,7 @@ const Checkout = ({ cart, triggerCheckout, captureCheckout }) => {
         />
       )}
 
-      <button onClick={triggerCheckout}>Close</button>
+      <button onClick={() => history.goBack()}>Close</button>
     </section>
   );
 };

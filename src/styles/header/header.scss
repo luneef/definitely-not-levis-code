@@ -1,3 +1,53 @@
-.shop-header {
-  background-color: pink;
+.header-container {
+  background: white;
+  position: fixed;
+  z-index: 1;
+  min-width: 100vw;
+  padding: 3em;
+
+  img {
+    width: 50px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 0.5em;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    //padding: 3em;
+  }
+
+  div > * {
+    margin-left: 2em;
+  }
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.new-cart {
+  transition: 0.5s;
+}
+
+.cart-aside {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: aquamarine;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -1,0 +1,11 @@
+.cart-div {
+  background-color: aqua;
+}
+
+.cart-div img {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=cartitem.css.map */

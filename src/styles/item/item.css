@@ -1,0 +1,25 @@
+.item-main {
+  background-color: brown;
+  min-height: 100vh;
+  padding: 10em 3em;
+}
+
+.item-main img {
+  width: 200px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.item-layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.samp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=item.css.map */

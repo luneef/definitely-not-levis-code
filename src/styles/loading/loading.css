@@ -4,8 +4,8 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  min-width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,15 +22,15 @@
 }
 
 .loading-container img {
-  min-width: 200px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
 
 .lds-ring {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
 }
 
 .lds-ring div {
@@ -38,10 +38,10 @@
           box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #fff;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border: 5px solid #fff;
   border-radius: 50%;
   -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
           animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;

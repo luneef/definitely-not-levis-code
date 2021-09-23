@@ -283,6 +283,18 @@ const App = () => {
           <Landing viewCart={viewCart} />
         </Route>
 
+        <Route exact path="/checkout">
+          <Checkout
+            cart={cart}
+            handleCartView={handleCartView}
+            captureCheckout={captureCheckout}
+          />
+        </Route>
+
+        <Route exact path="/about">
+          <About />
+        </Route>
+
         <Route exact path="/men/:id">
           <MenClothing viewCart={viewCart} setItemPath={setItemPath} />
         </Route>
@@ -309,14 +321,6 @@ const App = () => {
             setItemPath={setItemPath}
             setProductPath={setProductPath}
           />
-        </Route>
-
-        <Route exact path="/checkout">
-          <Checkout cart={cart} captureCheckout={captureCheckout} />
-        </Route>
-
-        <Route exact path="/about">
-          <About />
         </Route>
 
         <Route exact path="*">

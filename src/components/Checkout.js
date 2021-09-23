@@ -60,7 +60,14 @@ const Checkout = ({ cart, handleCartView, captureCheckout }) => {
         />
       )}
 
-      <button onClick={() => history.goBack()}>Close</button>
+      <button
+        onClick={() => {
+          history.goBack();
+          handleCartView();
+        }}
+      >
+        Close
+      </button>
     </section>
   );
 };

@@ -20,8 +20,8 @@ const CartItem = ({
   console.log(cart);
 
   const goToCheckout = () => {
-    history.push("/checkout");
     handleCartView();
+    history.push("/checkout");
   };
 
   useEffect(() => {

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/clothing/clothing.css";
 
 const UnisexClothing = ({ viewCart, setItemPath }) => {
+  const [categoryID, setCategoryID] = useState("");
   const [clotheType, setClotheType] = useState([]);
   const [unisexClothes, setUnisexClothes] = useState([]);
   const [jackets, setJackets] = useState([]);
@@ -13,19 +14,22 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
   const [headwear, setHeadwear] = useState([]);
 
   const history = useHistory();
+  let { id } = useParams();
 
   const selectedItem = (item) => {
     localStorage.setItem("item", JSON.stringify(item));
 
-    localStorage.setItem("itemPath", JSON.stringify(`/unisex/item/${item.id}`));
+    localStorage.setItem(
+      "itemPath",
+      JSON.stringify(`/unisex/${categoryID}/item/${item.id}`)
+    );
 
-    setItemPath(`/unisex/item/${item.id}`);
+    setItemPath(`/unisex/${categoryID}/item/${item.id}`);
 
-    history.push(`/unisex/item/${item.id}`);
+    history.push(`/unisex/${categoryID}/item/${item.id}`);
   };
 
   useEffect(() => {
-    setClotheType(JSON.parse(localStorage.getItem("unisexClothes")));
     setUnisexClothes(JSON.parse(localStorage.getItem("unisexClothes")));
     setJackets(JSON.parse(localStorage.getItem("unisexJackets")));
     setShirts(JSON.parse(localStorage.getItem("unisexShirts")));
@@ -33,8 +37,44 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
     //setShorts(JSON.parse(localStorage.getItem("menShorts")));
     setHeadwear(JSON.parse(localStorage.getItem("unisexHeadwear")));
 
+    setCategoryID(id);
+
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (id === "all") {
+      setClotheType(unisexClothes);
+    } else if (id === "jackets") {
+      setClotheType(jackets);
+    } else if (id === "shirts") {
+      setClotheType(shirts);
+    } else if (id === "headwear") {
+      setClotheType(headwear);
+    } else {
+      setClotheType(unisexClothes);
+    }
+
+    // eslint-disable-next-line
+  }, [headwear]);
+
+  useEffect(() => {
+    if (id === "all") {
+      setClotheType(unisexClothes);
+    } else if (id === "jackets") {
+      setClotheType(jackets);
+    } else if (id === "shirts") {
+      setClotheType(shirts);
+    } else if (id === "headwear") {
+      setClotheType(headwear);
+    } else {
+      setClotheType(unisexClothes);
+    }
+
+    setCategoryID(id);
+
+    // eslint-disable-next-line
+  }, [id]);
 
   if (!clotheType.length) {
     return <Loading />;
@@ -47,12 +87,43 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
       <h1>UNISEX TIME</h1>
 
       <section>
-        <button onClick={() => setClotheType(unisexClothes)}>All</button>
-        <button onClick={() => setClotheType(jackets)}>Jackets</button>
-        <button onClick={() => setClotheType(shirts)}>T-Shirts</button>
+        <button
+          onClick={() => {
+            setClotheType(unisexClothes);
+            setCategoryID("all");
+          }}
+        >
+          All
+        </button>
+
+        <button
+          onClick={() => {
+            setClotheType(jackets);
+            setCategoryID("jackets");
+          }}
+        >
+          Jackets
+        </button>
+
+        <button
+          onClick={() => {
+            setClotheType(shirts);
+            setCategoryID("shirts");
+          }}
+        >
+          T-Shirts
+        </button>
+
         {/* <button onClick={() => setClotheType(pants)}>Pants</button> */}
         {/* <button onClick={() => setClotheType(shorts)}>Shorts</button> */}
-        <button onClick={() => setClotheType(headwear)}>Headwear</button>
+        <button
+          onClick={() => {
+            setClotheType(headwear);
+            setCategoryID("headwear");
+          }}
+        >
+          Headwear
+        </button>
       </section>
 
       <section className="clothing-display">

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/clothing/clothing.css";
 
 const WomenClothing = ({ viewCart, setItemPath }) => {
+  const [categoryID, setCategoryID] = useState("");
   const [clotheType, setClotheType] = useState([]);
   const [womenClothes, setWomenClothes] = useState([]);
   const [jackets, setJackets] = useState([]);
@@ -15,19 +16,22 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
   const [headwear, setHeadwear] = useState([]);
 
   const history = useHistory();
+  let { id } = useParams();
 
   const selectedItem = (item) => {
     localStorage.setItem("item", JSON.stringify(item));
 
-    localStorage.setItem("itemPath", JSON.stringify(`/women/item/${item.id}`));
+    localStorage.setItem(
+      "itemPath",
+      JSON.stringify(`/women/${categoryID}/item/${item.id}`)
+    );
 
-    setItemPath(`/women/item/${item.id}`);
+    setItemPath(`/women/${categoryID}/item/${item.id}`);
 
-    history.push(`/women/item/${item.id}`);
+    history.push(`/women/${categoryID}/item/${item.id}`);
   };
 
   useEffect(() => {
-    setClotheType(JSON.parse(localStorage.getItem("womenClothes")));
     setWomenClothes(JSON.parse(localStorage.getItem("womenClothes")));
     setJackets(JSON.parse(localStorage.getItem("womenJackets")));
     setShirts(JSON.parse(localStorage.getItem("womenShirts")));
@@ -37,8 +41,56 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
     setDresses(JSON.parse(localStorage.getItem("womenDresses")));
     setHeadwear(JSON.parse(localStorage.getItem("womenHeadwear")));
 
+    setCategoryID(id);
+
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (id === "all") {
+      setClotheType(womenClothes);
+    } else if (id === "jackets") {
+      setClotheType(jackets);
+    } else if (id === "dresses") {
+      setClotheType(dresses);
+    } else if (id === "shirts") {
+      setClotheType(shirts);
+    } else if (id === "pants") {
+      setClotheType(pants);
+    } else if (id === "sweatshirts") {
+      setClotheType(sweatshirts);
+    } else if (id === "headwear") {
+      setClotheType(headwear);
+    } else {
+      setClotheType(womenClothes);
+    }
+
+    // eslint-disable-next-line
+  }, [headwear]);
+
+  useEffect(() => {
+    if (id === "all") {
+      setClotheType(womenClothes);
+    } else if (id === "jackets") {
+      setClotheType(jackets);
+    } else if (id === "dresses") {
+      setClotheType(dresses);
+    } else if (id === "shirts") {
+      setClotheType(shirts);
+    } else if (id === "pants") {
+      setClotheType(pants);
+    } else if (id === "sweatshirts") {
+      setClotheType(sweatshirts);
+    } else if (id === "headwear") {
+      setClotheType(headwear);
+    } else {
+      setClotheType(womenClothes);
+    }
+
+    setCategoryID(id);
+
+    // eslint-disable-next-line
+  }, [id]);
 
   if (!clotheType.length) {
     return <Loading />;
@@ -51,14 +103,63 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
     >
       <h1>WOMEN CLOTHING</h1>
       <section>
-        <button onClick={() => setClotheType(womenClothes)}>All</button>
-        <button onClick={() => setClotheType(dresses)}>Dresses</button>
-        <button onClick={() => setClotheType(jackets)}>Jackets</button>
-        <button onClick={() => setClotheType(shirts)}>T-Shirts</button>
-        <button onClick={() => setClotheType(sweatshirts)}>Sweatshirts</button>
-        <button onClick={() => setClotheType(pants)}>Pants</button>
+        <button
+          onClick={() => {
+            setClotheType(womenClothes);
+            setCategoryID("all");
+          }}
+        >
+          All
+        </button>
+        <button
+          onClick={() => {
+            setClotheType(dresses);
+            setCategoryID("dresses");
+          }}
+        >
+          Dresses
+        </button>
+        <button
+          onClick={() => {
+            setClotheType(jackets);
+            setCategoryID("jackets");
+          }}
+        >
+          Jackets
+        </button>
+        <button
+          onClick={() => {
+            setClotheType(shirts);
+            setCategoryID("shirts");
+          }}
+        >
+          T-Shirts
+        </button>
+        <button
+          onClick={() => {
+            setClotheType(sweatshirts);
+            setCategoryID("sweatshirts");
+          }}
+        >
+          Sweatshirts
+        </button>
+        <button
+          onClick={() => {
+            setClotheType(pants);
+            setCategoryID("pants");
+          }}
+        >
+          Pants
+        </button>
         {/* <button onClick={() => setClotheType(shorts)}>Shorts</button> */}
-        <button onClick={() => setClotheType(headwear)}>Headwear</button>
+        <button
+          onClick={() => {
+            setClotheType(headwear);
+            setCategoryID("headwear");
+          }}
+        >
+          Headwear
+        </button>
       </section>
 
       <section className="clothing-display">

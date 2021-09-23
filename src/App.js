@@ -283,15 +283,15 @@ const App = () => {
           <Landing viewCart={viewCart} />
         </Route>
 
-        <Route exact path="/men">
+        <Route exact path="/men/:id">
           <MenClothing viewCart={viewCart} setItemPath={setItemPath} />
         </Route>
 
-        <Route exact path="/women">
+        <Route exact path="/women/:id">
           <WomenClothing viewCart={viewCart} setItemPath={setItemPath} />
         </Route>
 
-        <Route exact path="/unisex">
+        <Route exact path="/unisex/:id">
           <UnisexClothing viewCart={viewCart} setItemPath={setItemPath} />
         </Route>
 

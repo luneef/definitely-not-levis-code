@@ -81,7 +81,7 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
   }
   return (
     <main
-      style={viewCart ? { marginRight: "250px" } : {}}
+      style={viewCart ? { marginRight: "270px" } : {}}
       className="clothing-main"
     >
       <h1>UNISEX TIME</h1>

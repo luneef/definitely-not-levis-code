@@ -10,7 +10,7 @@ const Loading = () => {
         <div></div>
         <div></div>
       </div>
-      <h3>Getting things ready for you...</h3>
+      <h3>Preparing the closet for you...</h3>
     </div>
   );
 };

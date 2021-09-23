@@ -1,8 +1,143 @@
-.cart-div {
-  background-color: aqua;
+.cart-container {
+  padding: 0.2em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cartitem-container {
+  background-color: white;
+  padding: 0.5em;
+  width: 240px;
+  margin-bottom: 1em;
+
   img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 300px;
     object-fit: cover;
+    margin-bottom: 0.5em;
+  }
+}
+
+.cartitem-name {
+  font-size: 1rem;
+  margin-bottom: 0.3em;
+}
+
+.cartitem-price {
+  color: rgb(179, 11, 11);
+  margin-bottom: 0.4em;
+  text-decoration: underline;
+
+  img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5em;
+  }
+}
+
+.cartitem-edit {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 7px;
+    left: 105px;
+    margin-left: 0.5em;
+  }
+}
+
+.cartitem-quantity {
+  background-color: rgba(155, 152, 152, 0.397);
+
+  border-radius: 0.3em;
+
+  button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    border-radius: 0.3em;
+
+    &:hover {
+      background-color: rgb(155, 152, 152);
+    }
+  }
+
+  span {
+    margin: 0 0.5em;
+  }
+}
+
+.cartitem-remove {
+  color: rgb(245, 68, 68);
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  & > * {
+    width: 40px;
+    height: 30px;
+  }
+}
+
+.cart-bottom {
+  color: white;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span {
+    font-size: 2.3rem;
+
+    border-bottom: 3px solid white;
+    margin-left: 0.2em;
+    -webkit-text-fill-color: red;
+    -webkit-text-stroke: 0.1px white;
+  }
+
+  h2 {
+    margin-top: 0.4em;
+    margin-bottom: 1em;
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    width: 230px;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+}
+
+.checkout-btn {
+  color: rgb(168, 52, 52);
+  background-color: white;
+  margin-bottom: 1em;
+
+  &:hover {
+    &::after {
+      content: " >>";
+    }
+  }
+}
+
+.empty-btn {
+  color: white;
+  background-color: rgb(245, 68, 68);
+
+  &:hover {
+    &::before {
+      content: "<< ";
+    }
   }
 }

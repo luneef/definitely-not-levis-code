@@ -36,7 +36,7 @@ const Landing = ({ viewCart }) => {
 
   return (
     <main
-      style={viewCart ? { marginRight: "250px" } : {}}
+      style={viewCart ? { marginRight: "270px" } : {}}
       className="landing-main"
     >
       <section className="hero-container" style={hero}>

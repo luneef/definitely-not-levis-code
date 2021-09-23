@@ -2,6 +2,8 @@ import { Link, useHistory } from "react-router-dom";
 import "../styles/header/header.css";
 import CartItem from "./CartItem";
 import logo from "../assets/images/logo.png";
+import emptybag from "../assets/images/emptybag.png";
+import { BsBag, BsX } from "react-icons/bs";
 
 const Header = ({
   cartcount,
@@ -71,28 +73,54 @@ const Header = ({
           </div>
 
           <button
-            style={viewCart ? { marginRight: "250px" } : {}}
-            className="new-cart"
+            style={viewCart ? { marginRight: "270px" } : {}}
+            className="bag"
             onClick={() => handleCartView()}
           >
-            {viewCart ? "Close" : `Cart (${cartcount})`}
+            {viewCart ? (
+              <BsX title="Close Bag" className="bag-close" />
+            ) : (
+              <>
+                <BsBag title="Open Bag" className="bag-status" />
+                {cartcount ? <p className="cart-count">{cartcount}</p> : ""}
+              </>
+            )}
           </button>
         </div>
       </nav>
 
-      <aside style={viewCart ? { width: "250px" } : {}} className="cart-aside">
-        <h1>Checkout</h1>
+      <aside style={viewCart ? { width: "270px" } : {}} className="cart-aside">
         {cart.total_items ? (
-          <CartItem
-            cart={cart}
-            handleCartView={handleCartView}
-            captureCheckout={captureCheckout}
-            updateItemQuantity={updateItemQuantity}
-            removeItemFromCart={removeItemFromCart}
-            emptyCart={emptyCart}
-          />
+          <>
+            <div className="cart-top">
+              <h1>- Bagged Items -</h1>
+              <p>- - - - - - - - - - - - - - - -</p>
+            </div>
+
+            <CartItem
+              viewCart={viewCart}
+              cart={cart}
+              handleCartView={handleCartView}
+              captureCheckout={captureCheckout}
+              updateItemQuantity={updateItemQuantity}
+              removeItemFromCart={removeItemFromCart}
+              emptyCart={emptyCart}
+            />
+          </>
         ) : (
-          <p>ADD TO CART NOW!</p>
+          <div className="empty-bag">
+            <img
+              style={viewCart ? { width: "200px" } : {}}
+              src={emptybag}
+              alt="Empty Bag"
+            />
+            <p style={viewCart ? { fontSize: "0.9rem" } : {}}>
+              THE WORLD IS YOUR RUNWAY,
+            </p>
+            <p style={viewCart ? { fontSize: "0.9rem" } : {}}>
+              ADD TO YOUR BAG NOW!
+            </p>
+          </div>
         )}
       </aside>
     </header>

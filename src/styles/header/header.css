@@ -24,6 +24,15 @@
   width: 100px;
 }
 
+.actions-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .actions-nav > * {
   margin-left: 3em;
 }
@@ -106,21 +115,50 @@
   color: #a80f29;
 }
 
-.new-cart {
+.bag {
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  border: none;
+  background: none;
+  margin-left: 4em;
+  cursor: pointer;
+  position: relative;
+}
+
+.bag:hover {
+  color: #a80f29;
+}
+
+.bag-status {
+  width: 25px;
+  height: 25px;
+}
+
+.bag-close {
+  width: 40px;
+  height: 40px;
+}
+
+.cart-count {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  color: white;
+  background-color: #a80f29;
+  padding: 0.1em 0.4em;
+  border-radius: 50%;
 }
 
 .cart-aside {
+  padding: 2em 0;
   height: 100%;
   width: 0;
   position: fixed;
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: aquamarine;
+  background-color: #a80f29;
   overflow-x: hidden;
-  padding-top: 60px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -ms-overflow-style: none;
@@ -129,5 +167,55 @@
 
 .cart-aside::-webkit-scrollbar {
   display: none;
+}
+
+.cart-top {
+  width: 270px;
+}
+
+.cart-top h1 {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.9em;
+  letter-spacing: 0.1rem;
+}
+
+.cart-top h1 + p {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.empty-bag {
+  height: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.empty-bag img {
+  width: 0;
+  margin-bottom: 1.5em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.empty-bag p {
+  font-size: 0;
+  margin-bottom: 0.3em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 /*# sourceMappingURL=header.css.map */

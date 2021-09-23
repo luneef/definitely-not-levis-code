@@ -90,7 +90,7 @@ const MenClothing = ({ viewCart, setItemPath }) => {
 
   return (
     <main
-      style={viewCart ? { marginRight: "250px" } : {}}
+      style={viewCart ? { marginRight: "270px" } : {}}
       className="clothing-main"
     >
       <h1>Men's Clothes</h1>

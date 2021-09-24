@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-//import { commerce } from "../lib/Commerce";
 import "../styles/landing/landing.css";
 import winterHero from "../assets/images/wintersamp.jpg";
 import redHero from "../assets/images/redsamp.jpg";
@@ -16,17 +15,12 @@ const Landing = ({ viewCart }) => {
   const [hero, setHero] = useState(winterStyle);
   //const [clothes, setClothes] = useState([]);
 
-  const fetchClothes = async () => {
-    // const { data } = await commerce.products.list();
-    //setClothes(data);
-  };
-
   useEffect(() => {
-    fetchClothes();
+    window.scrollTo(0, 0);
 
     const timer = setTimeout(() => {
       setHero(redStyle);
-    }, 4000);
+    }, 8000);
 
     return () => clearTimeout(timer);
     // eslint-disable-next-line
@@ -82,34 +76,11 @@ const Landing = ({ viewCart }) => {
       <h1>HEY</h1>
       <h1>HEY</h1>
       <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
-      <h1>HEY</h1>
 
       <section className="gender-category">
-        <Link to="/men">MEN</Link>
-        <Link to="/women">WOMEN</Link>
-        <Link to="/unisex">Unisex</Link>
+        <Link to="/men/all">MEN</Link>
+        <Link to="/women/all">WOMEN</Link>
+        <Link to="/unisex/all">Unisex</Link>
       </section>
     </main>
   );

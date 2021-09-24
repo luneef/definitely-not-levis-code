@@ -330,7 +330,7 @@ const App = () => {
         </Route>
       </Switch>
 
-      <Footer />
+      <Footer viewCart={viewCart} />
     </Router>
   );
 };

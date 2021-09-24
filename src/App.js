@@ -292,7 +292,7 @@ const App = () => {
         </Route>
 
         <Route exact path="/about">
-          <About />
+          <About viewCart={viewCart} />
         </Route>
 
         <Route exact path="/men/:id">
@@ -309,6 +309,7 @@ const App = () => {
 
         <Route exact path={path}>
           <Item
+            viewCart={viewCart}
             addToCart={addToCart}
             setItemPath={setItemPath}
             setProductPath={setProductPath}
@@ -317,6 +318,7 @@ const App = () => {
 
         <Route exact path={relatedPath}>
           <RelatedProduct
+            viewCart={viewCart}
             addToCart={addToCart}
             setItemPath={setItemPath}
             setProductPath={setProductPath}

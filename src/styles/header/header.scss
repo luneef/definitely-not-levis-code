@@ -1,7 +1,7 @@
 .header-container {
   background-color: white;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   min-width: 100vw;
   padding: 1em 2em;
   padding-right: 4em;
@@ -119,6 +119,7 @@
 .bag-close {
   width: 40px;
   height: 40px;
+  color: #a80f29;
 }
 
 .cart-count {

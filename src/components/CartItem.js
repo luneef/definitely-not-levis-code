@@ -109,11 +109,11 @@ const CartItem = ({
         </h2>
 
         <button className="checkout-btn" onClick={() => goToCheckout()}>
-          Proceed To Checkout
+          PROCEED TO CHECKOUT
         </button>
 
         <button className="empty-btn" onClick={() => emptyCart()}>
-          Empty Cart
+          EMPTY BAG
         </button>
       </div>
     </div>

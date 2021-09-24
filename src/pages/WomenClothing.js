@@ -92,6 +92,10 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
     // eslint-disable-next-line
   }, [id]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [categoryID]);
+
   if (!clotheType.length) {
     return <Loading />;
   }
@@ -101,9 +105,11 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
       style={viewCart ? { marginRight: "270px" } : {}}
       className="clothing-main"
     >
-      <h1>WOMEN CLOTHING</h1>
-      <section>
+      <section className="category-list">
         <button
+          style={
+            categoryID === "all" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(womenClothes);
             setCategoryID("all");
@@ -111,7 +117,11 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
         >
           All
         </button>
+
         <button
+          style={
+            categoryID === "dresses" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(dresses);
             setCategoryID("dresses");
@@ -119,7 +129,11 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
         >
           Dresses
         </button>
+
         <button
+          style={
+            categoryID === "jackets" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(jackets);
             setCategoryID("jackets");
@@ -127,7 +141,11 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
         >
           Jackets
         </button>
+
         <button
+          style={
+            categoryID === "shirts" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(shirts);
             setCategoryID("shirts");
@@ -135,7 +153,13 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
         >
           T-Shirts
         </button>
+
         <button
+          style={
+            categoryID === "sweatshirts"
+              ? { backgroundSize: "100% 3px, auto" }
+              : {}
+          }
           onClick={() => {
             setClotheType(sweatshirts);
             setCategoryID("sweatshirts");
@@ -143,7 +167,11 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
         >
           Sweatshirts
         </button>
+
         <button
+          style={
+            categoryID === "pants" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(pants);
             setCategoryID("pants");
@@ -151,8 +179,15 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
         >
           Pants
         </button>
+
         {/* <button onClick={() => setClotheType(shorts)}>Shorts</button> */}
+
         <button
+          style={
+            categoryID === "headwear"
+              ? { backgroundSize: "100% 3px, auto" }
+              : {}
+          }
           onClick={() => {
             setClotheType(headwear);
             setCategoryID("headwear");
@@ -168,9 +203,11 @@ const WomenClothing = ({ viewCart, setItemPath }) => {
             <div className="clothing-item" key={item.id}>
               <button onClick={() => selectedItem(item)}>
                 <img src={item.media.source} alt={item.name} />
+                <p>{item.name}</p>
               </button>
-              <p>{item.name}</p>
-              <p>{item.price.formatted_with_symbol}</p>
+              <p className="clothingitem-price">
+                {item.price.formatted_with_symbol}
+              </p>
             </div>
           );
         })}

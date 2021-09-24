@@ -85,6 +85,10 @@
     width: 40px;
     height: 30px;
   }
+
+  &:hover {
+    color: red;
+  }
 }
 
 .cart-bottom {
@@ -112,7 +116,7 @@
     border: none;
     cursor: pointer;
     padding: 0.5em 1em;
-    border-radius: 1em;
+    // border-radius: 5em;
     width: 230px;
     font-weight: 600;
     font-size: 1.1rem;

@@ -98,6 +98,10 @@
   height: 30px;
 }
 
+.cartitem-remove:hover {
+  color: red;
+}
+
 .cart-bottom {
   color: white;
   width: 270px;
@@ -130,7 +134,6 @@
   border: none;
   cursor: pointer;
   padding: 0.5em 1em;
-  border-radius: 1em;
   width: 230px;
   font-weight: 600;
   font-size: 1.1rem;

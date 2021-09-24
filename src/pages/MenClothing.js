@@ -84,6 +84,10 @@ const MenClothing = ({ viewCart, setItemPath }) => {
     // eslint-disable-next-line
   }, [id]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [categoryID]);
+
   if (!clotheType.length) {
     return <Loading />;
   }
@@ -93,9 +97,11 @@ const MenClothing = ({ viewCart, setItemPath }) => {
       style={viewCart ? { marginRight: "270px" } : {}}
       className="clothing-main"
     >
-      <h1>Men's Clothes</h1>
-      <section>
+      <section className="category-list">
         <button
+          style={
+            categoryID === "all" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(menClothes);
             setCategoryID("all");
@@ -105,6 +111,9 @@ const MenClothing = ({ viewCart, setItemPath }) => {
         </button>
 
         <button
+          style={
+            categoryID === "jackets" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(jackets);
             setCategoryID("jackets");
@@ -114,6 +123,9 @@ const MenClothing = ({ viewCart, setItemPath }) => {
         </button>
 
         <button
+          style={
+            categoryID === "shirts" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(shirts);
             setCategoryID("shirts");
@@ -123,6 +135,9 @@ const MenClothing = ({ viewCart, setItemPath }) => {
         </button>
 
         <button
+          style={
+            categoryID === "pants" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(pants);
             setCategoryID("pants");
@@ -132,6 +147,9 @@ const MenClothing = ({ viewCart, setItemPath }) => {
         </button>
 
         <button
+          style={
+            categoryID === "shorts" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(shorts);
             setCategoryID("shorts");
@@ -141,6 +159,11 @@ const MenClothing = ({ viewCart, setItemPath }) => {
         </button>
 
         <button
+          style={
+            categoryID === "headwear"
+              ? { backgroundSize: "100% 3px, auto" }
+              : {}
+          }
           onClick={() => {
             setClotheType(headwear);
             setCategoryID("headwear");
@@ -159,7 +182,9 @@ const MenClothing = ({ viewCart, setItemPath }) => {
                 <p>{item.name}</p>
               </button>
 
-              <p>{item.price.formatted_with_symbol}</p>
+              <p className="clothingitem-price">
+                {item.price.formatted_with_symbol}
+              </p>
             </div>
           );
         })}

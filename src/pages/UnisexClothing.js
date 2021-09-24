@@ -76,6 +76,10 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
     // eslint-disable-next-line
   }, [id]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [categoryID]);
+
   if (!clotheType.length) {
     return <Loading />;
   }
@@ -84,10 +88,11 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
       style={viewCart ? { marginRight: "270px" } : {}}
       className="clothing-main"
     >
-      <h1>UNISEX TIME</h1>
-
-      <section>
+      <section className="category-list">
         <button
+          style={
+            categoryID === "all" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(unisexClothes);
             setCategoryID("all");
@@ -97,6 +102,9 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
         </button>
 
         <button
+          style={
+            categoryID === "jackets" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(jackets);
             setCategoryID("jackets");
@@ -106,6 +114,9 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
         </button>
 
         <button
+          style={
+            categoryID === "shirts" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
           onClick={() => {
             setClotheType(shirts);
             setCategoryID("shirts");
@@ -116,7 +127,13 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
 
         {/* <button onClick={() => setClotheType(pants)}>Pants</button> */}
         {/* <button onClick={() => setClotheType(shorts)}>Shorts</button> */}
+
         <button
+          style={
+            categoryID === "headwear"
+              ? { backgroundSize: "100% 3px, auto" }
+              : {}
+          }
           onClick={() => {
             setClotheType(headwear);
             setCategoryID("headwear");
@@ -132,9 +149,12 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
             <div className="clothing-item" key={item.id}>
               <button onClick={() => selectedItem(item)}>
                 <img src={item.media.source} alt={item.name} />
+                <p>{item.name}</p>
               </button>
-              <p>{item.name}</p>
-              <p>{item.price.formatted_with_symbol}</p>
+
+              <p className="clothingitem-price">
+                {item.price.formatted_with_symbol}
+              </p>
             </div>
           );
         })}

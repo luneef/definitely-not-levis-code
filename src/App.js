@@ -34,6 +34,8 @@ const App = () => {
 
   const fetchAllClothes = async () => {
     const { data } = await commerce.products.list();
+
+    console.log(data);
     localStorage.setItem("allClothes", JSON.stringify(data));
   };
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/item/item.css";
@@ -20,6 +20,7 @@ const RelatedProduct = ({
   const [selectedPhoto, setSelectedPhoto] = useState({});
 
   const history = useHistory();
+  const navRef = useRef();
 
   const selectedProduct = (product) => {
     localStorage.setItem("relatedProduct", JSON.stringify(product.id));
@@ -48,6 +49,10 @@ const RelatedProduct = ({
         return 0;
       }
     });
+  };
+
+  const scrollHandler = (scrollOffset) => {
+    navRef.current.scrollLeft += scrollOffset;
   };
 
   const setFinalSize = (id, price) => {
@@ -224,13 +229,25 @@ const RelatedProduct = ({
 
       <section className="related-products">
         <p className="related-title">RELATED CLOTHING</p>
+
+        {item.related_products.length > 3 ? (
+          <button
+            className="scroll-btn left-btn"
+            onClick={() => scrollHandler(-200)}
+          >
+            <BsChevronCompactLeft />
+          </button>
+        ) : (
+          ""
+        )}
+
         {!item.related_products.length ? (
           <p className="no-related">
             Oops, seems like we're still on production making more like this.
             Stay tuned!
           </p>
         ) : (
-          <div className="related-container">
+          <div ref={navRef} className="related-container">
             {item.related_products.map((product) => {
               return (
                 <div className="related-item" key={product.id}>
@@ -245,6 +262,17 @@ const RelatedProduct = ({
               );
             })}
           </div>
+        )}
+
+        {item.related_products.length > 3 ? (
+          <button
+            className="scroll-btn right-btn"
+            onClick={() => scrollHandler(200)}
+          >
+            <BsChevronCompactRight />
+          </button>
+        ) : (
+          ""
         )}
       </section>
     </main>

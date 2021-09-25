@@ -123,9 +123,11 @@
 }
 
 .related-products {
-  //background-color: grey;
+  // background-color: grey;
+  position: relative;
   margin-top: 9em;
-  margin-left: 4em;
+  padding-right: 4em;
+  padding-left: 4em;
 }
 
 .related-title {
@@ -134,12 +136,36 @@
   //margin-bottom: 0.3em;
 }
 
+.scroll-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  & > * {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.left-btn {
+  position: absolute;
+  left: 0;
+  top: 210px;
+}
+
+.right-btn {
+  position: absolute;
+  right: 0;
+  top: 210px;
+}
+
 .related-container {
   // background-color: indianred;
   padding: 2em 1em;
   display: flex;
   overflow: auto;
   white-space: nowrap;
+  scroll-behavior: smooth;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
 }

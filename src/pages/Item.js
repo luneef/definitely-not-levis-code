@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/item/item.css";
@@ -14,8 +14,13 @@ const Item = ({ viewCart, addToCart, setItemPath, setProductPath }) => {
   const [selectedPhoto, setSelectedPhoto] = useState({});
 
   const history = useHistory();
+  const navRef = useRef();
+
+  console.log(item);
 
   const selectedProduct = (product) => {
+    console.log(product);
+    console.log(product.id);
     localStorage.setItem("relatedProduct", JSON.stringify(product.id));
     setProductPath(`/related-item/${product.id}`);
 
@@ -40,6 +45,10 @@ const Item = ({ viewCart, addToCart, setItemPath, setProductPath }) => {
         return 0;
       }
     });
+  };
+
+  const scrollHandler = (scrollOffset) => {
+    navRef.current.scrollLeft += scrollOffset;
   };
 
   const setFinalSize = (id, price) => {
@@ -202,13 +211,25 @@ const Item = ({ viewCart, addToCart, setItemPath, setProductPath }) => {
 
       <section className="related-products">
         <p className="related-title">RELATED CLOTHING</p>
+
+        {item.related_products.length > 3 ? (
+          <button
+            className="scroll-btn left-btn"
+            onClick={() => scrollHandler(-200)}
+          >
+            <BsChevronCompactLeft />
+          </button>
+        ) : (
+          ""
+        )}
+
         {!item.related_products.length ? (
           <p className="no-related">
             Oops, seems like we're still on production making more like this.
             Stay tuned!
           </p>
         ) : (
-          <div className="related-container">
+          <div ref={navRef} className="related-container">
             {item.related_products.map((product) => {
               return (
                 <div className="related-item" key={product.id}>
@@ -223,6 +244,17 @@ const Item = ({ viewCart, addToCart, setItemPath, setProductPath }) => {
               );
             })}
           </div>
+        )}
+
+        {item.related_products.length > 3 ? (
+          <button
+            className="scroll-btn right-btn"
+            onClick={() => scrollHandler(200)}
+          >
+            <BsChevronCompactRight />
+          </button>
+        ) : (
+          ""
         )}
       </section>
     </main>

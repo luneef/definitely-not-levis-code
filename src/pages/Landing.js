@@ -5,6 +5,8 @@ import winterHero from "../assets/images/wintersamp.jpg";
 import redHero from "../assets/images/redsamp.jpg";
 
 const Landing = ({ viewCart }) => {
+  const [allClothes, setAllClothes] = useState([]);
+
   const winterStyle = {
     backgroundImage: `url(${winterHero})`,
   };
@@ -18,6 +20,8 @@ const Landing = ({ viewCart }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
+    setAllClothes(JSON.parse(localStorage.getItem("allClothes")));
+
     const timer = setTimeout(() => {
       setHero(redStyle);
     }, 8000);
@@ -26,7 +30,7 @@ const Landing = ({ viewCart }) => {
     // eslint-disable-next-line
   }, []);
 
-  //console.log(hero);
+  // console.log(allClothes);
 
   return (
     <main
@@ -55,6 +59,12 @@ const Landing = ({ viewCart }) => {
           </div>
         </div>
       </section>
+
+      <div className="all-image">
+        {allClothes.map((item) => (
+          <img key={item.id} src={item.media.source} alt="Item Cache" />
+        ))}
+      </div>
 
       <h1>HEY</h1>
       <h1>HEY</h1>

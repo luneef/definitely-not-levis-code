@@ -32,6 +32,12 @@
   margin-left: 10em;
 }
 
+.all-image {
+  img {
+    width: 0;
+  }
+}
+
 .gender-category {
   & > * {
     margin-right: 4em;

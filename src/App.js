@@ -32,10 +32,11 @@ const App = () => {
     setRelatedPath(productPath);
   };
 
-  const fetchAllClothes = async () => {
-    const { data } = await commerce.products.list();
+  // -------------- Fetch All Clothes ---------------------
 
-    console.log(data);
+  const fetchAllClothes = async () => {
+    const { data } = await commerce.products.list({ limit: 100 });
+
     localStorage.setItem("allClothes", JSON.stringify(data));
   };
 

@@ -1,13 +1,39 @@
+import { useState, useEffect } from "react";
 import {
   Elements,
   CardElement,
   ElementsConsumer,
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { commerce } from "../lib/Commerce";
+import { BsArrowLeft, BsExclamationCircle } from "react-icons/bs";
+import "../styles/checkout/checkout.css";
 
 const stripeAPI = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-const CheckoutCustomerCard = ({ captureCheckout, checkoutToken, custInfo }) => {
+const CheckoutCustomerCard = ({
+  cart,
+  backToInfo,
+  captureCheckout,
+  checkoutToken,
+  custInfo,
+  orderConfirmation,
+}) => {
+  const [shipMethod, setShipMethod] = useState({});
+
+  const [cardError, setCardError] = useState(false);
+  const [errorMessage, setErroMessage] = useState("");
+
+  const fetchShipMethod = async () => {
+    const data = await commerce.checkout.checkShippingOption(checkoutToken.id, {
+      shipping_option_id: custInfo.shippingOption,
+      country: custInfo.shippingCountry,
+      region: custInfo.shippingRegion,
+    });
+
+    setShipMethod(data);
+  };
+
   const onFormSubmit = async (event, elements, stripe) => {
     event.preventDefault();
 
@@ -20,10 +46,9 @@ const CheckoutCustomerCard = ({ captureCheckout, checkoutToken, custInfo }) => {
       card: cardElement,
     });
 
-    console.log(paymentMethod);
-
     if (error) {
-      console.log(error);
+      setCardError(true);
+      setErroMessage(error.message);
     } else {
       const orderDetails = {
         line_items: checkoutToken.live.line_items,
@@ -55,23 +80,91 @@ const CheckoutCustomerCard = ({ captureCheckout, checkoutToken, custInfo }) => {
       };
 
       captureCheckout(checkoutToken.id, orderDetails);
+
+      orderConfirmation();
     }
   };
 
-  console.log(custInfo);
+  useEffect(() => {
+    fetchShipMethod();
+    // eslint-disable-next-line
+  }, []);
+
+  console.log(cart);
   return (
     <>
+      <section>
+        {cart.line_items.map((item) => {
+          return (
+            <div className="checkoutitem-sum" key={item.id}>
+              <p>
+                {item.variant.description}
+                <span>x{item.quantity}</span>
+              </p>
+
+              <div>
+                <p>{item.line_total.formatted_with_symbol}</p>
+              </div>
+            </div>
+          );
+        })}
+
+        {shipMethod ? (
+          shipMethod.description === "International" ? (
+            <div className="ship-expense">
+              <p>{shipMethod.description} Shipping</p>
+              <p>{shipMethod.price.formatted_with_symbol}</p>
+            </div>
+          ) : (
+            ""
+          )
+        ) : (
+          ""
+        )}
+
+        <div className="checkoutitem-total">
+          <p>Total:</p>
+
+          {shipMethod ? (
+            shipMethod.description === "International" ? (
+              <span>{`$${cart.subtotal.raw + shipMethod.price.raw}.00`}</span>
+            ) : (
+              <span>{cart.subtotal.formatted_with_symbol}</span>
+            )
+          ) : (
+            <span>{cart.subtotal.formatted_with_symbol}</span>
+          )}
+        </div>
+      </section>
+
       <Elements stripe={stripeAPI}>
         <ElementsConsumer>
           {({ elements, stripe }) => (
-            <form onSubmit={(e) => onFormSubmit(e, elements, stripe)}>
+            <form
+              className="card-input"
+              onSubmit={(e) => onFormSubmit(e, elements, stripe)}
+            >
               <CardElement />
-              <input type="submit" value="HeEY" disabled={!stripe} />
+              <input type="submit" value="PLACE ORDER" disabled={!stripe} />
             </form>
           )}
         </ElementsConsumer>
       </Elements>
-      <h1>TEST</h1>
+
+      {cardError ? (
+        <p className="card-error">
+          <BsExclamationCircle /> {errorMessage}
+        </p>
+      ) : (
+        ""
+      )}
+
+      <div className="backinfo-btn">
+        <button onClick={() => backToInfo()}>
+          <BsArrowLeft />
+        </button>
+        <p>BACK TO SHIPPING INFO</p>
+      </div>
     </>
   );
 };

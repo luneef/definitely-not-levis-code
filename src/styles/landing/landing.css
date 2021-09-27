@@ -2,6 +2,7 @@
   background-color: #bd4074;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  min-height: 100vh;
 }
 
 .hero-container {

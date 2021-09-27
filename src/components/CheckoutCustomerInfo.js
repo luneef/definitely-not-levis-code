@@ -2,8 +2,14 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { commerce } from "../lib/Commerce";
 import Loading from "./Loading";
+import "../styles/checkout/checkout.css";
 
-const CheckoutCustomerInfo = ({ checkoutToken, proceedToPayment }) => {
+const CheckoutCustomerInfo = ({
+  checkoutToken,
+  proceedToPayment,
+  custInfo,
+  editInfo,
+}) => {
   const { register, handleSubmit } = useForm();
 
   const [shippingCountries, setShippingCountries] = useState([]);
@@ -12,6 +18,10 @@ const CheckoutCustomerInfo = ({ checkoutToken, proceedToPayment }) => {
   const [shippingRegion, setShippingRegion] = useState("");
   const [shippingOptions, setShippingOptions] = useState([]);
   const [shippingOption, setShippingOption] = useState("");
+
+  const [editShipping, setEditShipping] = useState(false);
+
+  // console.log(editShipping);
 
   // Fetching Countries
   const fetchShippingCountries = async (checkoutTokenID) => {
@@ -26,7 +36,12 @@ const CheckoutCustomerInfo = ({ checkoutToken, proceedToPayment }) => {
           name: country[1],
         }))
       );
-      setShippingCountry(Object.keys(countries)[0]);
+
+      if (editInfo) {
+        setShippingCountry(custInfo.shippingCountry);
+      } else {
+        setShippingCountry(Object.keys(countries)[0]);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +61,15 @@ const CheckoutCustomerInfo = ({ checkoutToken, proceedToPayment }) => {
         }))
       );
 
-      setShippingRegion(Object.keys(subdivisions)[0]);
+      if (editInfo) {
+        if (editShipping) {
+          setShippingRegion(Object.keys(subdivisions)[0]);
+        } else {
+          setShippingRegion(custInfo.shippingRegion);
+        }
+      } else {
+        setShippingRegion(Object.keys(subdivisions)[0]);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -71,7 +94,15 @@ const CheckoutCustomerInfo = ({ checkoutToken, proceedToPayment }) => {
         }))
       );
 
-      setShippingOption(shippingMethod[0].id);
+      if (editInfo) {
+        if (editShipping) {
+          setShippingOption(shippingMethod[0].id);
+        } else {
+          setShippingOption(custInfo.shippingOption);
+        }
+      } else {
+        setShippingOption(shippingMethod[0].id);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -90,6 +121,7 @@ const CheckoutCustomerInfo = ({ checkoutToken, proceedToPayment }) => {
 
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id);
+
     // eslint-disable-next-line
   }, []);
 
@@ -97,6 +129,7 @@ const CheckoutCustomerInfo = ({ checkoutToken, proceedToPayment }) => {
     if (shippingCountry) {
       fetchShippingRegions(shippingCountry);
     }
+
     // eslint-disable-next-line
   }, [shippingCountry]);
 
@@ -104,114 +137,158 @@ const CheckoutCustomerInfo = ({ checkoutToken, proceedToPayment }) => {
     if (shippingRegion) {
       fetchShippingOptions(checkoutToken.id, shippingCountry, shippingRegion);
     }
+
     // eslint-disable-next-line
   }, [shippingRegion]);
 
-  if (!shippingCountries.length) {
+  if (!shippingCountry) {
     return <Loading />;
   }
 
-  if (!shippingRegions.length) {
+  if (!shippingRegion) {
     return <Loading />;
   }
 
-  if (!shippingOptions.length) {
+  if (!shippingOption) {
     return <Loading />;
   }
 
   return (
     <form onSubmit={handleSubmit(onFormSubmit)}>
-      <input
-        type="text"
-        placeholder="Enter first name here:"
-        name="firstName"
-        {...register("firstName")}
-        required
-      />
+      <div>
+        <label htmlFor="firstName">
+          Name: <span>*</span>
+        </label>
+        <input
+          type="text"
+          id="firstName"
+          placeholder="First Name"
+          defaultValue={editInfo ? custInfo.firstName : ""}
+          name="firstName"
+          {...register("firstName")}
+          required
+          autoFocus
+        />
 
-      <input
-        type="text"
-        placeholder="Enter last name here:"
-        name="lastName"
-        {...register("lastName")}
-        required
-      />
+        <input
+          type="text"
+          placeholder="Last Name"
+          defaultValue={editInfo ? custInfo.lastName : ""}
+          name="lastName"
+          {...register("lastName")}
+          required
+        />
+      </div>
 
-      <input
-        type="email"
-        placeholder="Enter email here:"
-        name="email"
-        {...register("email")}
-        required
-      />
+      <div>
+        <label htmlFor="email">
+          Email: <span>*</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          placeholder="example@email.com"
+          defaultValue={editInfo ? custInfo.email : ""}
+          name="email"
+          {...register("email")}
+          required
+        />
+      </div>
 
-      <input
-        type="text"
-        placeholder="Enter address here:"
-        name="address"
-        {...register("address")}
-        required
-      />
+      <div>
+        <label htmlFor="address">
+          Location: <span>*</span>
+        </label>
+        <input
+          type="text"
+          id="address"
+          placeholder="Street/Building/Apartment#"
+          defaultValue={editInfo ? custInfo.address : ""}
+          name="address"
+          {...register("address")}
+          required
+        />
 
-      <input
-        type="text"
-        placeholder="Enter city here:"
-        name="city"
-        {...register("city")}
-        required
-      />
+        <input
+          type="text"
+          placeholder="City"
+          defaultValue={editInfo ? custInfo.city : ""}
+          name="city"
+          {...register("city")}
+          required
+        />
 
-      <input
-        type="number"
-        placeholder="Enter ZIP here:"
-        name="zip"
-        {...register("zip")}
-        required
-      />
+        <input
+          type="number"
+          placeholder="Zip Code"
+          defaultValue={editInfo ? custInfo.zip : ""}
+          name="zip"
+          {...register("zip")}
+          required
+        />
+      </div>
 
-      <label htmlFor="country">Country: </label>
-      <select
-        name="country"
-        id="country"
-        value={shippingCountry}
-        onChange={(e) => setShippingCountry(e.target.value)}
-      >
-        {shippingCountries.map((country) => (
-          <option key={country.code} value={country.code}>
-            {country.name}
-          </option>
-        ))}
-      </select>
+      <div>
+        <label htmlFor="country">
+          Country: <span>*</span>
+        </label>
+        <select
+          name="country"
+          id="country"
+          value={shippingCountry}
+          onChange={(e) => {
+            setEditShipping(true);
+            setShippingCountry(e.target.value);
+          }}
+        >
+          {shippingCountries.map((country) => (
+            <option key={country.code} value={country.code}>
+              {country.name}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <label htmlFor="region">State/Province: </label>
-      <select
-        name="region"
-        id="region"
-        value={shippingRegion}
-        onChange={(e) => setShippingRegion(e.target.value)}
-      >
-        {shippingRegions.map((region) => (
-          <option key={region.code} value={region.code}>
-            {region.name}
-          </option>
-        ))}
-      </select>
+      <div>
+        <label htmlFor="region">
+          State/Province: <span>*</span>
+        </label>
+        <select
+          name="region"
+          id="region"
+          value={shippingRegion}
+          onChange={(e) => {
+            setEditShipping(true);
+            setShippingRegion(e.target.value);
+          }}
+        >
+          {shippingRegions.map((region) => (
+            <option key={region.code} value={region.code}>
+              {region.name}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <label htmlFor="shipmethod">Shipping Option: </label>
-      <select
-        name="shipmethod"
-        id="shipmethod"
-        value={shippingOption}
-        onChange={(e) => setShippingOption(e.target.value)}
-      >
-        {shippingOptions.map((option) => (
-          <option key={option.id} value={option.id}>
-            {`${option.description} - (${option.price})`}
-          </option>
-        ))}
-      </select>
+      <div>
+        <label htmlFor="shipmethod">
+          Shipping Option: <span>*</span>
+        </label>
+        <select
+          name="shipmethod"
+          id="shipmethod"
+          value={shippingOption}
+          onChange={(e) => setShippingOption(e.target.value)}
+        >
+          {shippingOptions.map((option) => (
+            <option key={option.id} value={option.id}>
+              {`${option.description} - (${option.price})`}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <input type="submit" value="Proceed To Card" />
+      <input type="submit" value="GO  TO  CARD  INFORMATION" />
     </form>
   );
 };

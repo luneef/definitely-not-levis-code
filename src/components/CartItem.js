@@ -17,7 +17,7 @@ const CartItem = ({
 
   const history = useHistory();
 
-  console.log(cart);
+  //console.log(cart);
 
   const goToCheckout = () => {
     handleCartView();
@@ -64,6 +64,7 @@ const CartItem = ({
                 >
                   -
                 </button>
+
                 <span>{item.quantity}</span>
 
                 <button
@@ -109,7 +110,7 @@ const CartItem = ({
         </h2>
 
         <button className="checkout-btn" onClick={() => goToCheckout()}>
-          PROCEED TO CHECKOUT
+          GO TO CHECKOUT
         </button>
 
         <button className="empty-btn" onClick={() => emptyCart()}>

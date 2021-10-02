@@ -8,6 +8,7 @@ const MenClothing = ({ viewCart, setItemPath }) => {
   const [clotheType, setClotheType] = useState([]);
   const [menClothes, setMenClothes] = useState([]);
   const [jackets, setJackets] = useState([]);
+  const [sleeves, setSleeves] = useState([]);
   const [shirts, setShirts] = useState([]);
   const [pants, setPants] = useState([]);
   const [shorts, setShorts] = useState([]);
@@ -32,6 +33,7 @@ const MenClothing = ({ viewCart, setItemPath }) => {
   useEffect(() => {
     setMenClothes(JSON.parse(localStorage.getItem("menClothes")));
     setJackets(JSON.parse(localStorage.getItem("menJackets")));
+    setSleeves(JSON.parse(localStorage.getItem("menSleeves")));
     setShirts(JSON.parse(localStorage.getItem("menShirts")));
     setPants(JSON.parse(localStorage.getItem("menPants")));
     setShorts(JSON.parse(localStorage.getItem("menShorts")));
@@ -47,6 +49,8 @@ const MenClothing = ({ viewCart, setItemPath }) => {
       setClotheType(menClothes);
     } else if (id === "jackets") {
       setClotheType(jackets);
+    } else if (id === "sleeves") {
+      setClotheType(sleeves);
     } else if (id === "shirts") {
       setClotheType(shirts);
     } else if (id === "pants") {
@@ -67,6 +71,8 @@ const MenClothing = ({ viewCart, setItemPath }) => {
       setClotheType(menClothes);
     } else if (id === "jackets") {
       setClotheType(jackets);
+    } else if (id === "sleeves") {
+      setClotheType(sleeves);
     } else if (id === "shirts") {
       setClotheType(shirts);
     } else if (id === "pants") {
@@ -120,6 +126,18 @@ const MenClothing = ({ viewCart, setItemPath }) => {
           }}
         >
           Jackets
+        </button>
+
+        <button
+          style={
+            categoryID === "sleeves" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
+          onClick={() => {
+            setClotheType(sleeves);
+            setCategoryID("sleeves");
+          }}
+        >
+          Sleeves
         </button>
 
         <button

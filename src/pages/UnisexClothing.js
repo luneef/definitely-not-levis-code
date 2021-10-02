@@ -9,8 +9,8 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
   const [unisexClothes, setUnisexClothes] = useState([]);
   const [jackets, setJackets] = useState([]);
   const [shirts, setShirts] = useState([]);
-  // const [pants, setPants] = useState([]);
-  // const [shorts, setShorts] = useState([]);
+  const [pants, setPants] = useState([]);
+  const [sweatshirts, setSweatshirts] = useState([]);
   const [headwear, setHeadwear] = useState([]);
 
   const history = useHistory();
@@ -33,8 +33,8 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
     setUnisexClothes(JSON.parse(localStorage.getItem("unisexClothes")));
     setJackets(JSON.parse(localStorage.getItem("unisexJackets")));
     setShirts(JSON.parse(localStorage.getItem("unisexShirts")));
-    // setPants(JSON.parse(localStorage.getItem("menPants")));
-    //setShorts(JSON.parse(localStorage.getItem("menShorts")));
+    setPants(JSON.parse(localStorage.getItem("unisexPants")));
+    setSweatshirts(JSON.parse(localStorage.getItem("unisexSweatshirts")));
     setHeadwear(JSON.parse(localStorage.getItem("unisexHeadwear")));
 
     setCategoryID(id);
@@ -47,6 +47,10 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
       setClotheType(unisexClothes);
     } else if (id === "jackets") {
       setClotheType(jackets);
+    } else if (id === "sweatshirts") {
+      setClotheType(sweatshirts);
+    } else if (id === "pants") {
+      setClotheType(pants);
     } else if (id === "shirts") {
       setClotheType(shirts);
     } else if (id === "headwear") {
@@ -63,6 +67,10 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
       setClotheType(unisexClothes);
     } else if (id === "jackets") {
       setClotheType(jackets);
+    } else if (id === "sweatshirts") {
+      setClotheType(sweatshirts);
+    } else if (id === "pants") {
+      setClotheType(pants);
     } else if (id === "shirts") {
       setClotheType(shirts);
     } else if (id === "headwear") {
@@ -115,6 +123,20 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
 
         <button
           style={
+            categoryID === "sweatshirts"
+              ? { backgroundSize: "100% 3px, auto" }
+              : {}
+          }
+          onClick={() => {
+            setClotheType(sweatshirts);
+            setCategoryID("sweatshirts");
+          }}
+        >
+          Sweatshirts
+        </button>
+
+        <button
+          style={
             categoryID === "shirts" ? { backgroundSize: "100% 3px, auto" } : {}
           }
           onClick={() => {
@@ -125,8 +147,17 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
           T-Shirts
         </button>
 
-        {/* <button onClick={() => setClotheType(pants)}>Pants</button> */}
-        {/* <button onClick={() => setClotheType(shorts)}>Shorts</button> */}
+        <button
+          style={
+            categoryID === "pants" ? { backgroundSize: "100% 3px, auto" } : {}
+          }
+          onClick={() => {
+            setClotheType(pants);
+            setCategoryID("pants");
+          }}
+        >
+          Pants
+        </button>
 
         <button
           style={

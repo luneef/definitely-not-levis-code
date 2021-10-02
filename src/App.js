@@ -35,7 +35,7 @@ const App = () => {
   // -------------- Fetch All Clothes ---------------------
 
   const fetchAllClothes = async () => {
-    const { data } = await commerce.products.list({ limit: 100 });
+    const { data } = await commerce.products.list({ limit: 190 });
 
     localStorage.setItem("allClothes", JSON.stringify(data));
   };
@@ -45,6 +45,7 @@ const App = () => {
   const fetchMenClothes = async () => {
     const { data } = await commerce.products.list({
       category_slug: ["men"],
+      limit: 100,
     });
 
     localStorage.setItem("menClothes", JSON.stringify(data));
@@ -56,6 +57,14 @@ const App = () => {
     });
 
     localStorage.setItem("menJackets", JSON.stringify(data));
+  };
+
+  const fetchMenSleeves = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["men", "longsleeves"],
+    });
+
+    localStorage.setItem("menSleeves", JSON.stringify(data));
   };
 
   const fetchMenShirts = async () => {
@@ -95,6 +104,7 @@ const App = () => {
   const fetchWomenClothes = async () => {
     const { data } = await commerce.products.list({
       category_slug: ["women"],
+      limit: 100,
     });
 
     localStorage.setItem("womenClothes", JSON.stringify(data));
@@ -124,13 +134,13 @@ const App = () => {
     localStorage.setItem("womenPants", JSON.stringify(data));
   };
 
-  // const fetchWomenShorts = async () => {
-  //   const { data } = await commerce.products.list({
-  //     category_slug: ["women", "shorts"],
-  //   });
+  const fetchWomenShorts = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["women", "shorts"],
+    });
 
-  //   localStorage.setItem("womenShorts", JSON.stringify(data));
-  // };
+    localStorage.setItem("womenShorts", JSON.stringify(data));
+  };
 
   const fetchWomenDresses = async () => {
     const { data } = await commerce.products.list({
@@ -148,6 +158,14 @@ const App = () => {
     localStorage.setItem("womenSweatshirts", JSON.stringify(data));
   };
 
+  const fetchWomenTops = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["women", "tops"],
+    });
+
+    localStorage.setItem("womenTops", JSON.stringify(data));
+  };
+
   const fetchWomenHeadwear = async () => {
     const { data } = await commerce.products.list({
       category_slug: ["women", "headwear"],
@@ -161,6 +179,7 @@ const App = () => {
   const fetchUnisexClothes = async () => {
     const { data } = await commerce.products.list({
       category_slug: ["unisex"],
+      limit: 100,
     });
 
     localStorage.setItem("unisexClothes", JSON.stringify(data));
@@ -174,12 +193,28 @@ const App = () => {
     localStorage.setItem("unisexJackets", JSON.stringify(data));
   };
 
+  const fetchUnisexSweatshirts = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["unisex", "Sweatshirts"],
+    });
+
+    localStorage.setItem("unisexSweatshirts", JSON.stringify(data));
+  };
+
   const fetchUnisexShirts = async () => {
     const { data } = await commerce.products.list({
       category_slug: ["unisex", "shirts"],
     });
 
     localStorage.setItem("unisexShirts", JSON.stringify(data));
+  };
+
+  const fetchUnisexPants = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["unisex", "pants"],
+    });
+
+    localStorage.setItem("unisexPants", JSON.stringify(data));
   };
 
   const fetchUnisexHeadwear = async () => {
@@ -240,8 +275,11 @@ const App = () => {
   useEffect(() => {
     fetchCart();
 
+    fetchAllClothes();
+
     fetchMenClothes();
     fetchMenJackets();
+    fetchMenSleeves();
     fetchMenShirts();
     fetchMenPants();
     fetchMenShorts();
@@ -253,15 +291,16 @@ const App = () => {
     fetchWomenSweatshirts();
     fetchWomenDresses();
     fetchWomenPants();
-    //   fetchWomenShorts();
+    fetchWomenShorts();
+    fetchWomenTops();
     fetchWomenHeadwear();
 
     fetchUnisexClothes();
     fetchUnisexJackets();
+    fetchUnisexSweatshirts();
     fetchUnisexShirts();
+    fetchUnisexPants();
     fetchUnisexHeadwear();
-
-    fetchAllClothes();
   }, []);
 
   if (!cart) {

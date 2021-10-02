@@ -60,11 +60,15 @@ const Landing = ({ viewCart }) => {
         </div>
       </section>
 
-      <div className="all-image">
-        {allClothes.map((item) => (
-          <img key={item.id} src={item.media.source} alt="Item Cache" />
-        ))}
-      </div>
+      {allClothes ? (
+        <div className="all-image">
+          {allClothes.map((item) => (
+            <img key={item.id} src={item.media.source} alt="Item Cache" />
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
 
       <h1>HEY</h1>
       <h1>HEY</h1>

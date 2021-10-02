@@ -35,6 +35,7 @@ const Header = ({
             </Link>
             <div className="dropdown-content men-dropdown">
               <p onClick={() => setCategory("/men/jackets")}>Jackets</p>
+              <p onClick={() => setCategory("/men/sleeves")}>Sleeves</p>
               <p onClick={() => setCategory("/men/shirts")}>T-Shirts</p>
               <p onClick={() => setCategory("/men/pants")}>Pants</p>
               <p onClick={() => setCategory("/men/shorts")}>Shorts</p>
@@ -49,10 +50,11 @@ const Header = ({
             <div className="dropdown-content women-dropdown">
               <p onClick={() => setCategory("/women/dresses")}>Dresses</p>
               <p onClick={() => setCategory("/women/jackets")}>Jackets</p>
-              <p onClick={() => setCategory("/women/shirts")}>T-Shirts</p>
               <p onClick={() => setCategory("/women/sweatshirts")}>
                 Sweatshirts
               </p>
+              <p onClick={() => setCategory("/women/shirts")}>T-Shirts</p>
+              <p onClick={() => setCategory("/women/tops")}>Tops</p>
               <p onClick={() => setCategory("/women/pants")}>Pants</p>
               <p onClick={() => setCategory("/women/shorts")}>Shorts</p>
               <p onClick={() => setCategory("/women/headwear")}>Headwear</p>
@@ -65,9 +67,11 @@ const Header = ({
             </Link>
             <div className="dropdown-content unisex-dropdown">
               <p onClick={() => setCategory("/unisex/jackets")}>Jackets</p>
+              <p onClick={() => setCategory("/unisex/sweatshirts")}>
+                Sweatshirts
+              </p>
               <p onClick={() => setCategory("/unisex/shirts")}>T-Shirts</p>
               <p onClick={() => setCategory("/unisex/pants")}>Pants</p>
-              <p onClick={() => setCategory("/unisex/shorts")}>Shorts</p>
               <p onClick={() => setCategory("/unisex/headwear")}>Headwear</p>
             </div>
           </div>

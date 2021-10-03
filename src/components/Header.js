@@ -3,6 +3,7 @@ import "../styles/header/header.css";
 import CartItem from "./CartItem";
 import logo from "../assets/images/logo.png";
 import emptybag from "../assets/images/emptybag.png";
+import winternewlabel from "../assets/images/winterblue.png";
 import { BsBag, BsX } from "react-icons/bs";
 
 const Header = ({
@@ -25,10 +26,46 @@ const Header = ({
     <header className="header-container">
       <nav>
         <Link className="link" to="/" title="Home">
-          <img src={logo} alt="Definitely Not Levi's Logo" />
+          <img
+            className="nav-logo"
+            src={logo}
+            alt="Definitely Not Levi's Logo"
+          />
         </Link>
 
         <div className="actions-nav">
+          <img
+            className="winter-label"
+            src={winternewlabel}
+            alt="winter label"
+          />
+
+          <div className="dropdown">
+            <Link className="winter-text" to="/winter-collection/all">
+              WINTER
+            </Link>
+            <div className="dropdown-content winter-dropdown">
+              <p
+                style={{ color: "#148cee" }}
+                onClick={() => setCategory("/winter-collection/kids")}
+              >
+                Kids
+              </p>
+              <p
+                style={{ color: "#148cee" }}
+                onClick={() => setCategory("/winter-collection/men")}
+              >
+                Men
+              </p>
+              <p
+                style={{ color: "#148cee" }}
+                onClick={() => setCategory("/winter-collection/women")}
+              >
+                Women
+              </p>
+            </div>
+          </div>
+
           <div className="dropdown">
             <Link className="link" to="/men/all">
               MEN

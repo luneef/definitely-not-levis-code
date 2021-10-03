@@ -11,16 +11,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    img {
-      width: 100px;
-    }
   }
+}
+
+.nav-logo {
+  width: 100px;
 }
 
 .actions-nav {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .actions-nav > * {
@@ -30,6 +31,22 @@
 .link {
   color: black;
   text-decoration: none;
+}
+
+.winter-text {
+  text-decoration: none;
+  color: rgb(20, 140, 238);
+
+  &:hover {
+    color: rgb(12, 106, 160);
+  }
+}
+
+.winter-label {
+  position: absolute;
+  top: 0;
+  left: -28px;
+  width: 25px;
 }
 
 //-----------------------------------------------------
@@ -85,6 +102,10 @@
 
 .dropdown:hover .unisex-dropdown {
   height: 190px;
+}
+
+.dropdown:hover .winter-dropdown {
+  height: 125px;
 }
 
 .dropdown:hover .dropdown-content {

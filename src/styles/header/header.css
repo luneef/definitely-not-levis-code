@@ -20,7 +20,7 @@
           align-items: center;
 }
 
-.header-container nav img {
+.nav-logo {
   width: 100px;
 }
 
@@ -31,6 +31,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .actions-nav > * {
@@ -40,6 +41,22 @@
 .link {
   color: black;
   text-decoration: none;
+}
+
+.winter-text {
+  text-decoration: none;
+  color: #148cee;
+}
+
+.winter-text:hover {
+  color: #0c6aa0;
+}
+
+.winter-label {
+  position: absolute;
+  top: 0;
+  left: -28px;
+  width: 25px;
 }
 
 .dropdown {
@@ -103,6 +120,10 @@
 
 .dropdown:hover .unisex-dropdown {
   height: 190px;
+}
+
+.dropdown:hover .winter-dropdown {
+  height: 125px;
 }
 
 .dropdown:hover .dropdown-content {

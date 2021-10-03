@@ -13,6 +13,7 @@ import UnisexClothing from "./pages/UnisexClothing";
 import Loading from "./components/Loading";
 import Checkout from "./components/Checkout";
 import RelatedProduct from "./pages/RelatedProduct";
+import WinterClothing from "./pages/WinterClothing";
 
 const App = () => {
   const [cart, setCart] = useState(null);
@@ -185,7 +186,7 @@ const App = () => {
 
   const fetchUnisexSweatshirts = async () => {
     const { data } = await commerce.products.list({
-      category_slug: ["unisex", "Sweatshirts"],
+      category_slug: ["unisex", "sweatshirts"],
     });
 
     localStorage.setItem("unisexSweatshirts", JSON.stringify(data));
@@ -214,7 +215,43 @@ const App = () => {
 
     localStorage.setItem("unisexHeadwear", JSON.stringify(data));
   };
-  // ---------------------------- CART ---------------------
+
+  // -------------- Fetch Winter Collection ---------------
+
+  const fetchWinterClothes = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["winter"],
+      limit: 100,
+    });
+
+    localStorage.setItem("winterClothes", JSON.stringify(data));
+  };
+
+  const fetchWinterKidsClothes = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["winter", "winterkid"],
+    });
+
+    localStorage.setItem("winterKidClothes", JSON.stringify(data));
+  };
+
+  const fetchWinterMenClothes = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["winter", "wintermen"],
+    });
+
+    localStorage.setItem("winterMenClothes", JSON.stringify(data));
+  };
+
+  const fetchWinterWomenClothes = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["winter", "winterwoman"],
+    });
+
+    localStorage.setItem("winterWomenClothes", JSON.stringify(data));
+  };
+
+  // ------------------------ CART ---------------------
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
@@ -266,6 +303,11 @@ const App = () => {
     fetchCart();
 
     fetchAllClothes();
+
+    fetchWinterClothes();
+    fetchWinterKidsClothes();
+    fetchWinterMenClothes();
+    fetchWinterWomenClothes();
 
     fetchMenClothes();
     fetchMenJackets();
@@ -327,6 +369,10 @@ const App = () => {
           <UnisexClothing viewCart={viewCart} />
         </Route>
 
+        <Route exact path="/winter-collection/:id">
+          <WinterClothing viewCart={viewCart} />
+        </Route>
+
         <Route exact path="/men/item/:id">
           <Item viewCart={viewCart} addToCart={addToCart} />
         </Route>
@@ -336,6 +382,10 @@ const App = () => {
         </Route>
 
         <Route exact path="/unisex/item/:id">
+          <Item viewCart={viewCart} addToCart={addToCart} />
+        </Route>
+
+        <Route exact path="/winter-collection/item/:id">
           <Item viewCart={viewCart} addToCart={addToCart} />
         </Route>
 

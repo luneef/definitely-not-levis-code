@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/item/item.css";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
-const Item = ({ viewCart, addToCart, setItemPath, setProductPath }) => {
+const Item = ({ viewCart, addToCart }) => {
   const [item, setItem] = useState(null);
   const [size, setSizes] = useState([]);
   const [sizeID, setSizeID] = useState("");
@@ -14,18 +14,8 @@ const Item = ({ viewCart, addToCart, setItemPath, setProductPath }) => {
   const [selectedPhoto, setSelectedPhoto] = useState({});
 
   const history = useHistory();
+  let { id } = useParams();
   const navRef = useRef();
-
-  console.log(item);
-
-  const selectedProduct = (product) => {
-    console.log(product);
-    console.log(product.id);
-    localStorage.setItem("relatedProduct", JSON.stringify(product.id));
-    setProductPath(`/related-item/${product.id}`);
-
-    history.push(`/related-item/${product.id}`);
-  };
 
   const prevSelect = () => {
     setPhotoSelector(() => {
@@ -59,11 +49,14 @@ const Item = ({ viewCart, addToCart, setItemPath, setProductPath }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    setItem(JSON.parse(localStorage.getItem("item")));
-    setItemPath(JSON.parse(localStorage.getItem("itemPath")));
+    const matched = JSON.parse(localStorage.getItem("allClothes")).filter(
+      (item) => item.id === id
+    );
+
+    setItem(matched[0]);
 
     // eslint-disable-next-line
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     if (item) {
@@ -233,7 +226,9 @@ const Item = ({ viewCart, addToCart, setItemPath, setProductPath }) => {
             {item.related_products.map((product) => {
               return (
                 <div className="related-item" key={product.id}>
-                  <button onClick={() => selectedProduct(product)}>
+                  <button
+                    onClick={() => history.push(`/related-item/${product.id}`)}
+                  >
                     <img src={product.media.source} alt={product.name} />
                     <p>{product.name}</p>
                   </button>

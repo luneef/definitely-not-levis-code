@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/clothing/clothing.css";
 
-const MenClothing = ({ viewCart, setItemPath }) => {
+const MenClothing = ({ viewCart }) => {
   const [categoryID, setCategoryID] = useState("");
   const [clotheType, setClotheType] = useState([]);
   const [menClothes, setMenClothes] = useState([]);
@@ -16,19 +16,6 @@ const MenClothing = ({ viewCart, setItemPath }) => {
 
   const history = useHistory();
   let { id } = useParams();
-
-  const selectedItem = (item) => {
-    localStorage.setItem("item", JSON.stringify(item));
-
-    localStorage.setItem(
-      "itemPath",
-      JSON.stringify(`/men/${categoryID}/item/${item.id}`)
-    );
-
-    setItemPath(`/men/${categoryID}/item/${item.id}`);
-
-    history.push(`/men/${categoryID}/item/${item.id}`);
-  };
 
   useEffect(() => {
     setMenClothes(JSON.parse(localStorage.getItem("menClothes")));
@@ -195,7 +182,7 @@ const MenClothing = ({ viewCart, setItemPath }) => {
         {clotheType.map((item) => {
           return (
             <div className="clothing-item" key={item.id}>
-              <button onClick={() => selectedItem(item)}>
+              <button onClick={() => history.push(`/men/item/${item.id}`)}>
                 <img src={item.media.source} alt={item.name} />
                 <p>{item.name}</p>
               </button>

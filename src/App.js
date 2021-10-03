@@ -17,19 +17,9 @@ import RelatedProduct from "./pages/RelatedProduct";
 const App = () => {
   const [cart, setCart] = useState(null);
   const [viewCart, setViewCart] = useState(false);
-  const [path, setPath] = useState("");
-  const [relatedPath, setRelatedPath] = useState("");
 
   const handleCartView = () => {
     setViewCart(!viewCart);
-  };
-
-  const setItemPath = (newPath) => {
-    setPath(newPath);
-  };
-
-  const setProductPath = (productPath) => {
-    setRelatedPath(productPath);
   };
 
   // -------------- Fetch All Clothes ---------------------
@@ -325,6 +315,34 @@ const App = () => {
           <Landing viewCart={viewCart} />
         </Route>
 
+        <Route exact path="/men/:id">
+          <MenClothing viewCart={viewCart} />
+        </Route>
+
+        <Route exact path="/women/:id">
+          <WomenClothing viewCart={viewCart} />
+        </Route>
+
+        <Route exact path="/unisex/:id">
+          <UnisexClothing viewCart={viewCart} />
+        </Route>
+
+        <Route exact path="/men/item/:id">
+          <Item viewCart={viewCart} addToCart={addToCart} />
+        </Route>
+
+        <Route exact path="/women/item/:id">
+          <Item viewCart={viewCart} addToCart={addToCart} />
+        </Route>
+
+        <Route exact path="/unisex/item/:id">
+          <Item viewCart={viewCart} addToCart={addToCart} />
+        </Route>
+
+        <Route exact path="/related-item/:id">
+          <RelatedProduct viewCart={viewCart} addToCart={addToCart} />
+        </Route>
+
         <Route exact path="/checkout">
           <Checkout
             cart={cart}
@@ -335,36 +353,6 @@ const App = () => {
 
         <Route exact path="/about">
           <About viewCart={viewCart} />
-        </Route>
-
-        <Route exact path="/men/:id">
-          <MenClothing viewCart={viewCart} setItemPath={setItemPath} />
-        </Route>
-
-        <Route exact path="/women/:id">
-          <WomenClothing viewCart={viewCart} setItemPath={setItemPath} />
-        </Route>
-
-        <Route exact path="/unisex/:id">
-          <UnisexClothing viewCart={viewCart} setItemPath={setItemPath} />
-        </Route>
-
-        <Route exact path={path}>
-          <Item
-            viewCart={viewCart}
-            addToCart={addToCart}
-            setItemPath={setItemPath}
-            setProductPath={setProductPath}
-          />
-        </Route>
-
-        <Route exact path={relatedPath}>
-          <RelatedProduct
-            viewCart={viewCart}
-            addToCart={addToCart}
-            setItemPath={setItemPath}
-            setProductPath={setProductPath}
-          />
         </Route>
 
         <Route exact path="*">

@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/clothing/clothing.css";
 
-const UnisexClothing = ({ viewCart, setItemPath }) => {
+const UnisexClothing = ({ viewCart }) => {
   const [categoryID, setCategoryID] = useState("");
   const [clotheType, setClotheType] = useState([]);
   const [unisexClothes, setUnisexClothes] = useState([]);
@@ -15,19 +15,6 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
 
   const history = useHistory();
   let { id } = useParams();
-
-  const selectedItem = (item) => {
-    localStorage.setItem("item", JSON.stringify(item));
-
-    localStorage.setItem(
-      "itemPath",
-      JSON.stringify(`/unisex/${categoryID}/item/${item.id}`)
-    );
-
-    setItemPath(`/unisex/${categoryID}/item/${item.id}`);
-
-    history.push(`/unisex/${categoryID}/item/${item.id}`);
-  };
 
   useEffect(() => {
     setUnisexClothes(JSON.parse(localStorage.getItem("unisexClothes")));
@@ -178,7 +165,7 @@ const UnisexClothing = ({ viewCart, setItemPath }) => {
         {clotheType.map((item) => {
           return (
             <div className="clothing-item" key={item.id}>
-              <button onClick={() => selectedItem(item)}>
+              <button onClick={() => history.push(`/unisex/item/${item.id}`)}>
                 <img src={item.media.source} alt={item.name} />
                 <p>{item.name}</p>
               </button>

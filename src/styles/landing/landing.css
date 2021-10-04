@@ -1,44 +1,286 @@
 .landing-main {
-  background-color: #bd4074;
+  background-color: white;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   min-height: 100vh;
-}
-
-.hero-container {
-  background-color: yellow;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  height: 30em;
-}
-
-.herobtn-container {
-  background-color: red;
-  padding-left: 5em;
-}
-
-.herobtn-container button:focus, .herobtn-container button:active {
-  background-color: blue;
-}
-
-.hero-product {
-  background-color: plum;
-  margin-left: 10em;
+  padding: 5em 0;
 }
 
 .all-image img {
   width: 0;
 }
 
-.gender-category > * {
-  margin-right: 4em;
+.hero-container {
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 38em;
+}
+
+.herobtn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.herobtn-container button {
+  background: none;
+  border: none;
+}
+
+.hero-product {
+  padding-top: 4em;
+  padding-left: 5em;
+}
+
+.hero-product h1 {
+  font-size: 4.5rem;
+}
+
+.winterprods-hero {
+  color: white;
+  margin-bottom: 14em;
+}
+
+.headwearprods-hero {
+  color: #a80f29;
+  margin-bottom: 7.2em;
+}
+
+.winterlink-hero {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: white;
+  background-color: none;
+  border: 5px solid #148cee;
+  margin-left: 0.3em;
+  padding: 0.8em 1em;
+}
+
+.winterlink-hero:hover {
+  background-color: #148cee;
+}
+
+.headwearlink-hero {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #a80f29;
+  background-color: white;
+  margin-left: 0.3em;
+  padding: 0.8em 1em;
+}
+
+.headwearlink-hero:hover {
+  color: white;
+  background-color: #a80f29;
+}
+
+.winter-ring {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);
+  width: 40px;
+  height: 40px;
+}
+
+.winter-ring:hover {
+  color: white;
+}
+
+.featured-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5em 0;
+}
+
+.featured-container img {
+  width: 500px;
+  height: 800px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.featured-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ftrd-text {
+  width: 30em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.ftrd-text h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 0.2em;
+}
+
+.ftrd-text p {
+  color: #757575;
+  margin-bottom: 2.3em;
+  line-height: 1.4em;
+}
+
+.first-link {
+  text-decoration: none;
+  color: black;
+  border: 1px solid #222121;
+  padding: 1em 1em;
+}
+
+.first-link:hover {
+  color: white;
+  background-color: #222121;
+}
+
+.second-link {
+  text-decoration: none;
+  color: #a80f29;
+  border: 1px solid #a80f29;
+  padding: 1em 1em;
+}
+
+.second-link:hover {
+  color: white;
+  background-color: #a80f29;
+}
+
+.genderland-container {
+  background-color: #a80f29;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 4em;
+  padding: 4em 7.5em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.genderland-container div {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.genderland-container div:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.genderland-container div > * {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+
+.genderland-container img {
+  width: 350px;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.genderland-container h1 {
+  font-size: 2rem;
+  margin-top: 0.7em;
+}
+
+.stories-container {
+  padding-top: 10em;
+  padding-left: 7em;
+  padding-right: 7em;
+}
+
+.stories-container img {
+  width: 300px;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1em;
+}
+
+.stories-container h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  text-decoration: underline;
+  margin-bottom: 1.5em;
+}
+
+.stories-container section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.story {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50em;
+  padding: 2em;
+  margin-bottom: 7em;
+}
+
+.story p {
+  font-style: italic;
+  text-align: justify;
+  margin-bottom: 1em;
+}
+
+.story h3 {
+  border-bottom: 2px solid #a80f29;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.5em;
+}
+
+.story1-text {
+  margin-left: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.story2-text {
+  margin-right: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 /*# sourceMappingURL=landing.css.map */

@@ -13,7 +13,7 @@ const Footer = ({ viewCart }) => {
 
       <div className="footer-copyright">
         <p>© Copyright 2021 Definitely Not Levi's</p>
-        <p>All rights reserved.</p>
+        <p>All Rights Reserved.</p>
       </div>
     </footer>
   );

@@ -208,12 +208,17 @@
 .related-item button {
   border: none;
   background: none;
-  cursor: pointer;
 }
 
-.related-item button p {
+.clothingitem-name {
   text-align: start;
+  text-decoration: none;
+  color: black;
   font-size: 1rem;
+}
+
+.clothingitem-name p:hover {
+  color: #a80f29;
 }
 
 .related-price {

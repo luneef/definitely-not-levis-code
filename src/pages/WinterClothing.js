@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/clothing/clothing.css";
 import snowflake from "../assets/images/snowflake.png";
@@ -13,7 +13,6 @@ const WinterClothing = ({ viewCart }) => {
   const [menWinter, setMenWinter] = useState([]);
   const [womenWinter, setWomenWinter] = useState([]);
 
-  const history = useHistory();
   let { id } = useParams();
 
   useEffect(() => {
@@ -139,30 +138,34 @@ const WinterClothing = ({ viewCart }) => {
         </button>
       </section>
 
-      <section className="clothing-display">
+      <section
+        style={viewCart ? { marginLeft: "16em" } : {}}
+        className="clothing-display"
+      >
         {clotheType.map((item) => {
           return (
             <div className="clothing-item" key={item.id}>
-              <button
-                onClick={() =>
-                  history.push(`/winter-collection/item/${item.id}`)
-                }
-              >
-                <img src={item.media.source} alt={item.name} />
+              <button>
+                <Link
+                  className="clothingitem-name"
+                  to={`/winter-collection/item/${item.id}`}
+                >
+                  <img src={item.media.source} alt={item.name} />
 
-                <p style={{ color: "rgb(20, 140, 238)" }}>
-                  Winter Collection
-                  <img
-                    style={{
-                      width: "15px",
-                      height: "15px",
-                      marginLeft: "0.1em",
-                    }}
-                    src={snowflake}
-                    alt="snowflake"
-                  />
-                </p>
-                <p>{item.name}</p>
+                  <p style={{ color: "rgb(20, 140, 238)" }}>
+                    Winter Collection
+                    <img
+                      style={{
+                        width: "15px",
+                        height: "15px",
+                        marginLeft: "0.1em",
+                      }}
+                      src={snowflake}
+                      alt="snowflake"
+                    />
+                  </p>
+                  <p>{item.name}</p>
+                </Link>
               </button>
 
               <p className="clothingitem-price">

@@ -37,21 +37,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-left: 12em;
-  margin-right: 5em;
-  // background-color: aquamarine;
+  margin-left: 14.3em;
+  transition: 0.5s;
 }
 
 .clothing-item {
   width: 230px;
-  margin-left: 2em;
-  margin-right: 2em;
+  margin-right: 5em;
   margin-bottom: 3em;
   display: flex;
   flex-direction: column;
   transition: transform 0.2s;
-  // background-color: aquamarine;
-  //word-wrap: break-word;
 
   &:hover {
     transform: scale(1.1);
@@ -60,22 +56,23 @@
   button {
     border: none;
     background: none;
-    cursor: pointer;
-
-    p {
-      text-align: start;
-      font-size: 1rem;
-
-      &:hover {
-        color: rgb(116, 8, 8);
-      }
-    }
   }
 
   img {
     width: 230px;
     height: 330px;
     object-fit: cover;
+  }
+}
+
+.clothingitem-name {
+  text-align: start;
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+
+  p:hover {
+    color: #a80f29;
   }
 }
 

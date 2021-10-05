@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/item/item.css";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
@@ -13,7 +13,6 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
   const [photoSelector, setPhotoSelector] = useState(0);
   const [selectedPhoto, setSelectedPhoto] = useState({});
 
-  const history = useHistory();
   let { id } = useParams();
   const navRef = useRef();
 
@@ -228,12 +227,16 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
             {item.related_products.map((product) => {
               return (
                 <div className="related-item" key={product.id}>
-                  <button
-                    onClick={() => history.push(`/related-item/${product.id}`)}
-                  >
-                    <img src={product.media.source} alt={product.name} />
-                    <p>{product.name}</p>
+                  <button>
+                    <Link
+                      className="clothingitem-name"
+                      to={`/related-item/${product.id}`}
+                    >
+                      <img src={product.media.source} alt={product.name} />
+                      <p>{product.name}</p>
+                    </Link>
                   </button>
+
                   <p className="related-price">
                     {product.price.formatted_with_symbol}
                   </p>

@@ -53,14 +53,14 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-left: 12em;
-  margin-right: 5em;
+  margin-left: 14.3em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .clothing-item {
   width: 230px;
-  margin-left: 2em;
-  margin-right: 2em;
+  margin-right: 5em;
   margin-bottom: 3em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,16 +83,6 @@
 .clothing-item button {
   border: none;
   background: none;
-  cursor: pointer;
-}
-
-.clothing-item button p {
-  text-align: start;
-  font-size: 1rem;
-}
-
-.clothing-item button p:hover {
-  color: #740808;
 }
 
 .clothing-item img {
@@ -100,6 +90,17 @@
   height: 330px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.clothingitem-name {
+  text-align: start;
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.clothingitem-name p:hover {
+  color: #a80f29;
 }
 
 .clothingitem-price {

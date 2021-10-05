@@ -192,12 +192,17 @@
   button {
     border: none;
     background: none;
-    cursor: pointer;
+  }
+}
 
-    p {
-      text-align: start;
-      font-size: 1rem;
-    }
+.clothingitem-name {
+  text-align: start;
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+
+  p:hover {
+    color: #a80f29;
   }
 }
 

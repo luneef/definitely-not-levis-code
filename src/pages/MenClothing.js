@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/clothing/clothing.css";
 
@@ -14,7 +14,6 @@ const MenClothing = ({ viewCart }) => {
   const [shorts, setShorts] = useState([]);
   const [headwear, setHeadwear] = useState([]);
 
-  const history = useHistory();
   let { id } = useParams();
 
   useEffect(() => {
@@ -178,13 +177,18 @@ const MenClothing = ({ viewCart }) => {
         </button>
       </section>
 
-      <section className="clothing-display">
+      <section
+        style={viewCart ? { marginLeft: "16em" } : {}}
+        className="clothing-display"
+      >
         {clotheType.map((item) => {
           return (
             <div className="clothing-item" key={item.id}>
-              <button onClick={() => history.push(`/men/item/${item.id}`)}>
-                <img src={item.media.source} alt={item.name} />
-                <p>{item.name}</p>
+              <button>
+                <Link className="clothingitem-name" to={`/men/item/${item.id}`}>
+                  <img src={item.media.source} alt={item.name} />
+                  <p>{item.name}</p>
+                </Link>
               </button>
 
               <p className="clothingitem-price">

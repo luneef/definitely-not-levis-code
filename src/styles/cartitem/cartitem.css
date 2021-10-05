@@ -117,6 +117,10 @@
           align-items: center;
 }
 
+.cart-bottom p {
+  font-size: 1.5rem;
+}
+
 .cart-bottom span {
   color: white;
   font-size: 2.3rem;

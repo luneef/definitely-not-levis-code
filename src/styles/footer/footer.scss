@@ -12,17 +12,24 @@
   transition: 0.5s;
 }
 
-.about-link {
+.flinks-container {
+  margin-top: 2.5em;
+}
+
+.footer-links {
   text-decoration: none;
   color: white;
-  font-size: 1.5rem;
-  margin-top: 1.5em;
+  padding-bottom: 0.2em;
+
+  background-color: transparent;
+  background-image: linear-gradient(white, white);
+  background-size: 0 2px, auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transition: all 0.2s ease-out;
 
   &:hover {
-    background-color: white;
-    border-radius: 1em;
-    padding: 0 0.5em;
-    color: #a80f29;
+    background-size: 100% 2px, auto;
   }
 }
 
@@ -32,4 +39,48 @@
   flex-direction: column;
   align-items: center;
   margin-top: 2em;
+}
+
+.cookie-warning {
+  background-color: #a80f29;
+  position: fixed;
+  top: 100%;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5em 2em;
+  border: 2px solid white;
+  transition: 0.5s;
+
+  p {
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+
+  button {
+    border: none;
+    background-color: white;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    margin-right: 1em;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(211, 210, 210);
+    }
+  }
+}
+
+.privacy-warn {
+  text-decoration: none;
+  color: white;
+  background-color: rgb(158, 156, 156);
+  padding: 0.42em 1em;
+
+  &:hover {
+    background-color: rgb(88, 87, 87);
+    //color: black;
+  }
 }

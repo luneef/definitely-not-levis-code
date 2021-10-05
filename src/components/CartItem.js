@@ -101,9 +101,7 @@ const CartItem = ({
       })}
 
       <div className="cart-bottom">
-        <p style={viewCart ? { fontSize: "1.5rem" } : {}}>
-          - - - - - - - - - - - - - - - -
-        </p>
+        <p>- - - - - - - - - - - - - - - -</p>
 
         <h2>
           Total: <span>{cart.subtotal.formatted_with_symbol}</span>

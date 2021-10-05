@@ -35,6 +35,7 @@ const Header = ({
 
         <div className="actions-nav">
           <img
+            style={viewCart ? { top: "-1px" } : {}}
             className="winter-label"
             src={winternewlabel}
             alt="winter label"

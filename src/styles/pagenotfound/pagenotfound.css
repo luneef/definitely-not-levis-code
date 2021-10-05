@@ -1,0 +1,33 @@
+.pagenotfound-main {
+  padding: 8em 5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.pagenotfound-main p {
+  font-size: 1.5rem;
+  margin-top: 1em;
+}
+
+.pagenotfound-main div {
+  font-size: 1.5rem;
+}
+
+.pnfsticker {
+  width: 300px;
+}
+
+.oops {
+  width: 130px;
+}
+/*# sourceMappingURL=pagenotfound.css.map */

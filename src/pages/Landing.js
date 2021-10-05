@@ -26,8 +26,6 @@ const Landing = ({ viewCart }) => {
     // eslint-disable-next-line
   }, []);
 
-  console.log(allClothes);
-
   return (
     <main
       style={viewCart ? { marginRight: "270px" } : {}}
@@ -124,7 +122,8 @@ const Landing = ({ viewCart }) => {
               Fashion is part of the daily air and it changes all the time, with
               all the events. You can even see the approaching of a revolution
               in clothes. You can see and feel everything in clothes.
-              <p style={{ fontStyle: "italic" }}>- Diana Vreeland</p>
+              <br />
+              <span style={{ fontStyle: "italic" }}>- Diana Vreeland</span>
             </p>
 
             <Link className="second-link" to="/women/item/prod_VPvL5z30LOlAQk">

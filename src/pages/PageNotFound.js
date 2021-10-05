@@ -1,10 +1,19 @@
-const PageNotFound = () => {
+import "../styles/pagenotfound/pagenotfound.css";
+import pagenotfoundimg from "../assets/images/pagenotfound.png";
+import oops from "../assets/images/ooops.png";
+
+const PageNotFound = ({ viewCart }) => {
   return (
-    <div style={{ paddingTop: "10em" }}>
-      <h2>PAGE NOT FOUND</h2>
-      <h2>Oooops, look like somthin happend</h2>
-      <h3>Being redireted to main item</h3>
-    </div>
+    <main
+      style={viewCart ? { marginRight: "270px" } : {}}
+      className="pagenotfound-main"
+    >
+      <img className="pnfsticker" src={pagenotfoundimg} alt="Page Not Found" />
+      <img className="oops" src={oops} alt="Oops" />
+
+      <p>Looks like the page doesn't exist.</p>
+      <div>Try going back.</div>
+    </main>
   );
 };
 

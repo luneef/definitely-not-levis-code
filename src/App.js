@@ -14,6 +14,7 @@ import Loading from "./components/Loading";
 import Checkout from "./components/Checkout";
 import RelatedProduct from "./pages/RelatedProduct";
 import WinterClothing from "./pages/WinterClothing";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const App = () => {
   const [cart, setCart] = useState(null);
@@ -405,8 +406,12 @@ const App = () => {
           <About viewCart={viewCart} />
         </Route>
 
+        <Route exact path="/privacy-policy">
+          <PrivacyPolicy viewCart={viewCart} />
+        </Route>
+
         <Route exact path="*">
-          <PageNotFound />
+          <PageNotFound viewCart={viewCart} />
         </Route>
       </Switch>
 

@@ -1,4 +1,5 @@
 .pagenotfound-main {
+  min-height: 100vh;
   padding: 8em 5em;
   display: -webkit-box;
   display: -ms-flexbox;

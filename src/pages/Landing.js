@@ -5,11 +5,15 @@ import winterHero from "../assets/images/winterheroimg.jpg";
 import headwearHero from "../assets/images/headwearheroimg.jpg";
 import storyimg1 from "../assets/images/storypic1.jpg";
 import storyimg2 from "../assets/images/storypic2.jpg";
+import ftr1img from "../assets/images/landingproducts/darkgraceimg.jpg";
+import ftr2img from "../assets/images/landingproducts/harlemimg.jpg";
+import menimg from "../assets/images/landingproducts/levishirtimg.jpg";
+import womenimg from "../assets/images/landingproducts/blackjackimg.jpg";
+import uniseximg from "../assets/images/landingproducts/koleidimg.jpg";
 import { FaGenderless } from "react-icons/fa";
 
 const Landing = ({ viewCart }) => {
   const [hero, setHero] = useState("");
-  const [allClothes, setAllClothes] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -17,8 +21,6 @@ const Landing = ({ viewCart }) => {
     document.title = `Definitely Not Levi's - Home`;
 
     setHero(winterHero);
-
-    setAllClothes(JSON.parse(localStorage.getItem("allClothes")));
 
     const timer = setTimeout(() => {
       setHero(headwearHero);
@@ -33,16 +35,6 @@ const Landing = ({ viewCart }) => {
       style={viewCart ? { marginRight: "270px" } : {}}
       className="landing-main"
     >
-      {allClothes ? (
-        <div className="all-image">
-          {allClothes.map((item) => (
-            <img key={item.id} src={item.media.source} alt="Item Cache" />
-          ))}
-        </div>
-      ) : (
-        ""
-      )}
-
       <section
         className="hero-container"
         style={{ backgroundImage: `url(${hero})` }}
@@ -88,14 +80,7 @@ const Landing = ({ viewCart }) => {
 
       <section className="featured-container">
         <div style={{ marginBottom: "8em" }} className="featured-item">
-          {allClothes.length ? (
-            <img
-              src={allClothes[147].media.source}
-              alt="Grace Ultra Dark Jacket"
-            />
-          ) : (
-            ""
-          )}
+          <img src={ftr1img} alt="Grace Ultra Dark Jacket" />
 
           <div
             style={viewCart ? { marginLeft: "7em" } : { marginLeft: "10em" }}
@@ -133,11 +118,7 @@ const Landing = ({ viewCart }) => {
             </Link>
           </div>
 
-          {allClothes.length ? (
-            <img src={allClothes[120].media.source} alt=" Harlem NYC T-Shirt" />
-          ) : (
-            ""
-          )}
+          <img src={ftr2img} alt=" Harlem NYC T-Shirt" />
         </div>
       </section>
 
@@ -147,11 +128,7 @@ const Landing = ({ viewCart }) => {
       >
         <div>
           <Link to="/men/all">
-            {allClothes.length ? (
-              <img src={allClothes[21].media.source} alt="Men" />
-            ) : (
-              ""
-            )}
+            <img src={menimg} alt="Men" />
 
             <h1>
               <span style={{ fontWeight: "100" }}>Shop / </span>MEN
@@ -161,11 +138,7 @@ const Landing = ({ viewCart }) => {
 
         <div>
           <Link to="/women/all">
-            {allClothes.length ? (
-              <img src={allClothes[103].media.source} alt="Women" />
-            ) : (
-              ""
-            )}
+            <img src={womenimg} alt="Women" />
 
             <h1>
               <span style={{ fontWeight: "100" }}>Shop / </span>WOMEN
@@ -175,11 +148,7 @@ const Landing = ({ viewCart }) => {
 
         <div>
           <Link to="/unisex/all">
-            {allClothes.length ? (
-              <img src={allClothes[153].media.source} alt="Unisex" />
-            ) : (
-              ""
-            )}
+            <img src={uniseximg} alt="Unisex" />
 
             <h1>
               <span style={{ fontWeight: "100" }}>Shop / </span>UNISEX

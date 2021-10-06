@@ -72,7 +72,7 @@ const UnisexClothing = ({ viewCart }) => {
     // eslint-disable-next-line
   }, [id]);
 
-  if (!clotheType.length) {
+  if (!clotheType) {
     return <Loading />;
   }
   return (

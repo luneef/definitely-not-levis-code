@@ -78,7 +78,9 @@ const MenClothing = ({ viewCart }) => {
     // eslint-disable-next-line
   }, [id]);
 
-  if (!clotheType.length) {
+  console.log(menClothes);
+
+  if (!clotheType) {
     return <Loading />;
   }
 

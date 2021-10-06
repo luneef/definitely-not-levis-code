@@ -27,262 +27,393 @@ const App = () => {
   // -------------- Fetch All Clothes ---------------------
 
   const fetchAllClothes = async () => {
-    const { data } = await commerce.products.list({ limit: 190 });
-
-    localStorage.setItem("allClothes", JSON.stringify(data));
+    try {
+      const { data } = await commerce.products.list({ limit: 190 });
+      localStorage.setItem("allClothes", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // -------------- Fetch Men Clothes ---------------------
 
   const fetchMenClothes = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["men"],
-      limit: 100,
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["men"],
+        limit: 100,
+      });
 
-    localStorage.setItem("menClothes", JSON.stringify(data));
+      localStorage.setItem("menClothes", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchMenJackets = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["men", "jackets"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["men", "jackets"],
+      });
 
-    localStorage.setItem("menJackets", JSON.stringify(data));
+      localStorage.setItem("menJackets", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchMenSleeves = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["men", "longsleeves"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["men", "longsleeves"],
+      });
 
-    localStorage.setItem("menSleeves", JSON.stringify(data));
+      localStorage.setItem("menSleeves", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchMenShirts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["men", "shirts"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["men", "shirts"],
+      });
 
-    localStorage.setItem("menShirts", JSON.stringify(data));
+      localStorage.setItem("menShirts", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchMenPants = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["men", "pants"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["men", "pants"],
+      });
 
-    localStorage.setItem("menPants", JSON.stringify(data));
+      localStorage.setItem("menPants", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchMenShorts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["men", "shorts"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["men", "shorts"],
+      });
 
-    localStorage.setItem("menShorts", JSON.stringify(data));
+      localStorage.setItem("menShorts", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchMenHeadwear = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["men", "headwear"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["men", "headwear"],
+      });
 
-    localStorage.setItem("menHeadwear", JSON.stringify(data));
+      localStorage.setItem("menHeadwear", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // -------------- Fetch Women Clothes ---------------------
 
   const fetchWomenClothes = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["women"],
-      limit: 100,
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["women"],
+        limit: 100,
+      });
 
-    localStorage.setItem("womenClothes", JSON.stringify(data));
+      localStorage.setItem("womenClothes", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWomenJackets = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["women", "jackets"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["women", "jackets"],
+      });
 
-    localStorage.setItem("womenJackets", JSON.stringify(data));
+      localStorage.setItem("womenJackets", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWomenShirts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["women", "shirts"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["women", "shirts"],
+      });
 
-    localStorage.setItem("womenShirts", JSON.stringify(data));
+      localStorage.setItem("womenShirts", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWomenPants = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["women", "pants"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["women", "pants"],
+      });
 
-    localStorage.setItem("womenPants", JSON.stringify(data));
+      localStorage.setItem("womenPants", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWomenShorts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["women", "shorts"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["women", "shorts"],
+      });
 
-    localStorage.setItem("womenShorts", JSON.stringify(data));
+      localStorage.setItem("womenShorts", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWomenDresses = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["women", "dresses"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["women", "dresses"],
+      });
 
-    localStorage.setItem("womenDresses", JSON.stringify(data));
+      localStorage.setItem("womenDresses", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWomenSweatshirts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["women", "sweatshirts"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["women", "sweatshirts"],
+      });
 
-    localStorage.setItem("womenSweatshirts", JSON.stringify(data));
+      localStorage.setItem("womenSweatshirts", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWomenTops = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["women", "tops"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["women", "tops"],
+      });
 
-    localStorage.setItem("womenTops", JSON.stringify(data));
+      localStorage.setItem("womenTops", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWomenHeadwear = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["women", "headwear"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["women", "headwear"],
+      });
 
-    localStorage.setItem("womenHeadwear", JSON.stringify(data));
+      localStorage.setItem("womenHeadwear", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // -------------- Fetch Unisex Clothes -------------------
 
   const fetchUnisexClothes = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["unisex"],
-      limit: 100,
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["unisex"],
+        limit: 100,
+      });
 
-    localStorage.setItem("unisexClothes", JSON.stringify(data));
+      localStorage.setItem("unisexClothes", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchUnisexJackets = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["unisex", "jackets"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["unisex", "jackets"],
+      });
 
-    localStorage.setItem("unisexJackets", JSON.stringify(data));
+      localStorage.setItem("unisexJackets", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchUnisexSweatshirts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["unisex", "sweatshirts"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["unisex", "sweatshirts"],
+      });
 
-    localStorage.setItem("unisexSweatshirts", JSON.stringify(data));
+      localStorage.setItem("unisexSweatshirts", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchUnisexShirts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["unisex", "shirts"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["unisex", "shirts"],
+      });
 
-    localStorage.setItem("unisexShirts", JSON.stringify(data));
+      localStorage.setItem("unisexShirts", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchUnisexPants = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["unisex", "pants"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["unisex", "pants"],
+      });
 
-    localStorage.setItem("unisexPants", JSON.stringify(data));
+      localStorage.setItem("unisexPants", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchUnisexHeadwear = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["unisex", "headwear"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["unisex", "headwear"],
+      });
 
-    localStorage.setItem("unisexHeadwear", JSON.stringify(data));
+      localStorage.setItem("unisexHeadwear", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // -------------- Fetch Winter Collection ---------------
 
   const fetchWinterClothes = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["winter"],
-      limit: 100,
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["winter"],
+        limit: 100,
+      });
 
-    localStorage.setItem("winterClothes", JSON.stringify(data));
+      localStorage.setItem("winterClothes", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWinterKidsClothes = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["winter", "winterkid"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["winter", "winterkid"],
+      });
 
-    localStorage.setItem("winterKidClothes", JSON.stringify(data));
+      localStorage.setItem("winterKidClothes", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWinterMenClothes = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["winter", "wintermen"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["winter", "wintermen"],
+      });
 
-    localStorage.setItem("winterMenClothes", JSON.stringify(data));
+      localStorage.setItem("winterMenClothes", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchWinterWomenClothes = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["winter", "winterwoman"],
-    });
+    try {
+      const { data } = await commerce.products.list({
+        category_slug: ["winter", "winterwoman"],
+      });
 
-    localStorage.setItem("winterWomenClothes", JSON.stringify(data));
+      localStorage.setItem("winterWomenClothes", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // ------------------------ CART ---------------------
 
   const fetchCart = async () => {
-    setCart(await commerce.cart.retrieve());
+    try {
+      setCart(await commerce.cart.retrieve());
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const addToCart = async (productId, quantity, variantID, optionID) => {
-    const { cart } = await commerce.cart.add(productId, quantity, {
-      [variantID]: optionID,
-    });
-    setCart(cart);
+    try {
+      const { cart } = await commerce.cart.add(productId, quantity, {
+        [variantID]: optionID,
+      });
+      setCart(cart);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const removeItemFromCart = async (productId) => {
-    const { cart } = await commerce.cart.remove(productId);
-    setCart(cart);
+    try {
+      const { cart } = await commerce.cart.remove(productId);
+      setCart(cart);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const emptyCart = async () => {
-    const { cart } = await commerce.cart.empty();
-    setCart(cart);
+    try {
+      const { cart } = await commerce.cart.empty();
+      setCart(cart);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const refreshCart = async () => {
-    const newCart = await commerce.cart.refresh();
-    setCart(newCart);
+    try {
+      const newCart = await commerce.cart.refresh();
+      setCart(newCart);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const updateItemQuantity = async (productId, quantity) => {
-    const { cart } = await commerce.cart.update(productId, { quantity });
-    setCart(cart);
+    try {
+      const { cart } = await commerce.cart.update(productId, { quantity });
+      setCart(cart);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const captureCheckout = async (checkoutTokenID, newOrder) => {

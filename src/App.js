@@ -303,37 +303,37 @@ const App = () => {
   useEffect(() => {
     fetchCart();
 
-    // fetchAllClothes();
+    fetchAllClothes();
 
-    // fetchWinterClothes();
-    // fetchWinterKidsClothes();
-    // fetchWinterMenClothes();
-    // fetchWinterWomenClothes();
+    fetchWinterClothes();
+    fetchWinterKidsClothes();
+    fetchWinterMenClothes();
+    fetchWinterWomenClothes();
 
-    // fetchMenClothes();
-    // fetchMenJackets();
-    // fetchMenSleeves();
-    // fetchMenShirts();
-    // fetchMenPants();
-    // fetchMenShorts();
-    // fetchMenHeadwear();
+    fetchMenClothes();
+    fetchMenJackets();
+    fetchMenSleeves();
+    fetchMenShirts();
+    fetchMenPants();
+    fetchMenShorts();
+    fetchMenHeadwear();
 
-    // fetchWomenClothes();
-    // fetchWomenJackets();
-    // fetchWomenShirts();
-    // fetchWomenSweatshirts();
-    // fetchWomenDresses();
-    // fetchWomenPants();
-    // fetchWomenShorts();
-    // fetchWomenTops();
-    // fetchWomenHeadwear();
+    fetchWomenClothes();
+    fetchWomenJackets();
+    fetchWomenShirts();
+    fetchWomenSweatshirts();
+    fetchWomenDresses();
+    fetchWomenPants();
+    fetchWomenShorts();
+    fetchWomenTops();
+    fetchWomenHeadwear();
 
-    // fetchUnisexClothes();
-    // fetchUnisexJackets();
-    // fetchUnisexSweatshirts();
-    // fetchUnisexShirts();
-    // fetchUnisexPants();
-    // fetchUnisexHeadwear();
+    fetchUnisexClothes();
+    fetchUnisexJackets();
+    fetchUnisexSweatshirts();
+    fetchUnisexShirts();
+    fetchUnisexPants();
+    fetchUnisexHeadwear();
   }, []);
 
   if (!cart) {

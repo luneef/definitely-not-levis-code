@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/clothing/clothing.css";
 import snowflake from "../assets/images/snowflake.png";
 import winterbg from "../assets/images/winterbg.png";
 
 const WinterClothing = ({ viewCart }) => {
-  const [categoryID, setCategoryID] = useState("");
   const [clotheType, setClotheType] = useState([]);
   const [winterClothes, setWinterClothes] = useState([]);
   const [kidWinter, setKidWinter] = useState([]);
   const [menWinter, setMenWinter] = useState([]);
   const [womenWinter, setWomenWinter] = useState([]);
 
+  const history = useHistory();
   let { id } = useParams();
 
   useEffect(() => {
@@ -20,8 +20,6 @@ const WinterClothing = ({ viewCart }) => {
     setKidWinter(JSON.parse(localStorage.getItem("winterKidClothes")));
     setMenWinter(JSON.parse(localStorage.getItem("winterMenClothes")));
     setWomenWinter(JSON.parse(localStorage.getItem("winterWomenClothes")));
-
-    setCategoryID(id);
 
     // eslint-disable-next-line
   }, []);
@@ -43,6 +41,8 @@ const WinterClothing = ({ viewCart }) => {
   }, [womenWinter]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     if (id === "all") {
       setClotheType(winterClothes);
     } else if (id === "kids") {
@@ -55,14 +55,8 @@ const WinterClothing = ({ viewCart }) => {
       setClotheType(winterClothes);
     }
 
-    setCategoryID(id);
-
     // eslint-disable-next-line
   }, [id]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [categoryID]);
 
   if (!clotheType.length) {
     return <Loading />;
@@ -90,48 +84,40 @@ const WinterClothing = ({ viewCart }) => {
     >
       <section className="category-list">
         <button
-          style={
-            categoryID === "all" ? { backgroundSize: "100% 3px, auto" } : {}
-          }
+          style={id === "all" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
             setClotheType(winterClothes);
-            setCategoryID("all");
+            history.push("/winter-collection/all");
           }}
         >
           All
         </button>
 
         <button
-          style={
-            categoryID === "kids" ? { backgroundSize: "100% 3px, auto" } : {}
-          }
+          style={id === "kids" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
             setClotheType(kidWinter);
-            setCategoryID("kids");
+            history.push("/winter-collection/kids");
           }}
         >
           Kids
         </button>
 
         <button
-          style={
-            categoryID === "men" ? { backgroundSize: "100% 3px, auto" } : {}
-          }
+          style={id === "men" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
             setClotheType(menWinter);
-            setCategoryID("men");
+            history.push("/winter-collection/men");
           }}
         >
           Men
         </button>
 
         <button
-          style={
-            categoryID === "women" ? { backgroundSize: "100% 3px, auto" } : {}
-          }
+          style={id === "women" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
             setClotheType(womenWinter);
-            setCategoryID("women");
+            history.push("/winter-collection/women");
           }}
         >
           Women

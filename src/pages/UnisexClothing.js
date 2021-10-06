@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/clothing/clothing.css";
 
 const UnisexClothing = ({ viewCart }) => {
-  const [categoryID, setCategoryID] = useState("");
   const [clotheType, setClotheType] = useState([]);
   const [unisexClothes, setUnisexClothes] = useState([]);
   const [jackets, setJackets] = useState([]);
@@ -13,6 +12,7 @@ const UnisexClothing = ({ viewCart }) => {
   const [sweatshirts, setSweatshirts] = useState([]);
   const [headwear, setHeadwear] = useState([]);
 
+  const history = useHistory();
   let { id } = useParams();
 
   useEffect(() => {
@@ -22,8 +22,6 @@ const UnisexClothing = ({ viewCart }) => {
     setPants(JSON.parse(localStorage.getItem("unisexPants")));
     setSweatshirts(JSON.parse(localStorage.getItem("unisexSweatshirts")));
     setHeadwear(JSON.parse(localStorage.getItem("unisexHeadwear")));
-
-    setCategoryID(id);
 
     // eslint-disable-next-line
   }, []);
@@ -49,6 +47,8 @@ const UnisexClothing = ({ viewCart }) => {
   }, [headwear]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     if (id === "all") {
       setClotheType(unisexClothes);
     } else if (id === "jackets") {
@@ -65,14 +65,8 @@ const UnisexClothing = ({ viewCart }) => {
       setClotheType(unisexClothes);
     }
 
-    setCategoryID(id);
-
     // eslint-disable-next-line
   }, [id]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [categoryID]);
 
   if (!clotheType.length) {
     return <Loading />;
@@ -84,24 +78,20 @@ const UnisexClothing = ({ viewCart }) => {
     >
       <section className="category-list">
         <button
-          style={
-            categoryID === "all" ? { backgroundSize: "100% 3px, auto" } : {}
-          }
+          style={id === "all" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
             setClotheType(unisexClothes);
-            setCategoryID("all");
+            history.push("/unisex/all");
           }}
         >
           All
         </button>
 
         <button
-          style={
-            categoryID === "jackets" ? { backgroundSize: "100% 3px, auto" } : {}
-          }
+          style={id === "jackets" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
             setClotheType(jackets);
-            setCategoryID("jackets");
+            history.push("/unisex/jackets");
           }}
         >
           Jackets
@@ -109,51 +99,41 @@ const UnisexClothing = ({ viewCart }) => {
 
         <button
           style={
-            categoryID === "sweatshirts"
-              ? { backgroundSize: "100% 3px, auto" }
-              : {}
+            id === "sweatshirts" ? { backgroundSize: "100% 3px, auto" } : {}
           }
           onClick={() => {
             setClotheType(sweatshirts);
-            setCategoryID("sweatshirts");
+            history.push("/unisex/sweatshirts");
           }}
         >
           Sweatshirts
         </button>
 
         <button
-          style={
-            categoryID === "shirts" ? { backgroundSize: "100% 3px, auto" } : {}
-          }
+          style={id === "shirts" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
             setClotheType(shirts);
-            setCategoryID("shirts");
+            history.push("/unisex/shirts");
           }}
         >
           T-Shirts
         </button>
 
         <button
-          style={
-            categoryID === "pants" ? { backgroundSize: "100% 3px, auto" } : {}
-          }
+          style={id === "pants" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
             setClotheType(pants);
-            setCategoryID("pants");
+            history.push("/unisex/pants");
           }}
         >
           Pants
         </button>
 
         <button
-          style={
-            categoryID === "headwear"
-              ? { backgroundSize: "100% 3px, auto" }
-              : {}
-          }
+          style={id === "headwear" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
             setClotheType(headwear);
-            setCategoryID("headwear");
+            history.push("/unisex/headwear");
           }}
         >
           Headwear

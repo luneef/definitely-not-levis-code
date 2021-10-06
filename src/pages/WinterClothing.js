@@ -41,6 +41,10 @@ const WinterClothing = ({ viewCart }) => {
   }, [womenWinter]);
 
   useEffect(() => {
+    document.title = `Definitely Not Levi's - Winter Collection - ${
+      id.charAt(0).toUpperCase() + id.substring(1)
+    }`;
+
     window.scrollTo(0, 0);
 
     if (id === "all") {

@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/item/item.css";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import PageNotFound from "./PageNotFound";
 
 const RelatedProduct = ({ viewCart, addToCart }) => {
   const [item, setItem] = useState(null);
@@ -52,22 +53,34 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
       (item) => item.id === id
     );
 
-    setItem(matched[0]);
+    if (matched.length) {
+      setItem(matched[0]);
+
+      document.title = `${matched[0].name} - Definitely Not Levi's`;
+    } else {
+      setItem({ id: "" });
+    }
+
+    if (navRef.current) {
+      navRef.current.scrollLeft = 0;
+    }
 
     // eslint-disable-next-line
   }, [id]);
 
   useEffect(() => {
     if (item) {
-      const { options } = item.variant_groups[0];
-      setSizes(options);
-      setSizeID(options[0].id);
-      setPrice(options[0].price.formatted_with_symbol);
+      if (item.id) {
+        const { options } = item.variant_groups[0];
+        setSizes(options);
+        setSizeID(options[0].id);
+        setPrice(options[0].price.formatted_with_symbol);
 
-      const { assets } = item;
-      setPhotos(assets);
+        const { assets } = item;
+        setPhotos(assets);
 
-      setSelectedPhoto(item.assets[0].url);
+        setSelectedPhoto(item.assets[0].url);
+      }
     }
 
     // eslint-disable-next-line
@@ -82,7 +95,19 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
     // eslint-disable-next-line
   }, [photoSelector]);
 
-  console.log(id);
+  useEffect(() => {
+    if (navRef.current) {
+      navRef.current.scrollLeft = 0;
+    }
+
+    // eslint-disable-next-line
+  }, [navRef.current]);
+
+  if (item) {
+    if (!item.id) {
+      return <PageNotFound />;
+    }
+  }
 
   if (!item) {
     return <Loading />;
@@ -209,7 +234,7 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
         {item.related_products.length > 3 ? (
           <button
             className="scroll-btn left-btn"
-            onClick={() => scrollHandler(-200)}
+            onClick={() => scrollHandler(-800)}
           >
             <BsChevronCompactLeft />
           </button>
@@ -249,7 +274,7 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
         {item.related_products.length > 3 ? (
           <button
             className="scroll-btn right-btn"
-            onClick={() => scrollHandler(200)}
+            onClick={() => scrollHandler(800)}
           >
             <BsChevronCompactRight />
           </button>

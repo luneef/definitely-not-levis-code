@@ -5,6 +5,8 @@ import oops from "../assets/images/ooops.png";
 
 const PageNotFound = ({ viewCart }) => {
   useEffect(() => {
+    document.title = `Definitely Not Levi's - Not Found`;
+
     window.scrollTo(0, 0);
   }, []);
 
@@ -16,7 +18,7 @@ const PageNotFound = ({ viewCart }) => {
       <img className="pnfsticker" src={pagenotfoundimg} alt="Page Not Found" />
       <img className="oops" src={oops} alt="Oops" />
 
-      <p>Looks like the page doesn't exist.</p>
+      <p>Looks like the page or item doesn't exist.</p>
       <div>Try going back.</div>
     </main>
   );

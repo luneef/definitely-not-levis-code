@@ -47,6 +47,10 @@ const UnisexClothing = ({ viewCart }) => {
   }, [headwear]);
 
   useEffect(() => {
+    document.title = `Definitely Not Levi's - Unisex - ${
+      id.charAt(0).toUpperCase() + id.substring(1)
+    }`;
+
     window.scrollTo(0, 0);
 
     if (id === "all") {

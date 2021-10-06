@@ -3,6 +3,8 @@ import "../styles/privacypolicy/privacy.css";
 
 const PrivacyPolicy = ({ viewCart }) => {
   useEffect(() => {
+    document.title = `Definitely Not Levi's - Privacy Policy`;
+
     window.scrollTo(0, 0);
   }, []);
 

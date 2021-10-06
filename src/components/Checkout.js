@@ -45,6 +45,8 @@ const Checkout = ({ cart, handleCartView, captureCheckout }) => {
   };
 
   useEffect(() => {
+    document.title = `Definitely Not Levi's - Checkout`;
+
     generateToken();
     // eslint-disable-next-line
   }, []);

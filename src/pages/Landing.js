@@ -14,6 +14,8 @@ const Landing = ({ viewCart }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
+    document.title = `Definitely Not Levi's - Home`;
+
     setHero(winterHero);
 
     setAllClothes(JSON.parse(localStorage.getItem("allClothes")));

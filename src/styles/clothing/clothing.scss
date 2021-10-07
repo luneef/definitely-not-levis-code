@@ -80,3 +80,16 @@
   color: gray;
   font-size: 0.9rem;
 }
+
+.clothing-noitems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 26em;
+
+  img {
+    width: 150px;
+    margin-bottom: 0.5em;
+  }
+}

@@ -1,44 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import Loading from "../components/Loading";
 import "../styles/clothing/clothing.css";
 import snowflake from "../assets/images/snowflake.png";
 import winterbg from "../assets/images/winterbg.png";
+import emptybox from "../assets/images/emptybox.png";
 
 const WinterClothing = ({ viewCart }) => {
   const [clotheType, setClotheType] = useState([]);
-  const [winterClothes, setWinterClothes] = useState([]);
-  const [kidWinter, setKidWinter] = useState([]);
-  const [menWinter, setMenWinter] = useState([]);
-  const [womenWinter, setWomenWinter] = useState([]);
-
   const history = useHistory();
   let { id } = useParams();
-
-  useEffect(() => {
-    setWinterClothes(JSON.parse(localStorage.getItem("winterClothes")));
-    setKidWinter(JSON.parse(localStorage.getItem("winterKidClothes")));
-    setMenWinter(JSON.parse(localStorage.getItem("winterMenClothes")));
-    setWomenWinter(JSON.parse(localStorage.getItem("winterWomenClothes")));
-
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    if (id === "all") {
-      setClotheType(winterClothes);
-    } else if (id === "kids") {
-      setClotheType(kidWinter);
-    } else if (id === "men") {
-      setClotheType(menWinter);
-    } else if (id === "women") {
-      setClotheType(womenWinter);
-    } else {
-      setClotheType(winterClothes);
-    }
-
-    // eslint-disable-next-line
-  }, [womenWinter]);
 
   useEffect(() => {
     document.title = `Definitely Not Levi's - Winter Collection - ${
@@ -48,23 +18,27 @@ const WinterClothing = ({ viewCart }) => {
     window.scrollTo(0, 0);
 
     if (id === "all") {
-      setClotheType(winterClothes);
+      if (JSON.parse(localStorage.getItem("winterClothes"))) {
+        setClotheType(JSON.parse(localStorage.getItem("winterClothes")));
+      }
     } else if (id === "kids") {
-      setClotheType(kidWinter);
+      if (JSON.parse(localStorage.getItem("winterKidClothes"))) {
+        setClotheType(JSON.parse(localStorage.getItem("winterKidClothes")));
+      }
     } else if (id === "men") {
-      setClotheType(menWinter);
+      if (JSON.parse(localStorage.getItem("winterMenClothes"))) {
+        setClotheType(JSON.parse(localStorage.getItem("winterMenClothes")));
+      }
     } else if (id === "women") {
-      setClotheType(womenWinter);
+      if (JSON.parse(localStorage.getItem("winterWomenClothes"))) {
+        setClotheType(JSON.parse(localStorage.getItem("winterWomenClothes")));
+      }
     } else {
-      setClotheType(winterClothes);
+      history.push("/notfound");
     }
 
     // eslint-disable-next-line
   }, [id]);
-
-  if (!clotheType) {
-    return <Loading />;
-  }
 
   return (
     <main
@@ -90,7 +64,6 @@ const WinterClothing = ({ viewCart }) => {
         <button
           style={id === "all" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
-            setClotheType(winterClothes);
             history.push("/winter-collection/all");
           }}
         >
@@ -100,7 +73,6 @@ const WinterClothing = ({ viewCart }) => {
         <button
           style={id === "kids" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
-            setClotheType(kidWinter);
             history.push("/winter-collection/kids");
           }}
         >
@@ -110,7 +82,6 @@ const WinterClothing = ({ viewCart }) => {
         <button
           style={id === "men" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
-            setClotheType(menWinter);
             history.push("/winter-collection/men");
           }}
         >
@@ -120,7 +91,6 @@ const WinterClothing = ({ viewCart }) => {
         <button
           style={id === "women" ? { backgroundSize: "100% 3px, auto" } : {}}
           onClick={() => {
-            setClotheType(womenWinter);
             history.push("/winter-collection/women");
           }}
         >
@@ -132,38 +102,49 @@ const WinterClothing = ({ viewCart }) => {
         style={viewCart ? { marginLeft: "16em" } : {}}
         className="clothing-display"
       >
-        {clotheType.map((item) => {
-          return (
-            <div className="clothing-item" key={item.id}>
-              <button>
-                <Link
-                  className="clothingitem-name"
-                  to={`/winter-collection/item/${item.id}`}
-                >
-                  <img src={item.media.source} alt={item.name} />
+        {clotheType.length ? (
+          <>
+            {clotheType.map((item) => {
+              return (
+                <div className="clothing-item" key={item.id}>
+                  <button>
+                    <Link
+                      className="clothingitem-name"
+                      to={`/winter-collection/item/${item.id}`}
+                    >
+                      <img src={item.media.source} alt={item.name} />
 
-                  <p style={{ color: "rgb(20, 140, 238)" }}>
-                    Winter Collection
-                    <img
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        marginLeft: "0.1em",
-                      }}
-                      src={snowflake}
-                      alt="snowflake"
-                    />
+                      <p style={{ color: "rgb(20, 140, 238)" }}>
+                        Winter Collection
+                        <img
+                          style={{
+                            width: "15px",
+                            height: "15px",
+                            marginLeft: "0.1em",
+                          }}
+                          src={snowflake}
+                          alt="snowflake"
+                        />
+                      </p>
+                      <p>{item.name}</p>
+                    </Link>
+                  </button>
+
+                  <p className="clothingitem-price">
+                    {item.price.formatted_with_symbol}
                   </p>
-                  <p>{item.name}</p>
-                </Link>
-              </button>
-
-              <p className="clothingitem-price">
-                {item.price.formatted_with_symbol}
-              </p>
-            </div>
-          );
-        })}
+                </div>
+              );
+            })}
+          </>
+        ) : (
+          <div className="clothing-noitems">
+            <img src={emptybox} alt="Empty box" />
+            <p style={{ fontWeight: "bold" }}>No Items Found !</p>
+            <p>Please try reloading</p>
+            <p>the page.</p>
+          </div>
+        )}
       </section>
     </main>
   );

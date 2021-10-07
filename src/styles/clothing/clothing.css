@@ -107,4 +107,26 @@
   color: gray;
   font-size: 0.9rem;
 }
+
+.clothing-noitems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 26em;
+}
+
+.clothing-noitems img {
+  width: 150px;
+  margin-bottom: 0.5em;
+}
 /*# sourceMappingURL=clothing.css.map */

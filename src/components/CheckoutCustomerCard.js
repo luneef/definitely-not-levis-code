@@ -27,13 +27,31 @@ const CheckoutCustomerCard = ({
   const [loading, setLoading] = useState(false);
 
   const fetchShipMethod = async () => {
-    const data = await commerce.checkout.checkShippingOption(checkoutToken.id, {
-      shipping_option_id: custInfo.shippingOption,
-      country: custInfo.shippingCountry,
-      region: custInfo.shippingRegion,
-    });
+    try {
+      const data = await commerce.checkout.checkShippingOption(
+        checkoutToken.id,
+        {
+          shipping_option_id: custInfo.shippingOption,
+          country: custInfo.shippingCountry,
+          region: custInfo.shippingRegion,
+        }
+      );
 
-    setShipMethod(data);
+      setShipMethod(data);
+    } catch (error) {
+      try {
+        const data = await commerce.checkout.checkShippingOption(
+          checkoutToken.id,
+          {
+            shipping_option_id: custInfo.shippingOption,
+            country: custInfo.shippingCountry,
+            region: custInfo.shippingRegion,
+          }
+        );
+
+        setShipMethod(data);
+      } catch (error) {}
+    }
   };
 
   const onFormSubmit = async (event, elements, stripe) => {

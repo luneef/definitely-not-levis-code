@@ -41,7 +41,9 @@ const App = () => {
       try {
         setCart(await commerce.cart.retrieve());
       } catch (error) {
-        console.log("Final attempt to do task failed.");
+        window.alert(
+          "Oops, looks like something unexpected happened.\nPlease try reloading the page."
+        );
       }
     }
   };
@@ -59,7 +61,9 @@ const App = () => {
         });
         setCart(cart);
       } catch (error) {
-        console.log("Final attempt to do task failed.");
+        window.alert(
+          "Oops, looks like the item was not successfully added to your bag.\nPlease try adding it again."
+        );
       }
     }
   };
@@ -73,7 +77,9 @@ const App = () => {
         const { cart } = await commerce.cart.remove(productId);
         setCart(cart);
       } catch (error) {
-        console.log("Final attempt to do task failed.");
+        window.alert(
+          "Oops, looks like the item was not successfully removed from your bag.\nPlease try removing it again."
+        );
       }
     }
   };
@@ -87,7 +93,9 @@ const App = () => {
         const { cart } = await commerce.cart.empty();
         setCart(cart);
       } catch (error) {
-        console.log("Final attempt to do task failed.");
+        window.alert(
+          "Oops, looks like your bag was not successfully emptied.\nPlease try it again."
+        );
       }
     }
   };
@@ -101,7 +109,9 @@ const App = () => {
         const newCart = await commerce.cart.refresh();
         setCart(newCart);
       } catch (error) {
-        console.log("Final attempt to do task failed.");
+        window.alert(
+          "Oops, looks like your bag was not successfully refreshed.\nPlease try reloading the page."
+        );
       }
     }
   };
@@ -115,7 +125,9 @@ const App = () => {
         const { cart } = await commerce.cart.update(productId, { quantity });
         setCart(cart);
       } catch (error) {
-        console.log("Final attempt to do task failed.");
+        window.alert(
+          "Oops, looks like the item's quantity was not successfully updated.\nPlease try it again."
+        );
       }
     }
   };
@@ -149,7 +161,6 @@ const App = () => {
         setErrorMessage(
           `${error.data.error.message}. Please check your shipping info.`
         );
-        console.log("Final attempt to do task failed.");
       }
     }
   };

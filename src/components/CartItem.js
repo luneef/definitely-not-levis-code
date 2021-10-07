@@ -7,7 +7,6 @@ import loadingcircle from "../assets/images/loadingcircle.gif";
 const CartItem = ({
   cart,
   handleCartView,
-  viewCart,
   updateItemQuantity,
   removeItemFromCart,
   emptyCart,

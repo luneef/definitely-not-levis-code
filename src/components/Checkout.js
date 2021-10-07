@@ -30,7 +30,17 @@ const Checkout = ({
 
       setcheckoutToken(token);
     } catch (error) {
-      console.log(error);
+      try {
+        const token = await commerce.checkout.generateToken(cart.id, {
+          type: "cart",
+        });
+
+        setcheckoutToken(token);
+      } catch (error) {
+        window.alert(
+          "Oops, looks like no token for your checkout was generated .\nPlease try reloading the website."
+        );
+      }
     }
   };
 

@@ -18,10 +18,7 @@ const CheckoutCustomerInfo = ({
   const [shippingRegion, setShippingRegion] = useState("");
   const [shippingOptions, setShippingOptions] = useState([]);
   const [shippingOption, setShippingOption] = useState("");
-
   const [editShipping, setEditShipping] = useState(false);
-
-  // console.log(editShipping);
 
   // Fetching Countries
   const fetchShippingCountries = async (checkoutTokenID) => {
@@ -43,7 +40,9 @@ const CheckoutCustomerInfo = ({
         setShippingCountry(Object.keys(countries)[0]);
       }
     } catch (error) {
-      console.log(error);
+      window.alert(
+        "Oops, looks like something unexpected happened.\nPlease try reloading the website."
+      );
     }
   };
 
@@ -71,7 +70,9 @@ const CheckoutCustomerInfo = ({
         setShippingRegion(Object.keys(subdivisions)[0]);
       }
     } catch (error) {
-      console.log(error);
+      window.alert(
+        "Oops, looks like something unexpected happened.\nPlease try reloading the website."
+      );
     }
   };
 
@@ -104,7 +105,9 @@ const CheckoutCustomerInfo = ({
         setShippingOption(shippingMethod[0].id);
       }
     } catch (error) {
-      console.log(error);
+      window.alert(
+        "Oops, looks like something unexpected happened.\nPlease try reloading the website."
+      );
     }
   };
 

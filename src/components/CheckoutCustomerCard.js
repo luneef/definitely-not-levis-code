@@ -7,6 +7,7 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 import { commerce } from "../lib/Commerce";
 import { BsArrowLeft, BsExclamationCircle } from "react-icons/bs";
+import loadingdots from "../assets/images/loadingdots.gif";
 import "../styles/checkout/checkout.css";
 
 const stripeAPI = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
@@ -17,12 +18,13 @@ const CheckoutCustomerCard = ({
   captureCheckout,
   checkoutToken,
   custInfo,
-  orderConfirmation,
+  ordered,
+  shipErrorMessage,
 }) => {
   const [shipMethod, setShipMethod] = useState({});
-
   const [cardError, setCardError] = useState(false);
   const [errorMessage, setErroMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const fetchShipMethod = async () => {
     const data = await commerce.checkout.checkShippingOption(checkoutToken.id, {
@@ -79,18 +81,36 @@ const CheckoutCustomerCard = ({
         },
       };
 
-      captureCheckout(checkoutToken.id, orderDetails);
+      setLoading(true);
 
-      orderConfirmation();
+      captureCheckout(checkoutToken.id, orderDetails);
     }
   };
 
   useEffect(() => {
     fetchShipMethod();
+
     // eslint-disable-next-line
   }, []);
 
-  console.log(cart);
+  useEffect(() => {
+    setLoading(false);
+
+    if (ordered === "denied") {
+      setCardError(true);
+    }
+
+    // eslint-disable-next-line
+  }, [ordered]);
+
+  useEffect(() => {
+    if (ordered === "denied") {
+      setErroMessage(shipErrorMessage);
+    }
+
+    // eslint-disable-next-line
+  }, [shipErrorMessage]);
+
   return (
     <>
       <section>
@@ -159,8 +179,21 @@ const CheckoutCustomerCard = ({
         ""
       )}
 
+      {loading ? (
+        <p className="placing-order">
+          Confirming Order
+          <img src={loadingdots} alt="Loading Dots" />
+        </p>
+      ) : (
+        ""
+      )}
+
       <div className="backinfo-btn">
-        <button onClick={() => backToInfo()}>
+        <button
+          onClick={() => {
+            backToInfo();
+          }}
+        >
           <BsArrowLeft />
         </button>
         <p>BACK TO SHIPPING INFO</p>

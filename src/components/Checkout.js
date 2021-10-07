@@ -8,15 +8,19 @@ import Loading from "./Loading";
 import { BsX } from "react-icons/bs";
 import orderSticker from "../assets/images/rockstar.png";
 
-const Checkout = ({ cart, handleCartView, captureCheckout }) => {
+const Checkout = ({
+  cart,
+  handleCartView,
+  captureCheckout,
+  ordered,
+  errorMessage,
+  changingInfo,
+}) => {
   const history = useHistory();
   const [step, setStep] = useState("info");
   const [custInfo, setCustInfo] = useState({});
   const [editInfo, setEditInfo] = useState(false);
   const [checkoutToken, setcheckoutToken] = useState(null);
-  // const [shipMethod, setShipMethod] = useState({});
-
-  // console.log(shipMethod);
 
   const generateToken = async () => {
     try {
@@ -33,6 +37,7 @@ const Checkout = ({ cart, handleCartView, captureCheckout }) => {
   const backToInfo = () => {
     setStep("info");
     setEditInfo(true);
+    changingInfo();
   };
 
   const proceedToPayment = (customerInfo) => {
@@ -40,21 +45,29 @@ const Checkout = ({ cart, handleCartView, captureCheckout }) => {
     setStep("card");
   };
 
-  const orderConfirmation = () => {
-    setStep("confirmation");
-  };
-
   useEffect(() => {
     document.title = `Definitely Not Levi's - Checkout`;
 
     generateToken();
+
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (ordered === "confirm") {
+      setStep("confirmation");
+    }
+
+    if (ordered === "denied") {
+      setStep("card");
+    }
+
+    // eslint-disable-next-line
+  }, [ordered]);
 
   if (checkoutToken === null) {
     return <Loading />;
   }
-  //console.log(checkoutToken);
 
   return (
     <section className="checkout-outer">
@@ -63,8 +76,9 @@ const Checkout = ({ cart, handleCartView, captureCheckout }) => {
           title="Close Checkout"
           className="checkoutbtn-close"
           onClick={() => {
-            history.goBack();
+            changingInfo();
             handleCartView();
+            history.goBack();
           }}
         >
           <BsX />
@@ -151,7 +165,8 @@ const Checkout = ({ cart, handleCartView, captureCheckout }) => {
               captureCheckout={captureCheckout}
               checkoutToken={checkoutToken}
               custInfo={custInfo}
-              orderConfirmation={orderConfirmation}
+              ordered={ordered}
+              shipErrorMessage={errorMessage}
             />
           ) : (
             ""

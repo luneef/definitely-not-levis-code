@@ -313,4 +313,12 @@
   width: 250px;
   margin-bottom: 1em;
 }
+
+.placing-order {
+  text-align: center;
+}
+
+.placing-order img {
+  width: 70px;
+}
 /*# sourceMappingURL=checkout.css.map */

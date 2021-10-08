@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useParams } from "react-router-dom";
-import Loading from "../components/Loading";
+import { Link, useHistory, useParams } from "react-router-dom";
 import "../styles/item/item.css";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import PageNotFound from "./PageNotFound";
+import emptybox from "../assets/images/emptybox.png";
 
 const RelatedProduct = ({ viewCart, addToCart }) => {
   const [item, setItem] = useState(null);
@@ -14,6 +13,7 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
   const [photoSelector, setPhotoSelector] = useState(0);
   const [selectedPhoto, setSelectedPhoto] = useState({});
 
+  const history = useHistory();
   let { id } = useParams();
   const navRef = useRef();
 
@@ -49,16 +49,20 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    const matched = JSON.parse(localStorage.getItem("allClothes")).filter(
-      (item) => item.id === id
-    );
+    if (JSON.parse(localStorage.getItem("allClothes"))) {
+      const matched = JSON.parse(localStorage.getItem("allClothes")).filter(
+        (item) => item.id === id
+      );
 
-    if (matched.length) {
-      setItem(matched[0]);
+      if (matched.length) {
+        setItem(matched[0]);
 
-      document.title = `${matched[0].name} - Definitely Not Levi's`;
+        document.title = `${matched[0].name} - Definitely Not Levi's`;
+      } else {
+        history.push("/notfound");
+      }
     } else {
-      setItem({ id: "" });
+      document.title = `Item Not Found - Definitely Not Levi's`;
     }
 
     if (navRef.current) {
@@ -70,17 +74,15 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
 
   useEffect(() => {
     if (item) {
-      if (item.id) {
-        const { options } = item.variant_groups[0];
-        setSizes(options);
-        setSizeID(options[0].id);
-        setPrice(options[0].price.formatted_with_symbol);
+      const { options } = item.variant_groups[0];
+      setSizes(options);
+      setSizeID(options[0].id);
+      setPrice(options[0].price.formatted_with_symbol);
 
-        const { assets } = item;
-        setPhotos(assets);
+      const { assets } = item;
+      setPhotos(assets);
 
-        setSelectedPhoto(item.assets[0].url);
-      }
+      setSelectedPhoto(item.assets[0].url);
     }
 
     // eslint-disable-next-line
@@ -103,14 +105,23 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
     // eslint-disable-next-line
   }, [navRef.current]);
 
-  if (item) {
-    if (!item.id) {
-      return <PageNotFound />;
-    }
-  }
-
   if (!item) {
-    return <Loading />;
+    return (
+      <main
+        style={
+          viewCart
+            ? { marginRight: "270px", paddingLeft: "3em", paddingRight: "5em" }
+            : {}
+        }
+        className="item-main nomain-item"
+      >
+        <img src={emptybox} alt="Empty box" />
+        <p style={{ fontWeight: "bold" }}>Item Not Found !</p>
+        <p style={{ marginTop: "0.5em" }}>
+          Please try going back or refreshing the page.
+        </p>
+      </main>
+    );
   }
 
   return (

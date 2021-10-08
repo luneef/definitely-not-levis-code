@@ -8,6 +8,17 @@
   transition: 0.5s;
 }
 
+.nomain-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    margin-bottom: 1em;
+  }
+}
+
 .image-cache {
   width: 0;
   height: 0;

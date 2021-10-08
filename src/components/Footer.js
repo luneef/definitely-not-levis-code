@@ -3,15 +3,23 @@ import "../styles/footer/footer.css";
 import { Link } from "react-router-dom";
 
 const Footer = ({ viewCart }) => {
-  const [cookieWarn, setCookieWarn] = useState(true);
+  const [cookieWarn, setCookieWarn] = useState(false);
   const [cookieSlide, setCookieSlide] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setCookieSlide(true);
-    }, 4000);
+    if (JSON.parse(localStorage.getItem("cookiesWarn"))) {
+      console.log("%cAlready warned about cookies.", "color: cyan");
+    } else {
+      localStorage.setItem("cookiesWarn", JSON.stringify("Warned"));
 
-    return () => clearTimeout(timer);
+      setCookieWarn(true);
+      const timer = setTimeout(() => {
+        setCookieSlide(true);
+      }, 4000);
+
+      return () => clearTimeout(timer);
+    }
+
     // eslint-disable-next-line
   }, []);
 

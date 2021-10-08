@@ -145,15 +145,15 @@ const CheckoutCustomerInfo = ({
   }, [shippingRegion]);
 
   if (!shippingCountry) {
-    return <Loading />;
+    return <Loading mess={"checkoutTime"} />;
   }
 
   if (!shippingRegion) {
-    return <Loading />;
+    return <Loading mess={"checkoutTime"} />;
   }
 
   if (!shippingOption) {
-    return <Loading />;
+    return <Loading mess={"checkoutTime"} />;
   }
 
   return (

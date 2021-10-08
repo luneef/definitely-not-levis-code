@@ -169,8 +169,16 @@ const App = () => {
     fetchCart();
   }, []);
 
-  if (!cart) {
-    return <Loading />;
+  try {
+    JSON.parse(localStorage.getItem("cookiesEnabled"));
+    if (!cart) {
+      return <Loading />;
+    }
+
+    console.log("%cCookies are enabled.", "color: cyan");
+  } catch (error) {
+    console.log("%cCookies are disabled.", "color: red");
+    return <Loading mess={"cookiesDisabled"} />;
   }
 
   return (

@@ -76,7 +76,7 @@ const Checkout = ({
   }, [ordered]);
 
   if (checkoutToken === null) {
-    return <Loading />;
+    return <Loading mess={"checkoutTime"} />;
   }
 
   return (

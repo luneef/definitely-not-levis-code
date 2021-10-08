@@ -24,6 +24,13 @@
   margin-top: 2.5em;
 }
 
+.flinks-container button {
+  background-color: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 .footer-links {
   text-decoration: none;
   color: white;
@@ -106,5 +113,173 @@
 
 .privacy-warn:hover {
   background-color: #585757;
+}
+
+.contact-container {
+  background-color: #ffffff7c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100vh;
+  z-index: 4;
+}
+
+.cform-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 3px solid white;
+  background-color: #a80f29;
+  background-image: url("../../assets/images/footerbg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 90%;
+  max-width: 500px;
+  padding: 2em;
+  position: relative;
+}
+
+.cform-container h1 {
+  font-weight: 100;
+  font-size: 1.5rem;
+  margin-bottom: 0.6em;
+}
+
+.cform-container button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cform-container button > * {
+  color: white;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.cform-container button > *:hover {
+  color: #ec4d68;
+}
+
+.cform-container img {
+  width: 190px;
+  margin-bottom: 1em;
+}
+
+.cform-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.cform-container form div {
+  margin-bottom: 1.5em;
+}
+
+.cform-container form label {
+  color: #e9d9dc;
+}
+
+.cform-container form input[required] {
+  color: white;
+  background: none;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  margin-left: 0.5em;
+  width: 250px;
+}
+
+.cform-container form textarea {
+  resize: none;
+  outline: none;
+  padding: 0.5em;
+  height: 100px;
+  font-size: 1rem;
+  border: none;
+  margin-bottom: 2em;
+}
+
+.cform-container form input[type="submit"] {
+  border: 2px solid white;
+  background-color: #a80f29;
+  color: white;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.cform-container form input[type="submit"]:hover {
+  color: #a80f29;
+  background-color: white;
+  border: 2px solid #a80f29;
+}
+
+.contact-side {
+  position: fixed;
+  bottom: 35px;
+  left: 35px;
+  z-index: 3;
+}
+
+.contact-side button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.contact-side button:hover {
+  opacity: 1;
+}
+
+.contactclose-icon {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+}
+
+.contact-icon img {
+  width: 60px;
+}
+
+.contact-icon:hover::after {
+  content: "Have a question?";
+  color: #a80f29;
+  background-color: #f3ecec;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  -webkit-box-shadow: 0px 2px #b3b0b0;
+          box-shadow: 0px 2px #b3b0b0;
 }
 /*# sourceMappingURL=footer.css.map */

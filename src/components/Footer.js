@@ -1,10 +1,19 @@
 import { useState, useEffect } from "react";
 import "../styles/footer/footer.css";
 import { Link } from "react-router-dom";
+import ContactUs from "./ContactUs";
+import chat from "../assets/images/chat.png";
+import { BsX } from "react-icons/bs";
 
 const Footer = ({ viewCart }) => {
   const [cookieWarn, setCookieWarn] = useState(false);
   const [cookieSlide, setCookieSlide] = useState(false);
+  const [contact, setContact] = useState(false);
+  const [contactIcon, setContactIcon] = useState(true);
+
+  const handleContactForm = () => {
+    setContact(false);
+  };
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("cookiesWarn"))) {
@@ -54,6 +63,22 @@ const Footer = ({ viewCart }) => {
       ) : (
         ""
       )}
+
+      {contactIcon ? (
+        <div className="contact-side">
+          <button title="Close" onClick={() => setContactIcon(false)}>
+            <BsX className="contactclose-icon" />
+          </button>
+          <button onClick={() => setContact(true)} className="contact-icon">
+            <img src={chat} alt="Chat icon" />
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
+
+      {contact ? <ContactUs handleContactForm={handleContactForm} /> : ""}
+
       <div className="flinks-container">
         <Link className="footer-links" to="/about">
           ABOUT
@@ -66,6 +91,14 @@ const Footer = ({ viewCart }) => {
         >
           PRIVACY POLICY
         </Link>
+
+        <button
+          style={{ marginLeft: "3em" }}
+          className="footer-links"
+          onClick={() => setContact(true)}
+        >
+          CONTACT US
+        </button>
       </div>
       <div className="footer-copyright">
         <p>© Copyright 2021 Definitely Not Levi's</p>

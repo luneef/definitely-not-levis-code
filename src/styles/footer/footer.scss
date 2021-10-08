@@ -14,6 +14,13 @@
 
 .flinks-container {
   margin-top: 2.5em;
+
+  button {
+    background-color: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
 }
 
 .footer-links {
@@ -82,5 +89,157 @@
   &:hover {
     background-color: rgb(88, 87, 87);
     //color: black;
+  }
+}
+
+.contact-container {
+  background-color: #ffffff7c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100vh;
+  z-index: 4;
+}
+
+.cform-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid white;
+  background-color: #a80f29;
+  background-image: url("../../assets/images/footerbg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 90%;
+  max-width: 500px;
+  padding: 2em;
+
+  position: relative;
+
+  h1 {
+    font-weight: 100;
+    font-size: 1.5rem;
+    margin-bottom: 0.6em;
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    & > * {
+      color: white;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+
+      &:hover {
+        color: #ec4d68;
+      }
+    }
+  }
+
+  img {
+    width: 190px;
+    margin-bottom: 1em;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      margin-bottom: 1.5em;
+    }
+
+    label {
+      color: #e9d9dc;
+    }
+
+    input[required] {
+      color: white;
+      background: none;
+      font-size: 1rem;
+      background: none;
+      border: none;
+      border-bottom: 1px solid white;
+      outline: none;
+      margin-left: 0.5em;
+      width: 250px;
+    }
+
+    textarea {
+      resize: none;
+      outline: none;
+      padding: 0.5em;
+      height: 100px;
+      font-size: 1rem;
+      border: none;
+      margin-bottom: 2em;
+    }
+
+    input[type="submit"] {
+      border: 2px solid white;
+      background-color: #a80f29;
+      color: white;
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 1em;
+
+      &:hover {
+        color: #a80f29;
+        background-color: white;
+        border: 2px solid #a80f29;
+      }
+    }
+  }
+}
+
+.contact-side {
+  position: fixed;
+  bottom: 35px;
+  left: 35px;
+  z-index: 3;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.contactclose-icon {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+}
+
+.contact-icon {
+  img {
+    width: 60px;
+  }
+
+  &:hover::after {
+    content: "Have a question?";
+    color: #a80f29;
+    background-color: rgb(243, 236, 236);
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    box-shadow: 0px 2px rgb(179, 176, 176);
   }
 }

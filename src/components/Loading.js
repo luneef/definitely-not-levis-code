@@ -11,9 +11,9 @@ const Loading = ({ mess }) => {
         "Looks like your browser cookies are disabled. Please enable them to get the best shopping experience."
       );
     } else if (mess === "checkoutTime") {
-      setMessage("Preparing your item/s for checkout...");
+      setMessage("Preparing your item/s for checkout . . .");
     } else {
-      setMessage("Preparing the closet for you...");
+      setMessage("Preparing the closet for you . . .");
     }
   }, [mess]);
 

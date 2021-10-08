@@ -216,23 +216,43 @@ const App = () => {
         </Route>
 
         <Route exact path="/men/item/:id">
-          <Item viewCart={viewCart} addToCart={addToCart} />
+          <Item
+            cartcount={cart.total_items}
+            viewCart={viewCart}
+            addToCart={addToCart}
+          />
         </Route>
 
         <Route exact path="/women/item/:id">
-          <Item viewCart={viewCart} addToCart={addToCart} />
+          <Item
+            cartcount={cart.total_items}
+            viewCart={viewCart}
+            addToCart={addToCart}
+          />
         </Route>
 
         <Route exact path="/unisex/item/:id">
-          <Item viewCart={viewCart} addToCart={addToCart} />
+          <Item
+            cartcount={cart.total_items}
+            viewCart={viewCart}
+            addToCart={addToCart}
+          />
         </Route>
 
         <Route exact path="/winter-collection/item/:id">
-          <Item viewCart={viewCart} addToCart={addToCart} />
+          <Item
+            cartcount={cart.total_items}
+            viewCart={viewCart}
+            addToCart={addToCart}
+          />
         </Route>
 
         <Route exact path="/related-item/:id">
-          <RelatedProduct viewCart={viewCart} addToCart={addToCart} />
+          <RelatedProduct
+            cartcount={cart.total_items}
+            viewCart={viewCart}
+            addToCart={addToCart}
+          />
         </Route>
 
         <Route exact path="/checkout">

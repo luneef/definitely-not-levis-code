@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import "../styles/cartitem/cartitem.css";
 import { BsXSquareFill } from "react-icons/bs";
 import loadingcircle from "../assets/images/loadingcircle.gif";
+import loadingring from "../assets/images/loadingring.gif";
 
 const CartItem = ({
   cart,
@@ -11,8 +12,10 @@ const CartItem = ({
   removeItemFromCart,
   emptyCart,
 }) => {
-  const [checkChange, setCheckChange] = useState("loaded");
   const [loadingItem, setLoadingItem] = useState("");
+  const [checkChange, setCheckChange] = useState("loaded");
+  const [loadingRemove, setLoadingRemove] = useState(false);
+  const [loadingEmpty, setLoadingEmpty] = useState(false);
 
   const history = useHistory();
 
@@ -25,6 +28,8 @@ const CartItem = ({
 
   useEffect(() => {
     setCheckChange("loaded");
+    setLoadingRemove(false);
+    setLoadingEmpty(false);
 
     // eslint-disable-next-line
   }, [cart]);
@@ -90,9 +95,29 @@ const CartItem = ({
               <button
                 title="Remove Item"
                 className="cartitem-remove"
-                onClick={() => removeItemFromCart(item.id)}
+                onClick={() => {
+                  setLoadingItem(item.id);
+                  setLoadingRemove(true);
+                  removeItemFromCart(item.id);
+                }}
               >
-                <BsXSquareFill />
+                {loadingRemove ? (
+                  item.id === loadingItem ? (
+                    <img
+                      style={{
+                        marginLeft: "6.3em",
+                        width: "35px",
+                        height: "30px",
+                      }}
+                      src={loadingring}
+                      alt="Loading Ring"
+                    />
+                  ) : (
+                    <BsXSquareFill />
+                  )
+                ) : (
+                  <BsXSquareFill />
+                )}
               </button>
             </div>
           </div>
@@ -110,8 +135,14 @@ const CartItem = ({
           GO TO CHECKOUT
         </button>
 
-        <button className="empty-btn" onClick={() => emptyCart()}>
-          EMPTY BAG
+        <button
+          className="empty-btn"
+          onClick={() => {
+            setLoadingEmpty(true);
+            emptyCart();
+          }}
+        >
+          {loadingEmpty ? "EMPTYING . . ." : "EMPTY BAG"}
         </button>
       </div>
     </div>

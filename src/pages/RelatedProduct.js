@@ -4,7 +4,7 @@ import "../styles/item/item.css";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import emptybox from "../assets/images/emptybox.png";
 
-const RelatedProduct = ({ viewCart, addToCart }) => {
+const RelatedProduct = ({ cartcount, viewCart, addToCart }) => {
   const [item, setItem] = useState(null);
   const [size, setSizes] = useState([]);
   const [sizeID, setSizeID] = useState("");
@@ -12,6 +12,7 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
   const [photos, setPhotos] = useState([]);
   const [photoSelector, setPhotoSelector] = useState(0);
   const [selectedPhoto, setSelectedPhoto] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const history = useHistory();
   let { id } = useParams();
@@ -104,6 +105,10 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
 
     // eslint-disable-next-line
   }, [navRef.current]);
+
+  useEffect(() => {
+    setLoading(false);
+  }, [cartcount]);
 
   if (!item) {
     return (
@@ -213,11 +218,12 @@ const RelatedProduct = ({ viewCart, addToCart }) => {
 
           <button
             className="addtobag-btn"
-            onClick={() =>
-              addToCart(item.id, 1, item.variant_groups[0].id, sizeID)
-            }
+            onClick={() => {
+              setLoading(true);
+              addToCart(item.id, 1, item.variant_groups[0].id, sizeID);
+            }}
           >
-            Bag It!
+            {loading ? "Bagging It . . ." : "Bag It!"}
           </button>
 
           <p className="quantity-guide">

@@ -16,7 +16,7 @@ const Footer = ({ viewCart }) => {
   };
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("cookiesWarn"))) {
+    if (JSON.parse(localStorage.getItem("cookiesWarn")) === "Accepted") {
       console.log("%cAlready warned about cookies.", "color: cyan");
     } else {
       localStorage.setItem("cookiesWarn", JSON.stringify("Warned"));
@@ -54,7 +54,14 @@ const Footer = ({ viewCart }) => {
             We use cookies to give you better <br /> online shopping experience.
           </p>
           <div>
-            <button onClick={() => setCookieWarn(false)}>OK</button>
+            <button
+              onClick={() => {
+                setCookieWarn(false);
+                localStorage.setItem("cookiesWarn", JSON.stringify("Accepted"));
+              }}
+            >
+              OK
+            </button>
             <Link className="privacy-warn" to="/privacy-policy">
               Privacy Policy
             </Link>

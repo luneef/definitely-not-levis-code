@@ -305,5 +305,14 @@
   }
 }
 
+@media screen and (max-width: 1368px) {
+  .featured-container {
+    img {
+      width: 400px;
+      height: 600px;
+    }
+  }
+}
+
 @media screen and (max-width: 420px) {
 }

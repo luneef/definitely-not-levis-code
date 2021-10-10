@@ -247,7 +247,14 @@
   }
 }
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1368px) {
+  .item-gallery {
+    margin-right: 3em;
+
+    img {
+      margin: 0;
+    }
+  }
 }
 
 @media screen and (max-width: 850px) {

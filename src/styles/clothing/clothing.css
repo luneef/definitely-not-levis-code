@@ -149,4 +149,19 @@
     margin-right: 4em;
   }
 }
+
+@media screen and (max-width: 1368px) {
+  .category-list {
+    margin-left: 2em;
+  }
+  .clothing-item {
+    width: 200px;
+  }
+  .clothing-item img {
+    width: 200px;
+    height: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
 /*# sourceMappingURL=clothing.css.map */

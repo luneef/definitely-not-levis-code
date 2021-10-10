@@ -280,4 +280,13 @@
     width: 20em;
   }
 }
+
+@media screen and (max-width: 1368px) {
+  .item-gallery {
+    margin-right: 3em;
+  }
+  .item-gallery img {
+    margin: 0;
+  }
+}
 /*# sourceMappingURL=item.css.map */

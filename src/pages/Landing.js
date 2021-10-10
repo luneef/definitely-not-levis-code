@@ -123,7 +123,7 @@ const Landing = ({ viewCart }) => {
       </section>
 
       <section
-        style={viewCart ? { padding: "4em 9em" } : {}}
+        style={viewCart ? { padding: "4em 3em" } : {}}
         className="genderland-container"
       >
         <div>

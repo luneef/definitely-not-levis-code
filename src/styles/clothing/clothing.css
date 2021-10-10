@@ -130,4 +130,11 @@
   width: 150px;
   margin-bottom: 0.5em;
 }
+
+/*  Media Queries */
+@media screen and (max-width: 1538px) {
+  .category-list button {
+    font-size: 1.8rem;
+  }
+}
 /*# sourceMappingURL=clothing.css.map */

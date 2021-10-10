@@ -216,14 +216,14 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
       </section>
 
       <section
-        style={viewCart ? { paddingLeft: "13em", paddingRight: "13em" } : {}}
+        style={viewCart ? { paddingLeft: "8em", paddingRight: "8em" } : {}}
         className="related-products"
       >
         <p className="related-title">RELATED CLOTHING</p>
 
         {item.related_products.length > 3 ? (
           <button
-            style={viewCart ? { left: "130px" } : {}}
+            style={viewCart ? { left: "50px" } : {}}
             className="scroll-btn left-btn"
             onClick={() => scrollHandler(-800)}
           >
@@ -264,7 +264,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
 
         {item.related_products.length > 3 ? (
           <button
-            style={viewCart ? { right: "130px" } : {}}
+            style={viewCart ? { right: "50px" } : {}}
             className="scroll-btn right-btn"
             onClick={() => scrollHandler(800)}
           >

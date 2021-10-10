@@ -33,4 +33,17 @@
 .oops {
   width: 130px;
 }
+
+/*  Media Queries */
+@media screen and (max-width: 1538px) {
+  .pagenotfound-main p {
+    font-size: 1.2rem;
+  }
+  .pagenotfound-main div {
+    font-size: 1.2rem;
+  }
+  .pnfsticker {
+    width: 250px;
+  }
+}
 /*# sourceMappingURL=pagenotfound.css.map */

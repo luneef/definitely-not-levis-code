@@ -310,3 +310,44 @@
     width: 70px;
   }
 }
+
+/*  Media Queries */
+
+@media screen and (max-width: 1538px) {
+  .checkout-container {
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .form-container {
+    padding: 1em 3em;
+  }
+
+  .checkout-steps {
+    margin-bottom: 1em;
+  }
+
+  .checkout-stepsname {
+    margin: 0.5em 0;
+    margin-bottom: 1em;
+  }
+
+  .backinfo-btn {
+    margin-top: 0.5em;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+}
+
+@media screen and (max-width: 850px) {
+}
+
+@media screen and (max-width: 420px) {
+}

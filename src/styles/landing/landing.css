@@ -79,7 +79,6 @@
   font-size: 2rem;
   color: #a80f29;
   background-color: white;
-  margin-left: 0.3em;
   padding: 0.8em 1em;
 }
 
@@ -297,4 +296,24 @@
 }
 
 /*  Media Queries */
+@media screen and (max-width: 1538px) {
+  .hero-container {
+    height: 45em;
+  }
+  .hero-product h1 {
+    font-size: 4rem;
+  }
+  .headwearprods-hero {
+    bottom: 100px;
+  }
+  .winterlink-hero {
+    font-size: 1.8rem;
+  }
+  .headwearlink-hero {
+    font-size: 1.5rem;
+  }
+  .genderland-container {
+    padding: 4em 7em;
+  }
+}
 /*# sourceMappingURL=landing.css.map */

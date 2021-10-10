@@ -41,7 +41,7 @@
 
   img {
     width: 600px;
-    height: 750px;
+    height: 800px;
     object-fit: cover;
     margin: 0 1em;
   }
@@ -226,4 +226,32 @@
   font-size: 1.5rem;
   margin-left: 0.4em;
   margin-top: 1em;
+}
+
+/*  Media Queries */
+
+@media screen and (max-width: 1538px) {
+  .item-gallery {
+    img {
+      width: 500px;
+      height: 750px;
+    }
+  }
+
+  .itemdetails-name {
+    width: 7em;
+  }
+
+  .itemdetails-desc {
+    width: 20em;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+}
+
+@media screen and (max-width: 850px) {
+}
+
+@media screen and (max-width: 420px) {
 }

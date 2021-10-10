@@ -23,3 +23,29 @@
 .oops {
   width: 130px;
 }
+
+/*  Media Queries */
+
+@media screen and (max-width: 1538px) {
+  .pagenotfound-main {
+    p {
+      font-size: 1.2rem;
+    }
+    div {
+      font-size: 1.2rem;
+    }
+  }
+
+  .pnfsticker {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+}
+
+@media screen and (max-width: 850px) {
+}
+
+@media screen and (max-width: 420px) {
+}

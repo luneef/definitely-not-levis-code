@@ -44,6 +44,19 @@
   height: 0;
 }
 
+.baggedarrow {
+  position: fixed;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  top: 150px;
+  right: 53px;
+}
+
+.baggedarrow img {
+  width: 60px;
+}
+
 .item-layout {
   display: -webkit-box;
   display: -ms-flexbox;

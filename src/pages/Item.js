@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import "../styles/item/item.css";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import emptybox from "../assets/images/emptybox.png";
+import arrow from "../assets/images/arrowup.png";
 
 const Item = ({ cartcount, viewCart, addToCart }) => {
   const [item, setItem] = useState(null);
@@ -13,6 +14,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
   const [photoSelector, setPhotoSelector] = useState(0);
   const [selectedPhoto, setSelectedPhoto] = useState({});
   const [loading, setLoading] = useState(false);
+  const [showArrow, setShowArrow] = useState(false);
 
   let { id } = useParams();
   const navRef = useRef();
@@ -93,6 +95,25 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
 
   useEffect(() => {
     setLoading(false);
+
+    if (!JSON.parse(localStorage.getItem("arrowShown"))) {
+      if (cartcount === 1) {
+        if (!viewCart) {
+          setShowArrow(true);
+          localStorage.setItem("arrowShown", JSON.stringify("Yes"));
+
+          const timer = setTimeout(() => {
+            setShowArrow(false);
+          }, 3000);
+
+          return () => clearTimeout(timer);
+        } else {
+          localStorage.setItem("arrowShown", JSON.stringify("Yes"));
+        }
+      }
+    }
+
+    // eslint-disable-next-line
   }, [cartcount]);
 
   if (!item) {
@@ -124,6 +145,13 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
       ) : (
         ""
       )}
+
+      <div
+        style={showArrow ? { top: "105px", opacity: "1" } : {}}
+        className="baggedarrow"
+      >
+        <img src={arrow} alt="Up Arrow" />
+      </div>
 
       <section className="item-layout">
         <div className="item-gallery">

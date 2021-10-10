@@ -26,6 +26,18 @@
   height: 0;
 }
 
+.baggedarrow {
+  position: fixed;
+  opacity: 0;
+  transition: 0.5s;
+  top: 150px;
+  right: 53px;
+
+  img {
+    width: 60px;
+  }
+}
+
 .item-layout {
   display: flex;
   // background-color: gray;

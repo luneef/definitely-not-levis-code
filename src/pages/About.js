@@ -78,7 +78,7 @@ const About = ({ viewCart }) => {
         </p>
       </div>
 
-      <h2>~ Enjoy Shopping ~</h2>
+      <h2>~ Enjoy Bagging ~</h2>
     </main>
   );
 };

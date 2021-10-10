@@ -137,4 +137,16 @@
     font-size: 1.8rem;
   }
 }
+
+@media screen and (max-width: 1442px) {
+  .clothing-main {
+    padding-left: 1em;
+  }
+  .category-list {
+    margin-left: 2em;
+  }
+  .clothing-item {
+    margin-right: 4em;
+  }
+}
 /*# sourceMappingURL=clothing.css.map */

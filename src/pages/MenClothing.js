@@ -44,7 +44,7 @@ const MenClothing = ({ viewCart }) => {
         setClotheType(JSON.parse(localStorage.getItem("menHeadwear")));
       }
     } else {
-      history.push("/notfound");
+      console.log("%cInvalid category", "color: red");
     }
 
     // eslint-disable-next-line
@@ -150,8 +150,8 @@ const MenClothing = ({ viewCart }) => {
           <div className="clothing-noitems">
             <img src={emptybox} alt="Empty box" />
             <p style={{ fontWeight: "bold" }}>No Items Found !</p>
-            <p>Please try reloading</p>
-            <p>the page.</p>
+            <p>Please try going back or</p>
+            <p>reloading the page.</p>
           </div>
         )}
       </section>

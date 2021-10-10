@@ -1,6 +1,5 @@
 .pagenotfound-main {
   min-height: 100vh;
-  padding: 8em 5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,6 +10,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }

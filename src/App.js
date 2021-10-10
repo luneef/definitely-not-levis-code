@@ -16,6 +16,7 @@ import RelatedProduct from "./pages/RelatedProduct";
 import WinterClothing from "./pages/WinterClothing";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GetClothes from "./components/GetClothes";
+import "./index.css";
 
 const App = () => {
   const [cart, setCart] = useState(null);
@@ -194,91 +195,92 @@ const App = () => {
         emptyCart={emptyCart}
       />
 
-      <Switch>
-        <Route exact path="/">
-          <Landing viewCart={viewCart} />
-        </Route>
+      <div className="website-container">
+        <Switch>
+          <Route exact path="/">
+            <Landing viewCart={viewCart} />
+          </Route>
 
-        <Route exact path="/men/:id">
-          <MenClothing viewCart={viewCart} />
-        </Route>
+          <Route exact path="/men/:id">
+            <MenClothing viewCart={viewCart} />
+          </Route>
 
-        <Route exact path="/women/:id">
-          <WomenClothing viewCart={viewCart} />
-        </Route>
+          <Route exact path="/women/:id">
+            <WomenClothing viewCart={viewCart} />
+          </Route>
 
-        <Route exact path="/unisex/:id">
-          <UnisexClothing viewCart={viewCart} />
-        </Route>
+          <Route exact path="/unisex/:id">
+            <UnisexClothing viewCart={viewCart} />
+          </Route>
 
-        <Route exact path="/winter-collection/:id">
-          <WinterClothing viewCart={viewCart} />
-        </Route>
+          <Route exact path="/winter-collection/:id">
+            <WinterClothing viewCart={viewCart} />
+          </Route>
 
-        <Route exact path="/men/item/:id">
-          <Item
-            cartcount={cart.total_items}
-            viewCart={viewCart}
-            addToCart={addToCart}
-          />
-        </Route>
+          <Route exact path="/men/item/:id">
+            <Item
+              cartcount={cart.total_items}
+              viewCart={viewCart}
+              addToCart={addToCart}
+            />
+          </Route>
 
-        <Route exact path="/women/item/:id">
-          <Item
-            cartcount={cart.total_items}
-            viewCart={viewCart}
-            addToCart={addToCart}
-          />
-        </Route>
+          <Route exact path="/women/item/:id">
+            <Item
+              cartcount={cart.total_items}
+              viewCart={viewCart}
+              addToCart={addToCart}
+            />
+          </Route>
 
-        <Route exact path="/unisex/item/:id">
-          <Item
-            cartcount={cart.total_items}
-            viewCart={viewCart}
-            addToCart={addToCart}
-          />
-        </Route>
+          <Route exact path="/unisex/item/:id">
+            <Item
+              cartcount={cart.total_items}
+              viewCart={viewCart}
+              addToCart={addToCart}
+            />
+          </Route>
 
-        <Route exact path="/winter-collection/item/:id">
-          <Item
-            cartcount={cart.total_items}
-            viewCart={viewCart}
-            addToCart={addToCart}
-          />
-        </Route>
+          <Route exact path="/winter-collection/item/:id">
+            <Item
+              cartcount={cart.total_items}
+              viewCart={viewCart}
+              addToCart={addToCart}
+            />
+          </Route>
 
-        <Route exact path="/related-item/:id">
-          <RelatedProduct
-            cartcount={cart.total_items}
-            viewCart={viewCart}
-            addToCart={addToCart}
-          />
-        </Route>
+          <Route exact path="/related-item/:id">
+            <RelatedProduct
+              cartcount={cart.total_items}
+              viewCart={viewCart}
+              addToCart={addToCart}
+            />
+          </Route>
 
-        <Route exact path="/checkout">
-          <Checkout
-            cart={cart}
-            handleCartView={handleCartView}
-            captureCheckout={captureCheckout}
-            ordered={ordered}
-            errorMessage={errorMessage}
-            changingInfo={changingInfo}
-          />
-        </Route>
+          <Route exact path="/checkout">
+            <Checkout
+              cart={cart}
+              handleCartView={handleCartView}
+              captureCheckout={captureCheckout}
+              ordered={ordered}
+              errorMessage={errorMessage}
+              changingInfo={changingInfo}
+            />
+          </Route>
 
-        <Route exact path="/about">
-          <About viewCart={viewCart} />
-        </Route>
+          <Route exact path="/about">
+            <About viewCart={viewCart} />
+          </Route>
 
-        <Route exact path="/privacy-policy">
-          <PrivacyPolicy viewCart={viewCart} />
-        </Route>
+          <Route exact path="/privacy-policy">
+            <PrivacyPolicy viewCart={viewCart} />
+          </Route>
 
-        <Route exact path="*">
-          <PageNotFound viewCart={viewCart} />
-        </Route>
-      </Switch>
-
+          <Route exact path="*">
+            <PageNotFound viewCart={viewCart} />
+          </Route>
+        </Switch>
+      </div>
       <Footer viewCart={viewCart} />
     </Router>
   );

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "../styles/item/item.css";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import emptybox from "../assets/images/emptybox.png";
@@ -14,7 +14,6 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
   const [selectedPhoto, setSelectedPhoto] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const history = useHistory();
   let { id } = useParams();
   const navRef = useRef();
 
@@ -59,8 +58,6 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
         setItem(matched[0]);
 
         document.title = `${matched[0].name} - Definitely Not Levi's`;
-      } else {
-        history.push("/notfound");
       }
     } else {
       document.title = `Item Not Found - Definitely Not Levi's`;
@@ -101,12 +98,8 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
   if (!item) {
     return (
       <main
-        style={
-          viewCart
-            ? { marginRight: "270px", paddingLeft: "3em", paddingRight: "5em" }
-            : {}
-        }
-        className="item-main nomain-item"
+        style={viewCart ? { marginRight: "270px" } : {}}
+        className="nomain-item"
       >
         <img src={emptybox} alt="Empty box" />
         <p style={{ fontWeight: "bold" }}>Item Not Found !</p>
@@ -119,11 +112,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
 
   return (
     <main
-      style={
-        viewCart
-          ? { marginRight: "270px", paddingLeft: "3em", paddingRight: "5em" }
-          : {}
-      }
+      style={viewCart ? { marginRight: "270px" } : {}}
       className="item-main"
     >
       {photos.length ? (
@@ -137,16 +126,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
       )}
 
       <section className="item-layout">
-        <div
-          style={
-            viewCart
-              ? {
-                  marginRight: "2em",
-                }
-              : {}
-          }
-          className="item-gallery"
-        >
+        <div className="item-gallery">
           <button onClick={() => prevSelect()}>
             <BsChevronCompactLeft />
           </button>
@@ -154,6 +134,21 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
           <button onClick={() => nextSelect()}>
             <BsChevronCompactRight />
           </button>
+
+          <div className="photo-nav">
+            {photos.map((photo) => (
+              <p
+                key={photo.id}
+                style={
+                  selectedPhoto === photo.url
+                    ? { color: "rgb(75, 73, 73)" }
+                    : {}
+                }
+              >
+                _
+              </p>
+            ))}
+          </div>
         </div>
 
         <div className="item-details">
@@ -161,7 +156,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
             style={
               viewCart
                 ? {
-                    fontSize: "3rem",
+                    fontSize: "3.5rem",
                   }
                 : {}
             }
@@ -220,24 +215,15 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
         </div>
       </section>
 
-      <div className="photo-nav" style={viewCart ? { left: "124px" } : {}}>
-        {photos.map((photo) => (
-          <p
-            key={photo.id}
-            style={
-              selectedPhoto === photo.url ? { color: "rgb(75, 73, 73)" } : {}
-            }
-          >
-            _
-          </p>
-        ))}
-      </div>
-
-      <section className="related-products">
+      <section
+        style={viewCart ? { paddingLeft: "13em", paddingRight: "13em" } : {}}
+        className="related-products"
+      >
         <p className="related-title">RELATED CLOTHING</p>
 
         {item.related_products.length > 3 ? (
           <button
+            style={viewCart ? { left: "130px" } : {}}
             className="scroll-btn left-btn"
             onClick={() => scrollHandler(-800)}
           >
@@ -278,6 +264,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
 
         {item.related_products.length > 3 ? (
           <button
+            style={viewCart ? { right: "130px" } : {}}
             className="scroll-btn right-btn"
             onClick={() => scrollHandler(800)}
           >

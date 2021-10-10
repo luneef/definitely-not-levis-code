@@ -8,3 +8,9 @@
   box-sizing: border-box;
   font-family: "Overpass", sans-serif;
 }
+
+.website-container {
+  max-width: 1920px;
+  min-height: 100vh;
+  margin: 0 auto;
+}

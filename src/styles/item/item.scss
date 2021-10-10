@@ -1,10 +1,10 @@
 .item-main {
   background-color: white;
-  min-height: 100vh;
   padding-top: 9em;
-  padding-left: 7em;
-  padding-right: 8.5em;
   padding-bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: 0.5s;
 }
 
@@ -13,6 +13,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  transition: 0.5s;
 
   img {
     margin-bottom: 1em;
@@ -31,6 +33,7 @@
 
 .item-gallery {
   // background-color: green;
+  position: relative;
   display: flex;
   align-items: center;
   margin-right: 5em;
@@ -63,10 +66,12 @@
   font-size: 4rem;
   transition: 0.5s;
   margin-bottom: 0.5em;
+  width: 10em;
 }
 
 .itemdetails-desc {
   margin-bottom: 4em;
+  width: 35em;
 }
 
 .itemdetails-sizes {
@@ -117,11 +122,9 @@
 }
 
 .photo-nav {
+  width: 100%;
   position: absolute;
-  width: 600px;
-  top: 870px;
-  left: 188px;
-  // background-color: peachpuff;
+  bottom: -40px;
   display: flex;
   justify-content: center;
   color: rgb(209, 205, 205);
@@ -134,23 +137,23 @@
 }
 
 .related-products {
-  // background-color: grey;
+  width: 100%;
   position: relative;
   margin-top: 9em;
-  padding-right: 4em;
-  padding-left: 4em;
+  padding-right: 10em;
+  padding-left: 10em;
+  transition: 0.5s;
 }
 
 .related-title {
   font-size: 2.1rem;
-  margin-left: 0.3em;
-  //margin-bottom: 0.3em;
 }
 
 .scroll-btn {
   border: none;
   background: none;
   cursor: pointer;
+  transition: 0.5s;
 
   & > * {
     width: 60px;
@@ -160,24 +163,23 @@
 
 .left-btn {
   position: absolute;
-  left: 0;
+  left: 90px;
   top: 210px;
 }
 
 .right-btn {
   position: absolute;
-  right: 0;
+  right: 90px;
   top: 210px;
 }
 
 .related-container {
-  // background-color: indianred;
-  padding: 2em 1em;
+  padding: 2em 0;
   display: flex;
   overflow: auto;
   white-space: nowrap;
   scroll-behavior: smooth;
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
@@ -187,8 +189,6 @@
 
 .related-item {
   margin-right: 5em;
-
-  // background-color: seagreen;
   transition: transform 0.2s;
 
   &:hover {

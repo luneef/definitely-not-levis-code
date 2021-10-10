@@ -42,10 +42,10 @@ const Footer = ({ viewCart }) => {
           style={
             viewCart
               ? cookieSlide
-                ? { top: "81%", marginRight: "270px" }
+                ? { bottom: "15px", marginRight: "270px" }
                 : { marginRight: "270px" }
               : cookieSlide
-              ? { top: "81%" }
+              ? { bottom: "15px" }
               : {}
           }
           className="cookie-warning"

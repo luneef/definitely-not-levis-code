@@ -58,6 +58,8 @@ const Checkout = ({
   useEffect(() => {
     document.title = `Definitely Not Levi's - Checkout`;
 
+    window.scrollTo(0, 0);
+
     generateToken();
 
     // eslint-disable-next-line
@@ -146,13 +148,19 @@ const Checkout = ({
 
             <div className="checkout-stepsname">
               <h2 style={step === "info" ? { display: "block" } : {}}>
-                Shipping Information
+                Shipping
+                <br />
+                Information
               </h2>
               <h3 style={step === "card" ? { display: "block" } : {}}>
-                Card Information
+                Card
+                <br />
+                Information
               </h3>
               <h4 style={step === "confirmation" ? { display: "block" } : {}}>
-                Order Confirmation
+                Order
+                <br />
+                Confirmation
               </h4>
             </div>
           </div>

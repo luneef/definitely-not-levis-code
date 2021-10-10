@@ -132,20 +132,22 @@ const CheckoutCustomerCard = ({
   return (
     <>
       <section>
-        {cart.line_items.map((item) => {
-          return (
-            <div className="checkoutitem-sum" key={item.id}>
-              <p>
-                {item.variant.description}
-                <span>x{item.quantity}</span>
-              </p>
+        <div className="checkoutitemsum-cont">
+          {cart.line_items.map((item) => {
+            return (
+              <div className="checkoutitem-sum" key={item.id}>
+                <p>
+                  {item.variant.description}
+                  <span>x{item.quantity}</span>
+                </p>
 
-              <div>
-                <p>{item.line_total.formatted_with_symbol}</p>
+                <div>
+                  <p>{item.line_total.formatted_with_symbol}</p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
 
         {shipMethod ? (
           shipMethod.description === "International" ? (
@@ -190,7 +192,10 @@ const CheckoutCustomerCard = ({
       </Elements>
 
       {cardError ? (
-        <p className="card-error">
+        <p
+          style={ordered === "denied" ? { fontSize: "0.7rem" } : {}}
+          className="card-error"
+        >
           <BsExclamationCircle /> {errorMessage}
         </p>
       ) : (

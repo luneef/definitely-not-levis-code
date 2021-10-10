@@ -1,7 +1,6 @@
 .landing-main {
   background-color: white;
   transition: 0.5s;
-  min-height: 100vh;
   padding: 5em 0;
 }
 
@@ -10,14 +9,15 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
   width: 100%;
-  height: 38em;
+  height: 55em;
+  position: relative;
 }
 
 .herobtn-container {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
   display: flex;
   justify-content: center;
 
@@ -28,28 +28,31 @@
 }
 
 .hero-product {
-  padding-top: 4em;
-  padding-left: 5em;
-  //margin-bottom: 14em;
-
   h1 {
-    font-size: 4.5rem;
+    font-size: 5rem;
   }
 }
 
 .winterprods-hero {
+  position: absolute;
+  top: 110px;
+  left: 100px;
   color: white;
-  margin-bottom: 14em;
 }
 
 .headwearprods-hero {
-  color: #a80f29;
-  margin-bottom: 7.2em;
+  position: absolute;
+  bottom: 150px;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .winterlink-hero {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
   background-color: none;
   border: 5px solid rgb(20, 140, 238);
@@ -64,7 +67,7 @@
 
 .headwearlink-hero {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #a80f29;
   background-color: white;
   //border: 5px solid white;
@@ -158,7 +161,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 4em;
-  padding: 4em 7.5em;
+  padding: 4em 13.5em;
   transition: 0.5s;
 
   div {
@@ -184,6 +187,10 @@
   h1 {
     font-size: 2rem;
     margin-top: 0.7em;
+  }
+
+  span {
+    font-weight: 100;
   }
 }
 
@@ -249,4 +256,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+/*  Media Queries */
+
+@media screen and (max-width: 3840px) and (min-width: 1922px) {
+}
+
+@media screen and (max-width: 850px) {
+}
+
+@media screen and (max-width: 420px) {
 }

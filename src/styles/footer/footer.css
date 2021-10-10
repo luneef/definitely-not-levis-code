@@ -67,7 +67,7 @@
 .cookie-warning {
   background-color: #a80f29;
   position: fixed;
-  top: 100%;
+  bottom: -100%;
   right: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,6 +83,7 @@
   border: 2px solid white;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  z-index: 3;
 }
 
 .cookie-warning p {
@@ -129,8 +130,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 100%;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 4;
 }
 

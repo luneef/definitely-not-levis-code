@@ -1,6 +1,5 @@
 .clothing-main {
   background-color: white;
-  min-height: 100vh;
   padding-top: 9em;
   padding-bottom: 3em;
   padding-left: 3em;
@@ -82,11 +81,13 @@
 }
 
 .clothing-noitems {
+  position: absolute;
+  top: 40%;
+  left: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 26em;
 
   img {
     width: 150px;

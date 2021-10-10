@@ -50,8 +50,8 @@ const Landing = ({ viewCart }) => {
             </div>
           ) : (
             <div className="headwearprods-hero">
-              <h1 style={{ marginTop: "1.5em" }}>NEW-FASHIONED HATS</h1>
-              <h1 style={{ marginBottom: "0.5em" }}>{"&"} CAPS</h1>
+              <h1>NEW-FASHIONED HATS {"&"} CAPS</h1>
+
               <Link className="headwearlink-hero" to="/unisex/headwear">
                 Choose Hat
               </Link>
@@ -123,7 +123,7 @@ const Landing = ({ viewCart }) => {
       </section>
 
       <section
-        style={viewCart ? { padding: "4em 3em" } : {}}
+        style={viewCart ? { padding: "4em 9em" } : {}}
         className="genderland-container"
       >
         <div>
@@ -131,7 +131,7 @@ const Landing = ({ viewCart }) => {
             <img src={menimg} alt="Men" />
 
             <h1>
-              <span style={{ fontWeight: "100" }}>Shop / </span>MEN
+              <span>Shop / </span>MEN
             </h1>
           </Link>
         </div>
@@ -141,7 +141,7 @@ const Landing = ({ viewCart }) => {
             <img src={womenimg} alt="Women" />
 
             <h1>
-              <span style={{ fontWeight: "100" }}>Shop / </span>WOMEN
+              <span>Shop / </span>WOMEN
             </h1>
           </Link>
         </div>
@@ -151,7 +151,7 @@ const Landing = ({ viewCart }) => {
             <img src={uniseximg} alt="Unisex" />
 
             <h1>
-              <span style={{ fontWeight: "100" }}>Shop / </span>UNISEX
+              <span>Shop / </span>UNISEX
             </h1>
           </Link>
         </div>

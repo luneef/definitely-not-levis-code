@@ -2,7 +2,6 @@
   background-color: white;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  min-height: 100vh;
   padding: 5em 0;
 }
 
@@ -12,10 +11,14 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 38em;
+  height: 55em;
+  position: relative;
 }
 
 .herobtn-container {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,28 +32,37 @@
   border: none;
 }
 
-.hero-product {
-  padding-top: 4em;
-  padding-left: 5em;
-}
-
 .hero-product h1 {
-  font-size: 4.5rem;
+  font-size: 5rem;
 }
 
 .winterprods-hero {
+  position: absolute;
+  top: 110px;
+  left: 100px;
   color: white;
-  margin-bottom: 14em;
 }
 
 .headwearprods-hero {
-  color: #a80f29;
-  margin-bottom: 7.2em;
+  position: absolute;
+  bottom: 150px;
+  width: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .winterlink-hero {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
   background-color: none;
   border: 5px solid #148cee;
@@ -64,7 +76,7 @@
 
 .headwearlink-hero {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #a80f29;
   background-color: white;
   margin-left: 0.3em;
@@ -165,7 +177,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 4em;
-  padding: 4em 7.5em;
+  padding: 4em 13.5em;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -196,6 +208,10 @@
 .genderland-container h1 {
   font-size: 2rem;
   margin-top: 0.7em;
+}
+
+.genderland-container span {
+  font-weight: 100;
 }
 
 .stories-container {
@@ -279,4 +295,6 @@
       -ms-flex-align: end;
           align-items: flex-end;
 }
+
+/*  Media Queries */
 /*# sourceMappingURL=landing.css.map */

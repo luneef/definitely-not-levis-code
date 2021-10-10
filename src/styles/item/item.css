@@ -1,10 +1,17 @@
 .item-main {
   background-color: white;
-  min-height: 100vh;
   padding-top: 9em;
-  padding-left: 7em;
-  padding-right: 8.5em;
   padding-bottom: 5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -23,6 +30,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 100vh;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .nomain-item img {
@@ -41,6 +51,7 @@
 }
 
 .item-gallery {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,10 +91,12 @@
   -webkit-transition: 0.5s;
   transition: 0.5s;
   margin-bottom: 0.5em;
+  width: 10em;
 }
 
 .itemdetails-desc {
   margin-bottom: 4em;
+  width: 35em;
 }
 
 .itemdetails-sizes {
@@ -133,10 +146,9 @@
 }
 
 .photo-nav {
+  width: 100%;
   position: absolute;
-  width: 600px;
-  top: 870px;
-  left: 188px;
+  bottom: -40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,21 +166,25 @@
 }
 
 .related-products {
+  width: 100%;
   position: relative;
   margin-top: 9em;
-  padding-right: 4em;
-  padding-left: 4em;
+  padding-right: 10em;
+  padding-left: 10em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .related-title {
   font-size: 2.1rem;
-  margin-left: 0.3em;
 }
 
 .scroll-btn {
   border: none;
   background: none;
   cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .scroll-btn > * {
@@ -178,18 +194,18 @@
 
 .left-btn {
   position: absolute;
-  left: 0;
+  left: 90px;
   top: 210px;
 }
 
 .right-btn {
   position: absolute;
-  right: 0;
+  right: 90px;
   top: 210px;
 }
 
 .related-container {
-  padding: 2em 1em;
+  padding: 2em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -197,7 +213,6 @@
   white-space: nowrap;
   scroll-behavior: smooth;
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
 }
 

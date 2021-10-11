@@ -372,4 +372,26 @@
     margin-top: 0.5em;
   }
 }
+
+@media screen and (max-width: 1282px) {
+  .form-container {
+    padding: 2em 2em;
+    width: 750px;
+  }
+  .checkout-steps {
+    margin-bottom: 2em;
+  }
+  .checkout-stepsname {
+    margin-bottom: 1.5em;
+  }
+  .checkout-stepsname h2 {
+    left: 70px;
+  }
+  .checkout-stepsname h3 {
+    left: 270px;
+  }
+  .checkout-stepsname h4 {
+    left: 470px;
+  }
+}
 /*# sourceMappingURL=checkout.css.map */

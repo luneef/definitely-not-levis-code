@@ -302,4 +302,18 @@
     margin: 0;
   }
 }
+
+@media screen and (max-width: 1282px) {
+  .item-gallery {
+    margin-right: 2em;
+  }
+  .item-gallery img {
+    width: 450px;
+    height: 650px;
+  }
+  .itemdetails-name {
+    font-size: 3.5rem;
+    width: 6em;
+  }
+}
 /*# sourceMappingURL=item.css.map */

@@ -269,7 +269,20 @@
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1282px) {
+  .item-gallery {
+    margin-right: 2em;
+
+    img {
+      width: 450px;
+      height: 650px;
+    }
+  }
+
+  .itemdetails-name {
+    font-size: 3.5rem;
+    width: 6em;
+  }
 }
 
 @media screen and (max-width: 420px) {

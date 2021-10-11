@@ -314,5 +314,24 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 1282px) {
+  .featured-container {
+    img {
+      width: 400px;
+      height: 600px;
+    }
+  }
+
+  .ftrd-text {
+    width: 20em;
+  }
+
+  .genderland-container {
+    padding: 4em 7em;
+
+    img {
+      width: 275px;
+      height: 400px;
+    }
+  }
 }

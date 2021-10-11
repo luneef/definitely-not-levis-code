@@ -135,5 +135,12 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 1282px) {
+  .clothing-main {
+    padding-left: 0;
+  }
+
+  .clothing-item {
+    margin-right: 3em;
+  }
 }

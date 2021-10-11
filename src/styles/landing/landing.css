@@ -340,4 +340,21 @@
     height: 600px;
   }
 }
+
+@media screen and (max-width: 1282px) {
+  .featured-container img {
+    width: 400px;
+    height: 600px;
+  }
+  .ftrd-text {
+    width: 20em;
+  }
+  .genderland-container {
+    padding: 4em 7em;
+  }
+  .genderland-container img {
+    width: 275px;
+    height: 400px;
+  }
+}
 /*# sourceMappingURL=landing.css.map */

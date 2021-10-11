@@ -212,30 +212,33 @@ const RelatedProduct = ({ cartcount, viewCart, addToCart }) => {
           <p className="itemdetails-sizes">
             {`${item.variant_groups[0].name}: (Available ${item.variant_groups[0].name}s)`}
           </p>
-          {size.map((size) => {
-            return (
-              <div key={size.id} className="itemdetails-size">
-                <button
-                  style={
-                    item.variant_groups[0].name === "Color"
-                      ? { backgroundColor: `${size.name}`, padding: "1em" }
-                      : size.id === sizeID
-                      ? { color: "white", backgroundColor: "gray" }
-                      : {}
-                  }
-                  onClick={() =>
-                    setFinalSize(size.id, size.price.formatted_with_symbol)
-                  }
-                >
-                  {item.variant_groups[0].name === "Color" ? (
-                    ""
-                  ) : (
-                    <p>{size.name}</p>
-                  )}
-                </button>
-              </div>
-            );
-          })}
+
+          <div className="itemsdetails-sizecont">
+            {size.map((size) => {
+              return (
+                <div key={size.id} className="itemdetails-size">
+                  <button
+                    style={
+                      item.variant_groups[0].name === "Color"
+                        ? { backgroundColor: `${size.name}`, padding: "1em" }
+                        : size.id === sizeID
+                        ? { color: "white", backgroundColor: "gray" }
+                        : {}
+                    }
+                    onClick={() =>
+                      setFinalSize(size.id, size.price.formatted_with_symbol)
+                    }
+                  >
+                    {item.variant_groups[0].name === "Color" ? (
+                      ""
+                    ) : (
+                      <p>{size.name}</p>
+                    )}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
 
           <p className="itemdetails-price">{price}</p>
 

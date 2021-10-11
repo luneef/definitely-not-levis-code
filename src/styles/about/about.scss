@@ -30,3 +30,9 @@
     font-weight: 100;
   }
 }
+
+@media screen and (max-width: 1026px) {
+  .about-main {
+    padding: 8em 10em;
+  }
+}

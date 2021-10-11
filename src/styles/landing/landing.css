@@ -357,4 +357,72 @@
     height: 400px;
   }
 }
+
+@media screen and (max-width: 1026px) {
+  .hero-container {
+    height: 30em;
+  }
+  .hero-product h1 {
+    font-size: 3rem;
+  }
+  .winterprods-hero {
+    top: 70px;
+    left: 60px;
+  }
+  .headwearprods-hero {
+    bottom: 70px;
+  }
+  .winterlink-hero {
+    font-size: 1.5rem;
+    background-color: #148cee;
+  }
+  .headwearlink-hero {
+    font-size: 1.5rem;
+  }
+  .featured-container img {
+    width: 300px;
+    height: 450px;
+  }
+  .ftrd-text {
+    width: 16em;
+  }
+  .ftrd-text h2 {
+    font-size: 2.5rem;
+  }
+  .first-link {
+    color: white;
+    background-color: #222121;
+  }
+  .second-link {
+    color: white;
+    background-color: #a80f29;
+  }
+  .genderland-container {
+    padding: 4em 6em;
+  }
+  .genderland-container img {
+    width: 200px;
+    height: 300px;
+  }
+  .genderland-container h1 {
+    font-size: 1.5rem;
+    margin-top: 0.7em;
+  }
+  .stories-container {
+    padding-top: 5em;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+  .stories-container img {
+    width: 200px;
+    height: 270px;
+  }
+  .stories-container h1 {
+    margin-bottom: 1em;
+  }
+  .story {
+    width: 40em;
+    margin-bottom: 4em;
+  }
+}
 /*# sourceMappingURL=landing.css.map */

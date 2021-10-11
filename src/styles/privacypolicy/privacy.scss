@@ -34,3 +34,9 @@
 .white-privacy {
   border: 3px solid #a80f29;
 }
+
+@media screen and (max-width: 1026px) {
+  .privacy-main {
+    padding: 8em 8em;
+  }
+}

@@ -38,4 +38,10 @@
   margin-top: 2em;
   font-weight: 100;
 }
+
+@media screen and (max-width: 1026px) {
+  .about-main {
+    padding: 8em 10em;
+  }
+}
 /*# sourceMappingURL=about.css.map */

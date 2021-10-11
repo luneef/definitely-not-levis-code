@@ -316,4 +316,68 @@
     width: 6em;
   }
 }
+
+@media screen and (max-width: 1026px) {
+  .item-main {
+    padding-top: 7em;
+  }
+  .item-layout {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .item-gallery {
+    margin-right: 0;
+    margin-bottom: 5em;
+  }
+  .item-details {
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .itemdetails-name {
+    width: 11em;
+    text-align: center;
+  }
+  .itemdetails-desc {
+    width: 30em;
+    text-align: center;
+    margin-bottom: 3em;
+  }
+  .itemdetails-price {
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+    border-bottom: 3px solid #a80f29;
+  }
+  .addtobag-btn {
+    color: white;
+    background-color: #a80f29;
+    padding: 0.5em 1.5em;
+  }
+  .related-products {
+    padding-right: 7em;
+    padding-left: 7em;
+  }
+  .left-btn {
+    left: 50px;
+  }
+  .right-btn {
+    right: 50px;
+  }
+}
 /*# sourceMappingURL=item.css.map */

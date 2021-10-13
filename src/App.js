@@ -16,6 +16,7 @@ import RelatedProduct from "./pages/RelatedProduct";
 import WinterClothing from "./pages/WinterClothing";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GetClothes from "./components/GetClothes";
+import MobileNav from "./components/MobileNav";
 import "./index.css";
 
 const App = () => {
@@ -281,7 +282,16 @@ const App = () => {
           </Route>
         </Switch>
       </div>
+
       <Footer viewCart={viewCart} />
+
+      <MobileNav
+        cartcount={cart.total_items}
+        cart={cart}
+        updateItemQuantity={updateItemQuantity}
+        removeItemFromCart={removeItemFromCart}
+        emptyCart={emptyCart}
+      />
     </Router>
   );
 };

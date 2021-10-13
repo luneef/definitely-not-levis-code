@@ -93,6 +93,12 @@
   border: none;
 }
 
+.cartitem-remove img {
+  width: 35px;
+  height: 30px;
+  margin-left: 6.3em;
+}
+
 .cartitem-remove > * {
   width: 40px;
   height: 30px;
@@ -160,5 +166,246 @@
 
 .empty-btn:hover::before {
   content: "<< ";
+}
+
+@media screen and (max-width: 850px) {
+  .cartitems {
+    height: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    position: absolute;
+    top: 10px;
+    left: 90px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .cartitems::-webkit-scrollbar {
+    display: none;
+  }
+  .cartitem-container {
+    width: 300px;
+  }
+  .cartitem-container img {
+    width: 100%;
+    height: 230px;
+  }
+  .cartitem-name {
+    color: black;
+  }
+  .cartitem-quantity span {
+    color: black;
+  }
+  .cart-bottom {
+    position: absolute;
+    top: 90px;
+    right: 50px;
+  }
+  .cart-bottom button {
+    padding: 1em 1em;
+    font-size: 1.1rem;
+  }
+  .cartitem-price img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5em;
+  }
+  .cartitem-edit img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 7px;
+    left: 105px;
+    margin-left: 0.5em;
+  }
+  .cartitem-remove img {
+    width: 35px;
+    height: 30px;
+    margin-left: 10.7em;
+  }
+}
+
+@media screen and (max-width: 802px) {
+  .cartitems {
+    left: 45px;
+  }
+  .cart-bottom {
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 702px) {
+  .cartitem-container {
+    width: 230px;
+  }
+  .cartitem-remove img {
+    margin-left: 5.5em;
+  }
+  .cart-bottom {
+    right: -10px;
+  }
+  .cart-bottom button {
+    width: 200px;
+    font-size: 1rem;
+  }
+  .cart-bottom span {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 598px) {
+  .cartitems {
+    left: 20px;
+  }
+  .cartitem-container {
+    width: 200px;
+  }
+  .cartitem-container img {
+    height: 210px;
+  }
+  .cartitem-price img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5em;
+  }
+  .cartitem-edit img {
+    display: none;
+  }
+  .cartitem-remove img {
+    display: none;
+  }
+  .cart-bottom {
+    top: 90px;
+    right: -50px;
+  }
+  .cart-bottom p {
+    font-size: 1.2rem;
+  }
+  .cart-bottom button {
+    width: 170px;
+    font-size: 1rem;
+  }
+  .cart-bottom span {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cart-bottom {
+    top: 120px;
+    right: -75px;
+  }
+  .cart-bottom h2 {
+    font-size: 1rem;
+  }
+  .cart-bottom p {
+    font-size: 0.8rem;
+  }
+  .cart-bottom span {
+    font-size: 1.1rem;
+  }
+  .cart-bottom button {
+    width: 120px;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .cartitems {
+    left: 10px;
+  }
+  .cartitem-container {
+    width: 170px;
+  }
+  .cartitem-container img {
+    height: 210px;
+  }
+  .cartitem-price img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5em;
+  }
+  .cart-bottom {
+    width: 140px;
+    top: 130px;
+    right: 0px;
+  }
+  .cart-bottom span {
+    position: absolute;
+    top: -30px;
+    right: 30px;
+    font-size: 1.3rem;
+  }
+  .cart-bottom p {
+    position: absolute;
+    top: -60px;
+  }
+  .cart-bottom button {
+    font-size: 0.9rem;
+    padding: 1.5em 1em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .cart-bottom {
+    right: -8px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .cart-bottom {
+    right: -10px;
+  }
+  .cart-bottom button {
+    width: 100px;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .cart-bottom {
+    right: -17px;
+  }
+  .cart-bottom p {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .cart-bottom {
+    top: 150px;
+    right: -22px;
+  }
+  .cart-bottom button {
+    width: 90px;
+    font-size: 0.7rem;
+  }
+  .cart-bottom span {
+    font-size: 1.1rem;
+  }
+  .cart-bottom p {
+    font-size: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  .cartitems {
+    left: 3px;
+  }
+  .cart-bottom {
+    right: -38px;
+  }
+  .cart-bottom button {
+    width: 80px;
+    font-size: 0.6rem;
+  }
+  .cart-bottom span {
+    font-size: 1rem;
+  }
+  .cart-bottom p {
+    font-size: 0.5rem;
+  }
 }
 /*# sourceMappingURL=cartitem.css.map */

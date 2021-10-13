@@ -44,6 +44,16 @@ const Checkout = ({
     }
   };
 
+  const checkoutCloseHandle = () => {
+    changingInfo();
+
+    if (window.innerWidth > 850) {
+      handleCartView();
+    }
+
+    history.goBack();
+  };
+
   const backToInfo = () => {
     setStep("info");
     setEditInfo(true);
@@ -87,11 +97,7 @@ const Checkout = ({
         <button
           title="Close Checkout"
           className="checkoutbtn-close"
-          onClick={() => {
-            changingInfo();
-            handleCartView();
-            history.goBack();
-          }}
+          onClick={() => checkoutCloseHandle()}
         >
           <BsX />
         </button>

@@ -247,4 +247,11 @@
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
+
+/*  Media Queries */
+@media screen and (max-width: 850px) {
+  .header-container {
+    display: none;
+  }
+}
 /*# sourceMappingURL=header.css.map */

@@ -283,4 +283,10 @@
   -webkit-box-shadow: 0px 2px #b3b0b0;
           box-shadow: 0px 2px #b3b0b0;
 }
+
+@media screen and (max-width: 850px) {
+  .footer-main {
+    display: none;
+  }
+}
 /*# sourceMappingURL=footer.css.map */

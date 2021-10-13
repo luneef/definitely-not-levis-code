@@ -22,7 +22,9 @@ const CartItem = ({
   //console.log(cart);
 
   const goToCheckout = () => {
-    handleCartView();
+    if (window.innerWidth > 850) {
+      handleCartView();
+    }
     history.push("/checkout");
   };
 
@@ -36,93 +38,87 @@ const CartItem = ({
 
   return (
     <div className="cart-container">
-      {cart.line_items.map((item) => {
-        return (
-          <div className="cartitem-container" key={item.id}>
-            <img src={item.media.source} alt={item.name} />
-            <p className="cartitem-name">{item.variant.description}</p>
-            <p className="cartitem-price">
-              {item.line_total.formatted_with_symbol}
+      <div className="cartitems">
+        {cart.line_items.map((item) => {
+          return (
+            <div className="cartitem-container" key={item.id}>
+              <img src={item.media.source} alt={item.name} />
+              <p className="cartitem-name">{item.variant.description}</p>
+              <p className="cartitem-price">
+                {item.line_total.formatted_with_symbol}
 
-              {item.id === loadingItem ? (
-                checkChange === "loading" ? (
-                  <img src={loadingcircle} alt="Loading" />
-                ) : (
-                  ""
-                )
-              ) : (
-                ""
-              )}
-            </p>
-
-            <div className="cartitem-edit">
-              <div className="cartitem-quantity">
-                <button
-                  disabled={item.quantity === 1 ? true : false}
-                  style={item.quantity === 1 ? { pointerEvents: "none" } : {}}
-                  onClick={() => {
-                    updateItemQuantity(item.id, item.quantity - 1);
-                    setLoadingItem(item.id);
-                    setCheckChange("loading");
-                  }}
-                >
-                  -
-                </button>
-
-                <span>{item.quantity}</span>
-
-                <button
-                  onClick={() => {
-                    updateItemQuantity(item.id, item.quantity + 1);
-                    setLoadingItem(item.id);
-                    setCheckChange("loading");
-                  }}
-                >
-                  +
-                </button>
-              </div>
-
-              {item.id === loadingItem ? (
-                checkChange === "loading" ? (
-                  <img src={loadingcircle} alt="Loading" />
-                ) : (
-                  ""
-                )
-              ) : (
-                ""
-              )}
-
-              <button
-                title="Remove Item"
-                className="cartitem-remove"
-                onClick={() => {
-                  setLoadingItem(item.id);
-                  setLoadingRemove(true);
-                  removeItemFromCart(item.id);
-                }}
-              >
-                {loadingRemove ? (
-                  item.id === loadingItem ? (
-                    <img
-                      style={{
-                        marginLeft: "6.3em",
-                        width: "35px",
-                        height: "30px",
-                      }}
-                      src={loadingring}
-                      alt="Loading Ring"
-                    />
+                {item.id === loadingItem ? (
+                  checkChange === "loading" ? (
+                    <img src={loadingcircle} alt="Loading" />
                   ) : (
-                    <BsXSquareFill />
+                    ""
                   )
                 ) : (
-                  <BsXSquareFill />
+                  ""
                 )}
-              </button>
+              </p>
+
+              <div className="cartitem-edit">
+                <div className="cartitem-quantity">
+                  <button
+                    disabled={item.quantity === 1 ? true : false}
+                    style={item.quantity === 1 ? { pointerEvents: "none" } : {}}
+                    onClick={() => {
+                      updateItemQuantity(item.id, item.quantity - 1);
+                      setLoadingItem(item.id);
+                      setCheckChange("loading");
+                    }}
+                  >
+                    -
+                  </button>
+
+                  <span>{item.quantity}</span>
+
+                  <button
+                    onClick={() => {
+                      updateItemQuantity(item.id, item.quantity + 1);
+                      setLoadingItem(item.id);
+                      setCheckChange("loading");
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
+
+                {item.id === loadingItem ? (
+                  checkChange === "loading" ? (
+                    <img src={loadingcircle} alt="Loading" />
+                  ) : (
+                    ""
+                  )
+                ) : (
+                  ""
+                )}
+
+                <button
+                  title="Remove Item"
+                  className="cartitem-remove"
+                  onClick={() => {
+                    setLoadingItem(item.id);
+                    setLoadingRemove(true);
+                    removeItemFromCart(item.id);
+                  }}
+                >
+                  {loadingRemove ? (
+                    item.id === loadingItem ? (
+                      <img src={loadingring} alt="Loading Ring" />
+                    ) : (
+                      <BsXSquareFill />
+                    )
+                  ) : (
+                    <BsXSquareFill />
+                  )}
+                </button>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
 
       <div className="cart-bottom">
         <p>- - - - - - - - - - - - - - - -</p>

@@ -79,12 +79,15 @@ const Landing = ({ viewCart }) => {
       </section>
 
       <section className="featured-container">
-        <div style={{ marginBottom: "8em" }} className="featured-item">
+        <div
+          style={{ marginBottom: "8em" }}
+          className="featured-item ftrd-item1"
+        >
           <img src={ftr1img} alt="Grace Ultra Dark Jacket" />
 
           <div
-            style={viewCart ? { marginLeft: "7em" } : { marginLeft: "10em" }}
-            className="ftrd-text"
+            style={viewCart ? { marginLeft: "7em" } : {}}
+            className="ftrd-text ftrd1"
           >
             <h2>It's Not About Brand. It's About Style</h2>
             <p>
@@ -99,10 +102,10 @@ const Landing = ({ viewCart }) => {
           </div>
         </div>
 
-        <div className="featured-item">
+        <div className="featured-item ftrd-item2">
           <div
-            style={viewCart ? { marginRight: "7em" } : { marginRight: "10em" }}
-            className="ftrd-text"
+            style={viewCart ? { marginRight: "7em" } : {}}
+            className="ftrd-text ftrd2"
           >
             <h2>Clothes Mean Nothing Until Someone Lives In Them</h2>
             <p>
@@ -118,7 +121,7 @@ const Landing = ({ viewCart }) => {
             </Link>
           </div>
 
-          <img src={ftr2img} alt=" Harlem NYC T-Shirt" />
+          <img src={ftr2img} alt="Harlem NYC T-Shirt" />
         </div>
       </section>
 
@@ -126,7 +129,7 @@ const Landing = ({ viewCart }) => {
         style={viewCart ? { padding: "4em 3em" } : {}}
         className="genderland-container"
       >
-        <div>
+        <div className="genderland-men">
           <Link to="/men/all">
             <img src={menimg} alt="Men" />
 
@@ -136,7 +139,7 @@ const Landing = ({ viewCart }) => {
           </Link>
         </div>
 
-        <div>
+        <div className="genderland-women">
           <Link to="/women/all">
             <img src={womenimg} alt="Women" />
 
@@ -146,7 +149,7 @@ const Landing = ({ viewCart }) => {
           </Link>
         </div>
 
-        <div>
+        <div className="genderland-unisex">
           <Link to="/unisex/all">
             <img src={uniseximg} alt="Unisex" />
 
@@ -176,7 +179,7 @@ const Landing = ({ viewCart }) => {
         </div>
 
         <section>
-          <div className="story">
+          <div className="story story2">
             <div className="story2-text">
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.

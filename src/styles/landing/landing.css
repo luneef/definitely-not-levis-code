@@ -143,6 +143,14 @@
   line-height: 1.4em;
 }
 
+.ftrd1 {
+  margin-left: 10em;
+}
+
+.ftrd2 {
+  margin-right: 10em;
+}
+
 .first-link {
   text-decoration: none;
   color: black;
@@ -423,6 +431,521 @@
   .story {
     width: 40em;
     margin-bottom: 4em;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .landing-main {
+    padding: 4em 0;
+  }
+  .hero-container {
+    height: 25em;
+  }
+  .hero-product h1 {
+    font-size: 2.5rem;
+  }
+  .winterprods-hero {
+    top: 50px;
+    left: 30px;
+  }
+  .winterlink-hero {
+    font-size: 1.3rem;
+    padding: 0.2em 0.5em;
+  }
+  .herobtn-container {
+    bottom: 10px;
+  }
+  .headwearlink-hero {
+    font-size: 1.3rem;
+    padding: 0.3em 0.5em;
+  }
+  .winter-ring {
+    width: 35px;
+    height: 35px;
+  }
+  .featured-container {
+    height: 72em;
+    position: relative;
+  }
+  .featured-container img {
+    position: absolute;
+  }
+  img[alt="Grace Ultra Dark Jacket"] {
+    top: 80px;
+    left: 80px;
+  }
+  img[alt="Harlem NYC T-Shirt"] {
+    bottom: 80px;
+    right: 80px;
+  }
+  .ftrd-text {
+    position: absolute;
+  }
+  .ftrd1 {
+    top: 75px;
+    right: 90px;
+  }
+  .ftrd2 {
+    bottom: 105px;
+    left: 80px;
+  }
+  .genderland-container {
+    margin-top: 0;
+    padding: 4em 3em;
+  }
+  .genderland-container div:hover {
+    -webkit-transform: none;
+            transform: none;
+  }
+  .stories-container h1 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 795px) {
+  img[alt="Grace Ultra Dark Jacket"] {
+    left: 70px;
+  }
+  img[alt="Harlem NYC T-Shirt"] {
+    right: 70px;
+  }
+  .ftrd1 {
+    right: 70px;
+  }
+  .ftrd2 {
+    left: 70px;
+  }
+  .genderland-container {
+    padding: 3em 2.5em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .featured-container {
+    height: 69em;
+  }
+  img[alt="Grace Ultra Dark Jacket"] {
+    top: 60px;
+    left: 50px;
+  }
+  img[alt="Harlem NYC T-Shirt"] {
+    bottom: 60px;
+    right: 50px;
+  }
+  .ftrd1 {
+    top: 55px;
+    right: 50px;
+  }
+  .ftrd2 {
+    bottom: 85px;
+    left: 50px;
+  }
+  .genderland-container {
+    padding: 3em 1.5em;
+  }
+  .stories-container {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .featured-container {
+    height: 65em;
+  }
+  img[alt="Grace Ultra Dark Jacket"] {
+    top: 40px;
+    left: 30px;
+  }
+  img[alt="Harlem NYC T-Shirt"] {
+    bottom: 40px;
+    right: 30px;
+  }
+  .ftrd1 {
+    top: 35px;
+    right: 30px;
+  }
+  .ftrd2 {
+    bottom: 65px;
+    left: 30px;
+  }
+  .genderland-container img {
+    width: 180px;
+    height: 280px;
+  }
+  .genderland-container h1 {
+    font-size: 1.3rem;
+  }
+  .stories-container {
+    padding-top: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .stories-container img {
+    width: 200px;
+    height: 250px;
+  }
+  .stories-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5em;
+  }
+  .story {
+    width: 39em;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .featured-container {
+    height: 60em;
+  }
+  .featured-container img {
+    width: 250px;
+    height: 380px;
+  }
+  img[alt="Harlem NYC T-Shirt"] {
+    bottom: 100px;
+    right: 30px;
+  }
+  .ftrd2 {
+    bottom: 60px;
+    left: 30px;
+  }
+  .genderland-container {
+    padding: 2em 1em;
+  }
+  .story {
+    width: 36em;
+  }
+}
+
+@media screen and (max-width: 595px) {
+  .hero-container {
+    height: 25em;
+  }
+  .hero-product h1 {
+    font-size: 1.9rem;
+  }
+  .winterprods-hero {
+    top: 40px;
+    left: 20px;
+  }
+  .winterlink-hero {
+    font-size: 1.3rem;
+    padding: 0.3em 0.3em;
+    margin-left: 0;
+  }
+  .herobtn-container {
+    bottom: 4px;
+  }
+  .headwearlink-hero {
+    font-size: 1.3rem;
+    padding: 0.4em 1em;
+  }
+  .headwearprods-hero {
+    bottom: 50px;
+  }
+  .featured-container {
+    height: 73em;
+  }
+  .featured-container img {
+    position: relative;
+    width: 380px;
+    height: 500px;
+    top: 0;
+  }
+  .featured-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    width: 100%;
+  }
+  .ftrd-item1 {
+    top: 55px;
+  }
+  .ftrd-item2 {
+    bottom: 55px;
+  }
+  .ftrd-text {
+    top: 20px;
+    z-index: 1;
+    padding: 2em;
+    width: 21em;
+    height: 28.5em;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .ftrd-text h2 {
+    color: white;
+    font-size: 1.7rem;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid white;
+  }
+  .ftrd-text p {
+    display: none;
+  }
+  .ftrd1 {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .ftrd2 {
+    background-color: #a80f28ad;
+  }
+  img[alt="Grace Ultra Dark Jacket"] {
+    margin-right: 4em;
+  }
+  img[alt="Harlem NYC T-Shirt"] {
+    margin-left: 3.7em;
+  }
+  .first-link {
+    border: 1px solid white;
+  }
+  .second-link {
+    border: 1px solid white;
+  }
+  .genderland-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0;
+    padding-top: 3.5em;
+    background-color: #a80f29;
+  }
+  .genderland-container div {
+    background-color: white;
+    padding: 1.5em;
+    margin-bottom: 3.5em;
+    position: relative;
+  }
+  .genderland-container img {
+    width: 330px;
+    height: 450px;
+  }
+  .genderland-container h1 {
+    position: absolute;
+    bottom: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    font-size: 4.5rem;
+  }
+  .stories-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 2em 0;
+  }
+  .stories-container img {
+    width: 100%;
+    height: 300px;
+    border-radius: 0;
+  }
+  .stories-container h1 {
+    margin-bottom: 1em;
+  }
+  .stories-container section {
+    display: block;
+  }
+  .story {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 23.5em;
+    padding: 1.5em;
+    margin: 0;
+    margin-bottom: 3em;
+    border: 4px dashed #a80f29;
+    position: relative;
+  }
+  .story1-text {
+    margin-left: 0;
+    margin-top: 1.5em;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .story2-text {
+    margin-right: 0;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    position: absolute;
+    top: 335px;
+    padding: 0.8em;
+  }
+  .story2 {
+    height: 41em;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-product h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .landing-main {
+    padding: 3em 0;
+  }
+  .hero-container {
+    height: 20em;
+  }
+  .winterprods-hero {
+    top: 35px;
+    left: 15px;
+  }
+  .winterlink-hero {
+    font-size: 1.1rem;
+  }
+  .headwearlink-hero {
+    font-size: 1.1rem;
+    padding: 0.4em 0.7em;
+  }
+  .featured-container {
+    height: 62.8em;
+  }
+  .featured-container img {
+    width: 330px;
+    height: 450px;
+  }
+  .ftrd-item1 {
+    top: 35px;
+  }
+  .ftrd-item2 {
+    bottom: 35px;
+  }
+  .ftrd-text {
+    width: 18em;
+    height: 25.5em;
+  }
+  .genderland-container {
+    padding-top: 2em;
+  }
+  .genderland-container img {
+    width: 280px;
+    height: 380px;
+  }
+  .genderland-container div {
+    margin-bottom: 2.3em;
+  }
+  .genderland-container h1 {
+    bottom: 195px;
+    font-size: 2.3rem;
+  }
+  .stories-container {
+    padding: 1em 0;
+  }
+  .stories-container img {
+    width: 100%;
+    height: 200px;
+  }
+  .stories-container h1 {
+    margin-bottom: 0.5em;
+  }
+  .story {
+    width: 20.5em;
+    margin-bottom: 2em;
+  }
+  .story2-text {
+    top: 235px;
+  }
+  .story2 {
+    height: 36.5em;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .hero-product h1 {
+    font-size: 1.4rem;
+  }
+  .winterprods-hero {
+    top: 20px;
+    left: 15px;
+  }
+  .winterprods-hero h1 {
+    color: #034353;
+  }
+  .winterlink-hero {
+    font-size: 1rem;
+  }
+  .featured-container {
+    height: 55.8em;
+  }
+  .featured-container img {
+    width: 300px;
+    height: 400px;
+  }
+  .ftrd-item1 {
+    top: 30px;
+  }
+  .ftrd-item2 {
+    bottom: 30px;
+  }
+  .ftrd-text {
+    width: 16.5em;
+    height: 22.5em;
+  }
+  .genderland-container img {
+    width: 264px;
+    height: 350px;
+  }
+  .genderland-container div {
+    padding: 1.1em;
+  }
+  .genderland-container h1 {
+    bottom: 130px;
+    font-size: 3.5rem;
+  }
+  .stories-container {
+    padding: 1.5em 0;
+  }
+  .stories-container h1 {
+    font-size: 2rem;
+    margin-bottom: 0.8em;
+  }
+  .story {
+    width: 19em;
+  }
+  .story2 {
+    height: 38em;
+    margin-bottom: 0;
   }
 }
 /*# sourceMappingURL=landing.css.map */

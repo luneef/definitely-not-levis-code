@@ -1,3 +1,27 @@
+.mobileview-header {
+  display: none;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  padding: 0.5em 0;
+}
+
+.mobileview-header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mobileview-header div img {
+  width: 110px;
+}
+
 .mobilenav-container {
   display: none;
   background-color: white;
@@ -220,6 +244,9 @@
 
 /* Menu Content  */
 @media screen and (max-width: 850px) {
+  .mobileview-header {
+    display: block;
+  }
   .mobilenav-container {
     display: block;
   }
@@ -263,6 +290,12 @@
 }
 
 @media screen and (max-width: 420px) {
+  .mobileview-header {
+    padding: 0.3em 0;
+  }
+  .mobileview-header div img {
+    width: 70px;
+  }
   .menu-container {
     bottom: 50px;
   }

@@ -12,6 +12,7 @@ import {
 import { IoShirtOutline } from "react-icons/io5";
 import CartItem from "./CartItem";
 import ContactUs from "./ContactUs";
+import logo from "../assets/images/logo.png";
 import emptybag from "../assets/images/emptybag.png";
 
 const MobileNav = ({
@@ -38,6 +39,12 @@ const MobileNav = ({
 
   return (
     <>
+      <header className="mobileview-header">
+        <div>
+          <img src={logo} alt="Definitely Not Levis Logo" />
+        </div>
+      </header>
+
       <div
         style={
           menu === "category" ? (catActive ? { height: "330px" } : {}) : {}

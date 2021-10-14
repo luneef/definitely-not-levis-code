@@ -29,6 +29,7 @@
 
 .loading-container h3 {
   text-align: center;
+  width: 500px;
   font-size: 1.5rem;
   font-weight: 100;
 }
@@ -89,6 +90,26 @@
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .loading-container img {
+    width: 150px;
+    height: 150px;
+  }
+  .loading-container h3 {
+    text-align: center;
+    width: 300px;
+    font-size: 1rem;
+  }
+  .lds-ring {
+    width: 30px;
+    height: 30px;
+  }
+  .lds-ring div {
+    width: 20px;
+    height: 20px;
   }
 }
 /*# sourceMappingURL=loading.css.map */

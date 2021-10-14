@@ -227,6 +227,22 @@
       margin-left: 10.7em;
     }
   }
+
+  .checkout-btn {
+    &:hover {
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  .empty-btn {
+    &:hover {
+      &::before {
+        content: none;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 802px) {
@@ -426,6 +442,7 @@
 
     span {
       font-size: 1.1rem;
+      right: 35px;
     }
 
     p {

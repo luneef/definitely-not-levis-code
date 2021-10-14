@@ -223,6 +223,12 @@
     height: 30px;
     margin-left: 10.7em;
   }
+  .checkout-btn:hover::after {
+    content: none;
+  }
+  .empty-btn:hover::before {
+    content: none;
+  }
 }
 
 @media screen and (max-width: 802px) {
@@ -384,6 +390,7 @@
   }
   .cart-bottom span {
     font-size: 1.1rem;
+    right: 35px;
   }
   .cart-bottom p {
     font-size: 0.6rem;

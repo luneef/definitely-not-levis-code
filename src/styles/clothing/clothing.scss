@@ -144,3 +144,130 @@
     margin-right: 3em;
   }
 }
+
+@media screen and (max-width: 850px) {
+  .clothing-main {
+    // background-color: pink;
+    padding: 6em 0;
+  }
+
+  .category-list {
+    margin-left: 1.5em;
+  }
+
+  .clothing-display {
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    margin: 0;
+    padding-left: 12em;
+    padding-right: 1.5em;
+  }
+
+  .clothing-item {
+    width: 100%;
+    margin: 0;
+
+    &:hover {
+      transform: none;
+    }
+
+    img {
+      width: 100%;
+      height: 280px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .category-list {
+    button {
+      font-size: 1.5rem;
+    }
+  }
+
+  .clothing-display {
+    padding-left: 10.5em;
+    padding-right: 1.5em;
+  }
+
+  .clothing-item {
+    img {
+      height: 200px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .clothing-main {
+    padding: 10.8em 1.3em 5em 1.3em;
+  }
+
+  .category-list {
+    margin: 0;
+    padding: 0;
+    padding-top: 0.5em;
+    top: 80px;
+    width: 100%;
+    height: 5em;
+    background-color: rgba(255, 255, 255, 0.7);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      margin-right: 1.5em;
+      font-size: 1.3rem;
+    }
+  }
+
+  .clothing-display {
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+    padding: 0;
+  }
+
+  .clothing-item {
+    img {
+      height: 300px;
+    }
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .clothing-main {
+    padding-top: 12.5em;
+  }
+
+  .category-list {
+    height: 7em;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .clothing-main {
+    padding-top: 11.5em;
+    padding-bottom: 4em;
+  }
+
+  .category-list {
+    top: 57px;
+  }
+
+  .clothing-item {
+    img {
+      height: 250px;
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .clothing-item {
+    img {
+      height: 230px;
+    }
+  }
+}

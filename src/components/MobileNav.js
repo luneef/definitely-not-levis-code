@@ -10,6 +10,7 @@ import {
   BsArrowDown,
 } from "react-icons/bs";
 import { IoShirtOutline } from "react-icons/io5";
+import { GrClose } from "react-icons/gr";
 import CartItem from "./CartItem";
 import ContactUs from "./ContactUs";
 import logo from "../assets/images/logo.png";
@@ -28,10 +29,6 @@ const MobileNav = ({
   const [bagActive, setBagActive] = useState(false);
   const [aboutActive, setAboutActive] = useState(false);
   const [contactUs, setContactUs] = useState(false);
-
-  const handleContactForm = () => {
-    setContactUs(false);
-  };
 
   useEffect(() => {
     setMenu("home");
@@ -180,7 +177,7 @@ const MobileNav = ({
             CONTACT US
           </button>
 
-          {contactUs ? <ContactUs handleContactForm={handleContactForm} /> : ""}
+          {contactUs ? <ContactUs /> : ""}
         </div>
       </div>
 
@@ -248,9 +245,12 @@ const MobileNav = ({
               setAboutActive(!aboutActive);
               setCatActive(false);
               setBagActive(false);
+              setContactUs(false);
             }}
           >
-            {aboutActive ? (
+            {contactUs ? (
+              <GrClose style={{ border: "3px solid #a80f29" }} />
+            ) : aboutActive ? (
               <BsCaretDown style={{ color: "#a80f29" }} />
             ) : (
               <BsInfoSquare

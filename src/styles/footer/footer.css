@@ -162,6 +162,7 @@
   font-weight: 100;
   font-size: 1.5rem;
   margin-bottom: 0.6em;
+  text-align: center;
 }
 
 .cform-container button {
@@ -287,6 +288,32 @@
 @media screen and (max-width: 850px) {
   .footer-main {
     display: none;
+  }
+  .cform-container button {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cform-container {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .cform-container {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .cform-container {
+    width: 100%;
+  }
+  .cform-container form input[required] {
+    width: 200px;
   }
 }
 /*# sourceMappingURL=footer.css.map */

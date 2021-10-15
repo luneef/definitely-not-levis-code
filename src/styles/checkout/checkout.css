@@ -394,4 +394,98 @@
     left: 470px;
   }
 }
+
+@media screen and (max-width: 780px) {
+  .checkout-outer {
+    padding: 0;
+  }
+  .checkout-container {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .checkout-container {
+    -webkit-transform: scale(0.65);
+            transform: scale(0.65);
+  }
+}
+
+@media screen and (max-width: 495px) {
+  .checkout-container {
+    -webkit-transform: scale(0.55);
+            transform: scale(0.55);
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .checkout-container {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+  .form-container {
+    max-width: 400px;
+  }
+  .form-container form {
+    position: relative;
+  }
+  .form-container form div {
+    margin-bottom: 1em;
+  }
+  .form-container form label {
+    font-size: 1.1rem;
+  }
+  .form-container form input[placeholder] {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  .form-container form select {
+    width: 100%;
+    margin-top: 0.2em;
+  }
+  span.ch-line {
+    display: none;
+  }
+  .ch-number {
+    position: absolute;
+  }
+  .num1 {
+    top: 70px;
+    left: 83px;
+  }
+  .num2 {
+    top: 70px;
+    left: 206px;
+  }
+  .num3 {
+    top: 70px;
+    left: 335px;
+  }
+  .checkout-stepsname h2 {
+    top: 10px;
+    left: 0;
+  }
+  .checkout-stepsname h3 {
+    top: 10px;
+    left: 120px;
+  }
+  .checkout-stepsname h4 {
+    top: 10px;
+    left: 243px;
+  }
+  .checkoutitemsum-cont {
+    white-space: normal;
+  }
+  .checkout-steps {
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .checkout-container {
+    -webkit-transform: scale(0.65);
+            transform: scale(0.65);
+  }
+}
 /*# sourceMappingURL=checkout.css.map */

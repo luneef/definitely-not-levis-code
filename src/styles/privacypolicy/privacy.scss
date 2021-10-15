@@ -40,3 +40,23 @@
     padding: 8em 8em;
   }
 }
+
+@media screen and (max-width: 850px) {
+  .privacy-main {
+    padding: 7em 4em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .privacy-main {
+    padding: 5em 2em;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    div {
+      padding: 1em;
+    }
+  }
+}

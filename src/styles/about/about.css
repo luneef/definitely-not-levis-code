@@ -44,4 +44,39 @@
     padding: 8em 10em;
   }
 }
+
+@media screen and (max-width: 850px) {
+  .about-main {
+    padding: 8em 4em;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about-main {
+    text-align: center;
+  }
+  .about-main img {
+    width: 400px;
+  }
+  .about-main h1 {
+    margin-bottom: 0.5em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .about-main {
+    padding: 5em 2.5em;
+  }
+  .about-main img {
+    width: 300px;
+  }
+  .about-main h1 {
+    font-size: 1.5rem;
+  }
+  .about-main h2 {
+    font-size: 1.7rem;
+    text-shadow: 1.5px 1.5px rgba(99, 97, 97, 0.527);
+  }
+}
 /*# sourceMappingURL=about.css.map */

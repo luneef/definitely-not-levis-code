@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Definitely Not Levi's - awesome clothing online."
+      content="Definitely Not Levi's - Awesome clothing online."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
 
@@ -18,5 +18,18 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./ServiceWorker.js")
+            .then((registered) =>
+              console.log("%cSuccess: ", "color: lime", registered.scope)
+            )
+            .catch((error) => console.log("%cFailure: ", "color: red", error));
+        });
+      }
+    </script>
   </body>
 </html>

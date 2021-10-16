@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../styles/cartitem/cartitem.css";
 import { BsXSquareFill } from "react-icons/bs";
 import loadingcircle from "../assets/images/loadingcircle.gif";
@@ -42,7 +42,9 @@ const CartItem = ({
         {cart.line_items.map((item) => {
           return (
             <div className="cartitem-container" key={item.id}>
-              <img src={item.media.source} alt={item.name} />
+              <Link to={`/related-item/${item.product_id}`}>
+                <img src={item.media.source} alt={item.name} />
+              </Link>
               <p className="cartitem-name">{item.variant.description}</p>
               <p className="cartitem-price">
                 {item.line_total.formatted_with_symbol}

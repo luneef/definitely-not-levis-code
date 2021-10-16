@@ -19,7 +19,7 @@ const PageNotFound = ({ viewCart }) => {
       <img className="oops" src={oops} alt="Oops" />
 
       <p>Looks like the page or item doesn't exist.</p>
-      <div>Try going back.</div>
+      <div>Try going back or reloading.</div>
     </main>
   );
 };

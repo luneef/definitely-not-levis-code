@@ -24,6 +24,7 @@ const App = () => {
   const [ordered, setOrdered] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [viewCart, setViewCart] = useState(false);
+  const [cantAccess, setCantAccess] = useState(false);
 
   const handleCartView = () => {
     setViewCart(!viewCart);
@@ -43,9 +44,7 @@ const App = () => {
       try {
         setCart(await commerce.cart.retrieve());
       } catch (error) {
-        window.alert(
-          "Oops, looks like something unexpected happened.\nPlease try reloading the page."
-        );
+        setCantAccess(true);
       }
     }
   };
@@ -174,7 +173,11 @@ const App = () => {
   try {
     JSON.parse(localStorage.getItem("cookiesEnabled"));
     if (!cart) {
-      return <Loading />;
+      if (cantAccess) {
+        return <PageNotFound />;
+      } else {
+        return <Loading />;
+      }
     }
   } catch (error) {
     console.log("%cCookies are disabled.", "color: red");

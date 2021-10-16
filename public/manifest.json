@@ -1,6 +1,6 @@
 {
   "short_name": "Definitely Not Levi's",
-  "name": "Definitely Not Levi's PWA",
+  "name": "Definitely Not Levi's",
 
   "icons": [
     {
@@ -11,7 +11,8 @@
     {
       "src": "logo.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "maskable"
     },
     {
       "src": "logo.png",

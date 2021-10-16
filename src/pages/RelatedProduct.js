@@ -108,19 +108,21 @@ const RelatedProduct = ({ cartcount, viewCart, addToCart }) => {
   useEffect(() => {
     setLoading(false);
 
-    if (!JSON.parse(localStorage.getItem("arrowShown"))) {
-      if (cartcount === 1) {
-        if (!viewCart) {
-          setShowArrow(true);
-          localStorage.setItem("arrowShown", JSON.stringify("Yes"));
+    if (window.innerWidth > 850) {
+      if (!JSON.parse(localStorage.getItem("arrowShown"))) {
+        if (cartcount === 1) {
+          if (!viewCart) {
+            setShowArrow(true);
+            localStorage.setItem("arrowShown", JSON.stringify("Yes"));
 
-          const timer = setTimeout(() => {
-            setShowArrow(false);
-          }, 3000);
+            const timer = setTimeout(() => {
+              setShowArrow(false);
+            }, 3000);
 
-          return () => clearTimeout(timer);
-        } else {
-          localStorage.setItem("arrowShown", JSON.stringify("Yes"));
+            return () => clearTimeout(timer);
+          } else {
+            localStorage.setItem("arrowShown", JSON.stringify("Yes"));
+          }
         }
       }
     }

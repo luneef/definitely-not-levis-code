@@ -189,6 +189,7 @@ const MobileNav = ({
       <nav className="mobilenav-container">
         <div className="mnav-inner">
           <button
+            aria-label="Go to homepage"
             onClick={() => {
               history.push("/");
               setMenu("home");
@@ -201,6 +202,7 @@ const MobileNav = ({
           </button>
 
           <button
+            aria-label="Toggle categories"
             onClick={() => {
               setMenu("category");
               setCatActive(!catActive);
@@ -218,6 +220,7 @@ const MobileNav = ({
           </button>
 
           <button
+            aria-label="Toggle bag"
             onClick={() => {
               setMenu("bag");
               setBagActive(!bagActive);
@@ -245,6 +248,7 @@ const MobileNav = ({
           </button>
 
           <button
+            aria-label="Toggle website information"
             onClick={() => {
               setMenu("about");
               setAboutActive(!aboutActive);

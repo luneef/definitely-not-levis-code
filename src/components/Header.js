@@ -2,6 +2,7 @@ import { Link, useHistory } from "react-router-dom";
 import "../styles/header/header.css";
 import CartItem from "./CartItem";
 import logo from "../assets/images/logo.png";
+import emptybagwebp from "../assets/images/webpimages/emptybag.webp";
 import emptybag from "../assets/images/emptybag.png";
 import winternewlabel from "../assets/images/winterblue.png";
 import { BsBag, BsX } from "react-icons/bs";
@@ -151,11 +152,15 @@ const Header = ({
           </>
         ) : (
           <div className="empty-bag">
-            <img
-              style={viewCart ? { width: "200px" } : {}}
-              src={emptybag}
-              alt="Empty Bag"
-            />
+            <picture>
+              <source type="image/webp" srcset={emptybagwebp} />
+              <img
+                style={viewCart ? { width: "200px" } : {}}
+                src={emptybag}
+                alt="Empty Bag"
+              />
+            </picture>
+
             <p style={viewCart ? { fontSize: "0.9rem" } : {}}>
               THE WORLD IS YOUR RUNWAY,
             </p>

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "../styles/pagenotfound/pagenotfound.css";
+import pagenotfoundimgwebp from "../assets/images/webpimages/pnfimg.webp";
 import pagenotfoundimg from "../assets/images/pagenotfound.png";
 import oops from "../assets/images/ooops.png";
 
@@ -15,7 +16,15 @@ const PageNotFound = ({ viewCart }) => {
       style={viewCart ? { marginRight: "270px" } : {}}
       className="pagenotfound-main"
     >
-      <img className="pnfsticker" src={pagenotfoundimg} alt="Page Not Found" />
+      <picture>
+        <source type="image/webp" srcset={pagenotfoundimgwebp} />
+        <img
+          className="pnfsticker"
+          src={pagenotfoundimg}
+          alt="Page Not Found"
+        />
+      </picture>
+
       <img className="oops" src={oops} alt="Oops" />
 
       <p>Looks like the page or item doesn't exist.</p>

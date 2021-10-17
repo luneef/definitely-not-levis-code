@@ -2,18 +2,16 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/landing/landing.css";
 
+import winterHero from "../assets/images/webpimages/wtheroimg.webp";
+import headwearHero from "../assets/images/webpimages/hwheroimg.webp";
 import ftr1imgwebp from "../assets/images/webpimages/darkgraceimg.webp";
 import ftr2imgwebp from "../assets/images/webpimages/harlemimg.webp";
-
 import menimgwebp from "../assets/images/webpimages/levisimg.webp";
 import womenimgwebp from "../assets/images/webpimages/blackjackimg.webp";
 import uniseximgwebp from "../assets/images/webpimages/koleidimg.webp";
-
 import storyimg1webp from "../assets/images/webpimages/story1.webp";
 import storyimg2webp from "../assets/images/webpimages/story2.webp";
 
-import winterHero from "../assets/images/winterheroimg.jpg";
-import headwearHero from "../assets/images/headwearheroimg.jpg";
 import storyimg1 from "../assets/images/storypic1.jpg";
 import storyimg2 from "../assets/images/storypic2.jpg";
 import ftr1img from "../assets/images/landingproducts/darkgraceimg.jpg";

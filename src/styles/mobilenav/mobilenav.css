@@ -103,28 +103,28 @@
 }
 
 .menucat-men {
-  background-image: url("../../assets/images/menumen.jpg");
+  background-image: url("../../assets/images/webpimages/menumen.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .menucat-women {
-  background-image: url("../../assets/images/menuwomen.jpg");
+  background-image: url("../../assets/images/webpimages/menuwomen.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .menucat-unisex {
-  background-image: url("../../assets/images/menuunisex.jpg");
+  background-image: url("../../assets/images/webpimages/menuunisex.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .menucat-winter {
-  background-image: url("../../assets/images/menuwinter.jpg");
+  background-image: url("../../assets/images/webpimages/menuwinter.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -210,21 +210,21 @@
 }
 
 .menuabout {
-  background-image: url("../../assets/images/menuabout.png");
+  background-image: url("../../assets/images/webpimages/menuabout.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .menuprivacy {
-  background-image: url("../../assets/images/menuprivacy.png");
+  background-image: url("../../assets/images/webpimages/menuprivacy.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .menucookies {
-  background-image: url("../../assets/images/menucontact.png");
+  background-image: url("../../assets/images/webpimages/menucontact.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

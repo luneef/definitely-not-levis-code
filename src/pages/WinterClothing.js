@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import "../styles/clothing/clothing.css";
 import snowflake from "../assets/images/snowflake.png";
-import winterbg from "../assets/images/winterbg.png";
+import winterbg from "../assets/images/webpimages/winterbg.webp";
 import emptybox from "../assets/images/emptybox.png";
 
 const WinterClothing = ({ viewCart }) => {

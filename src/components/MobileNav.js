@@ -14,6 +14,7 @@ import { GrClose } from "react-icons/gr";
 import CartItem from "./CartItem";
 import ContactUs from "./ContactUs";
 import logo from "../assets/images/logo.png";
+import emptybagwebp from "../assets/images/webpimages/emptybag.webp";
 import emptybag from "../assets/images/emptybag.png";
 
 const MobileNav = ({
@@ -135,7 +136,11 @@ const MobileNav = ({
             </div>
           ) : (
             <div className="menubag-noitem">
-              <img src={emptybag} alt="Empty Bag" />
+              <picture>
+                <source type="image/webp" srcset={emptybagwebp} />
+                <img src={emptybag} alt="Empty Bag" />
+              </picture>
+
               <p>THE WORLD IS YOUR RUNWAY,</p>
               <p>ADD TO YOUR BAG NOW!</p>
             </div>

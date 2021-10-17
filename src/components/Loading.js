@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../styles/loading/loading.css";
+import loadinglogowebp from "../assets/images/webpimages/transparentlogo.webp";
 import loadingLogo from "../assets/images/transparentlogo.png";
 
 const Loading = ({ mess }) => {
@@ -19,7 +20,11 @@ const Loading = ({ mess }) => {
 
   return (
     <div className="loading-container">
-      <img src={loadingLogo} alt="Not Levi's Logo" />
+      <picture>
+        <source type="image/webp" srcset={loadinglogowebp} />
+        <img src={loadingLogo} alt="Not Levi's Logo" />
+      </picture>
+
       <div className="lds-ring">
         <div></div>
         <div></div>

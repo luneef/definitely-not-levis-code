@@ -54,6 +54,10 @@
   height: 40px;
 }
 
+.mnav-inner button:focus, .mnav-inner button:active {
+  outline: none;
+}
+
 .mobcart-count {
   position: absolute;
   bottom: -5px;

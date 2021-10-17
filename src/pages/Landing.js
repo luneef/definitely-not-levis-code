@@ -1,6 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/landing/landing.css";
+
+import ftr1imgwebp from "../assets/images/webpimages/darkgraceimg.webp";
+import ftr2imgwebp from "../assets/images/webpimages/harlemimg.webp";
+
+import menimgwebp from "../assets/images/webpimages/levisimg.webp";
+import womenimgwebp from "../assets/images/webpimages/blackjackimg.webp";
+import uniseximgwebp from "../assets/images/webpimages/koleidimg.webp";
+
+import storyimg1webp from "../assets/images/webpimages/story1.webp";
+import storyimg2webp from "../assets/images/webpimages/story2.webp";
+
 import winterHero from "../assets/images/winterheroimg.jpg";
 import headwearHero from "../assets/images/headwearheroimg.jpg";
 import storyimg1 from "../assets/images/storypic1.jpg";
@@ -83,7 +94,10 @@ const Landing = ({ viewCart }) => {
           style={{ marginBottom: "8em" }}
           className="featured-item ftrd-item1"
         >
-          <img src={ftr1img} alt="Grace Ultra Dark Jacket" />
+          <picture>
+            <source type="image/webp" srcset={ftr1imgwebp} />
+            <img src={ftr1img} alt="Grace Ultra Dark Jacket" />
+          </picture>
 
           <div
             style={viewCart ? { marginLeft: "7em" } : {}}
@@ -121,7 +135,10 @@ const Landing = ({ viewCart }) => {
             </Link>
           </div>
 
-          <img src={ftr2img} alt="Harlem NYC T-Shirt" />
+          <picture>
+            <source type="image/webp" srcset={ftr2imgwebp} />
+            <img src={ftr2img} alt="Harlem NYC T-Shirt" />
+          </picture>
         </div>
       </section>
 
@@ -131,7 +148,10 @@ const Landing = ({ viewCart }) => {
       >
         <div className="genderland-men">
           <Link to="/men/all">
-            <img src={menimg} alt="Men" />
+            <picture>
+              <source type="image/webp" srcset={menimgwebp} />
+              <img src={menimg} alt="Men" />
+            </picture>
 
             <h1>
               <span>Shop / </span>MEN
@@ -141,7 +161,10 @@ const Landing = ({ viewCart }) => {
 
         <div className="genderland-women">
           <Link to="/women/all">
-            <img src={womenimg} alt="Women" />
+            <picture>
+              <source type="image/webp" srcset={womenimgwebp} />
+              <img src={womenimg} alt="Women" />
+            </picture>
 
             <h1>
               <span>Shop / </span>WOMEN
@@ -151,7 +174,10 @@ const Landing = ({ viewCart }) => {
 
         <div className="genderland-unisex">
           <Link to="/unisex/all">
-            <img src={uniseximg} alt="Unisex" />
+            <picture>
+              <source type="image/webp" srcset={uniseximgwebp} />
+              <img src={uniseximg} alt="Unisex" />
+            </picture>
 
             <h1>
               <span>Shop / </span>UNISEX
@@ -164,7 +190,10 @@ const Landing = ({ viewCart }) => {
         <h1>#LeviStories</h1>
 
         <div className="story">
-          <img src={storyimg1} alt="Levi's Story" />
+          <picture>
+            <source type="image/webp" srcset={storyimg1webp} />
+            <img src={storyimg1} alt="Levi's Story" />
+          </picture>
 
           <div className="story1-text">
             <p>
@@ -192,7 +221,11 @@ const Landing = ({ viewCart }) => {
               <h3>Jane Doe</h3>
               <p style={{ fontStyle: "normal" }}>Social Media Influencer</p>
             </div>
-            <img src={storyimg2} alt="Levi's Story" />
+
+            <picture>
+              <source type="image/webp" srcset={storyimg2webp} />
+              <img src={storyimg2} alt="Levi's Story" />
+            </picture>
           </div>
         </section>
       </section>

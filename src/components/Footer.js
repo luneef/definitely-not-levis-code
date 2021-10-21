@@ -11,10 +11,12 @@ const Footer = ({ viewCart }) => {
   const [contact, setContact] = useState(false);
   const [contactIcon, setContactIcon] = useState(true);
 
+  // Handles if contact form is displayed
   const handleContactForm = () => {
     setContact(false);
   };
 
+  // Check if user already agreed to cookie usage - Displays pop-up warning
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("cookiesWarn")) === "Accepted") {
       console.log("%cAlready warned about cookies.", "color: cyan");

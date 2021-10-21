@@ -8,6 +8,7 @@ import Loading from "./Loading";
 import { BsX } from "react-icons/bs";
 import orderSticker from "../assets/images/rockstar.png";
 
+// Checkout main component
 const Checkout = ({
   cart,
   handleCartView,
@@ -22,6 +23,7 @@ const Checkout = ({
   const [editInfo, setEditInfo] = useState(false);
   const [checkoutToken, setcheckoutToken] = useState(null);
 
+  // Generate token for checkout
   const generateToken = async () => {
     try {
       const token = await commerce.checkout.generateToken(cart.id, {
@@ -44,6 +46,7 @@ const Checkout = ({
     }
   };
 
+  // Closes the checkout page and goes back to previous page
   const checkoutCloseHandle = () => {
     changingInfo();
 
@@ -54,12 +57,14 @@ const Checkout = ({
     history.goBack();
   };
 
+  // Handles the back button actions when going back to edit shipping info
   const backToInfo = () => {
     setStep("info");
     setEditInfo(true);
     changingInfo();
   };
 
+  // Setup checkout page for card info input
   const proceedToPayment = (customerInfo) => {
     setCustInfo(customerInfo);
     setStep("card");
@@ -67,9 +72,7 @@ const Checkout = ({
 
   useEffect(() => {
     document.title = `Definitely Not Levi's - Checkout`;
-
     window.scrollTo(0, 0);
-
     generateToken();
 
     // eslint-disable-next-line
@@ -87,6 +90,7 @@ const Checkout = ({
     // eslint-disable-next-line
   }, [ordered]);
 
+  // Displays the loading screen while setting up checkout page
   if (checkoutToken === null) {
     return <Loading mess={"checkoutTime"} />;
   }

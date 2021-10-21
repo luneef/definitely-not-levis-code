@@ -11,7 +11,6 @@ const CheckoutCustomerInfo = ({
   editInfo,
 }) => {
   const { register, handleSubmit } = useForm();
-
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState("");
   const [shippingRegions, setShippingRegions] = useState([]);
@@ -20,7 +19,7 @@ const CheckoutCustomerInfo = ({
   const [shippingOption, setShippingOption] = useState("");
   const [editShipping, setEditShipping] = useState(false);
 
-  // Fetching Countries
+  // Fetch the available shipping countries
   const fetchShippingCountries = async (checkoutTokenID) => {
     try {
       const { countries } = await commerce.services.localeListShippingCountries(
@@ -46,7 +45,7 @@ const CheckoutCustomerInfo = ({
     }
   };
 
-  // Fetching Regions
+  // Fetch the available shipping regions of the country selected
   const fetchShippingRegions = async (countryCode) => {
     try {
       const { subdivisions } = await commerce.services.localeListSubdivisions(
@@ -76,7 +75,7 @@ const CheckoutCustomerInfo = ({
     }
   };
 
-  // Fetching Shipping Options
+  // Fetch the available shipping method/options
   const fetchShippingOptions = async (checkoutTokenID, country, region) => {
     try {
       const shippingMethod = await commerce.checkout.getShippingOptions(
@@ -111,6 +110,7 @@ const CheckoutCustomerInfo = ({
     }
   };
 
+  // Assigns the data from form to object and goes to card info input step
   const onFormSubmit = (data) => {
     const customerInfo = {
       ...data,
@@ -144,14 +144,17 @@ const CheckoutCustomerInfo = ({
     // eslint-disable-next-line
   }, [shippingRegion]);
 
+  // Displays the loading screen while fetching shipping countries
   if (!shippingCountry) {
     return <Loading mess={"checkoutTime"} />;
   }
 
+  // Displays the loading screen while fetching shipping regions
   if (!shippingRegion) {
     return <Loading mess={"checkoutTime"} />;
   }
 
+  // Displays the loading screen while fetching shipping method
   if (!shippingOption) {
     return <Loading mess={"checkoutTime"} />;
   }

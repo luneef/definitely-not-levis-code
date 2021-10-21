@@ -26,6 +26,7 @@ const CheckoutCustomerCard = ({
   const [errorMessage, setErroMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Fetch the shipping method selected to verify price to be added on checkout
   const fetchShipMethod = async () => {
     try {
       const data = await commerce.checkout.checkShippingOption(
@@ -54,6 +55,7 @@ const CheckoutCustomerCard = ({
     }
   };
 
+  // Handles the card information entered if its valid or not
   const onFormSubmit = async (event, elements, stripe) => {
     event.preventDefault();
 

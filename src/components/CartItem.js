@@ -5,6 +5,7 @@ import { BsXSquareFill } from "react-icons/bs";
 import loadingcircle from "../assets/images/loadingcircle.gif";
 import loadingring from "../assets/images/loadingring.gif";
 
+// Cart items main component
 const CartItem = ({
   cart,
   handleCartView,
@@ -16,11 +17,9 @@ const CartItem = ({
   const [checkChange, setCheckChange] = useState("loaded");
   const [loadingRemove, setLoadingRemove] = useState(false);
   const [loadingEmpty, setLoadingEmpty] = useState(false);
-
   const history = useHistory();
 
-  //console.log(cart);
-
+  // Closes the bag and pushes the checkout page
   const goToCheckout = () => {
     if (window.innerWidth > 850) {
       handleCartView();

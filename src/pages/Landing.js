@@ -24,6 +24,7 @@ import { FaGenderless } from "react-icons/fa";
 const Landing = ({ viewCart }) => {
   const [hero, setHero] = useState("");
 
+  // Sets up the page title & hero content on startup
   useEffect(() => {
     window.scrollTo(0, 0);
 

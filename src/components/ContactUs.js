@@ -11,6 +11,7 @@ const ContactUs = ({ handleContactForm }) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // Sends the user's name, email, & message to specific emailjs receiver
   const onFormSubmit = async (data) => {
     try {
       setLoading(true);

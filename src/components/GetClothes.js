@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { commerce } from "../lib/Commerce";
 
 const GetClothes = () => {
-  // -------------- Fetch All Clothes ---------------------
-
+  // Fetches all the clothes entry from commerce js database
   const fetchAllClothes = async () => {
     try {
       const { data } = await commerce.products.list({ limit: 190 });
@@ -20,8 +19,7 @@ const GetClothes = () => {
     }
   };
 
-  // -------------- Fetch Men Clothes ---------------------
-
+  // Fetches men clothes entry from commerce js database
   const fetchMenClothes = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -46,6 +44,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches men jackets entry from commerce js database
   const fetchMenJackets = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -68,6 +67,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches men sleeves entry from commerce js database
   const fetchMenSleeves = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -88,6 +88,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches men shirts entry from commerce js database
   const fetchMenShirts = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -108,6 +109,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches men pants entry from commerce js database
   const fetchMenPants = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -128,6 +130,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches men shorts entry from commerce js database
   const fetchMenShorts = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -148,6 +151,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches men headwear entry from commerce js database
   const fetchMenHeadwear = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -168,8 +172,7 @@ const GetClothes = () => {
     }
   };
 
-  // -------------- Fetch Women Clothes ---------------------
-
+  // Fetches women clothes entry from commerce js database
   const fetchWomenClothes = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -195,6 +198,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches women jackets entry from commerce js database
   const fetchWomenJackets = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -218,6 +222,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches women shirts entry from commerce js database
   const fetchWomenShirts = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -238,6 +243,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches women pants entry from commerce js database
   const fetchWomenPants = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -258,6 +264,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches women shorts entry from commerce js database
   const fetchWomenShorts = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -278,6 +285,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches women dresses entry from commerce js database
   const fetchWomenDresses = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -301,6 +309,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches women sweatshirts entry from commerce js database
   const fetchWomenSweatshirts = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -324,6 +333,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches women tops entry from commerce js database
   const fetchWomenTops = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -344,6 +354,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches women headwear entry from commerce js database
   const fetchWomenHeadwear = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -367,8 +378,7 @@ const GetClothes = () => {
     }
   };
 
-  // -------------- Fetch Unisex Clothes -------------------
-
+  // Fetches unisex clothes entry from commerce js database
   const fetchUnisexClothes = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -394,6 +404,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches unisex jackets entry from commerce js database
   const fetchUnisexJackets = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -417,6 +428,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches unisex sweatshirts entry from commerce js database
   const fetchUnisexSweatshirts = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -440,6 +452,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches unisex shirts entry from commerce js database
   const fetchUnisexShirts = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -463,6 +476,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches unisex pants entry from commerce js database
   const fetchUnisexPants = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -483,6 +497,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches unisex headwear entry from commerce js database
   const fetchUnisexHeadwear = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -506,8 +521,7 @@ const GetClothes = () => {
     }
   };
 
-  // -------------- Fetch Winter Collection ---------------
-
+  // Fetches winter clothes entry from commerce js database
   const fetchWinterClothes = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -533,6 +547,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches winter kids clothes entry from commerce js database
   const fetchWinterKidsClothes = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -556,6 +571,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches winter men clothes entry from commerce js database
   const fetchWinterMenClothes = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -579,6 +595,7 @@ const GetClothes = () => {
     }
   };
 
+  // Fetches winter women clothes entry from commerce js database
   const fetchWinterWomenClothes = async () => {
     try {
       const { data } = await commerce.products.list({
@@ -602,6 +619,7 @@ const GetClothes = () => {
     }
   };
 
+  // Handles fetching and checking of clothes data from user's local storage
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("version")) === 1) {
       console.log("%cClothing up to date.", "color: lime");

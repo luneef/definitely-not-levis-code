@@ -19,6 +19,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
   let { id } = useParams();
   const navRef = useRef();
 
+  // Handles the previous image button in item preview
   const prevSelect = () => {
     setPhotoSelector(() => {
       if (photoSelector > 0) {
@@ -29,6 +30,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
     });
   };
 
+  // Handles the next image button in item preview
   const nextSelect = () => {
     setPhotoSelector(() => {
       if (photoSelector < photos.length - 1) {
@@ -39,15 +41,18 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
     });
   };
 
+  // Handles the scroll area in the items within related clothing
   const scrollHandler = (scrollOffset) => {
     navRef.current.scrollLeft += scrollOffset;
   };
 
+  // Sets the clothing option pick by the user be it size or color
   const setFinalSize = (id, price) => {
     setSizeID(id);
     setPrice(price);
   };
 
+  // Checks if the item picked is loaded from local storage
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -68,6 +73,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
     // eslint-disable-next-line
   }, [id]);
 
+  // Sets the available sizes and images for specific item
   useEffect(() => {
     if (item) {
       const { options } = item.variant_groups[0];
@@ -84,6 +90,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
     // eslint-disable-next-line
   }, [item]);
 
+  // Sets up the image url of the images for an item
   useEffect(() => {
     if (photos.length) {
       const { url } = photos[photoSelector];
@@ -93,6 +100,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
     // eslint-disable-next-line
   }, [photoSelector]);
 
+  // Handles the display of the arrow guide
   useEffect(() => {
     setLoading(false);
 
@@ -118,6 +126,7 @@ const Item = ({ cartcount, viewCart, addToCart }) => {
     // eslint-disable-next-line
   }, [cartcount]);
 
+  // Displays an empty item context
   if (!item) {
     return (
       <main

@@ -5,7 +5,6 @@ import logo from "../assets/images/logo.png";
 const About = ({ viewCart }) => {
   useEffect(() => {
     document.title = `Definitely Not Levi's - About`;
-
     window.scrollTo(0, 0);
   }, []);
 

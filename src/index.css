@@ -1,5 +1,4 @@
 /* CSS Defaults */
-
 @import url("https://fonts.googleapis.com/css2?family=Overpass&display=swap");
 
 * {
@@ -9,12 +8,14 @@
   font-family: "Overpass", sans-serif;
 }
 
+/* Setting the maximum width of the website  */
 .website-container {
   max-width: 1920px;
   min-height: 100vh;
   margin: 0 auto;
 }
 
+/* Media Query*/
 @media screen and (max-width: 850px) {
   .website-container {
     overflow: auto;

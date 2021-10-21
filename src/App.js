@@ -19,6 +19,7 @@ import GetClothes from "./components/GetClothes";
 import MobileNav from "./components/MobileNav";
 import "./index.css";
 
+// Main app component
 const App = () => {
   const [cart, setCart] = useState(null);
   const [ordered, setOrdered] = useState("");
@@ -26,17 +27,18 @@ const App = () => {
   const [viewCart, setViewCart] = useState(false);
   const [cantAccess, setCantAccess] = useState(false);
 
+  // Handling of bag section display
   const handleCartView = () => {
     setViewCart(!viewCart);
   };
 
+  // Setting of order status and error message while ordering to undefined
   const changingInfo = () => {
     setOrdered("");
     setErrorMessage("");
   };
 
-  // ------------------------ CART ---------------------
-
+  // Fetching of cart information
   const fetchCart = async () => {
     try {
       setCart(await commerce.cart.retrieve());
@@ -49,6 +51,7 @@ const App = () => {
     }
   };
 
+  // Adding of item/s to cart(bag)
   const addToCart = async (productId, quantity, variantID, optionID) => {
     try {
       const { cart } = await commerce.cart.add(productId, quantity, {
@@ -69,6 +72,7 @@ const App = () => {
     }
   };
 
+  // Removing of item/s to cart(bag)
   const removeItemFromCart = async (productId) => {
     try {
       const { cart } = await commerce.cart.remove(productId);
@@ -85,6 +89,7 @@ const App = () => {
     }
   };
 
+  // Set the cart(bag) to empty
   const emptyCart = async () => {
     try {
       const { cart } = await commerce.cart.empty();
@@ -101,6 +106,7 @@ const App = () => {
     }
   };
 
+  // Setting a new cart after successful order
   const refreshCart = async () => {
     try {
       const newCart = await commerce.cart.refresh();
@@ -117,6 +123,7 @@ const App = () => {
     }
   };
 
+  // Updating of item/s quantity to cart(bag)
   const updateItemQuantity = async (productId, quantity) => {
     try {
       const { cart } = await commerce.cart.update(productId, { quantity });
@@ -133,6 +140,7 @@ const App = () => {
     }
   };
 
+  // Fetching and validation of order information
   const captureCheckout = async (checkoutTokenID, newOrder) => {
     try {
       const incomingOrder = await commerce.checkout.capture(
@@ -170,6 +178,7 @@ const App = () => {
     fetchCart();
   }, []);
 
+  // Checking if user's browser has local storage enabled
   try {
     JSON.parse(localStorage.getItem("cookiesEnabled"));
     if (!cart) {
@@ -180,7 +189,7 @@ const App = () => {
       }
     }
   } catch (error) {
-    console.log("%cCookies are disabled.", "color: red");
+    console.log("%cLocal storage disabled.", "color: red");
     return <Loading mess={"cookiesDisabled"} />;
   }
 
